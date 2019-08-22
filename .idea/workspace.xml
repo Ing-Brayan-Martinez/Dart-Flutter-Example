@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="e1945f61-874d-427e-8470-b0a75773c024" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/flutter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
@@ -10,6 +11,9 @@
       <change beforePath="$PROJECT_DIR$/persistence_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/persistence_flutter/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prueba_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/pubspec.lock" afterDir="false" />
     </list>
+=======
+    <list default="true" id="e1945f61-874d-427e-8470-b0a75773c024" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +90,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,6 +132,11 @@
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+=======
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
