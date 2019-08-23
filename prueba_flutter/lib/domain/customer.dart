@@ -6,13 +6,21 @@ class Customer extends PO {
 
   static final String TABLE_NAME = "Customer";
 
-  static final String COLUMN_CUSTOMER_ID = "Customer_ID";
-  static final String COLUMN_CODE = "Code";
-  static final String COLUMN_NAME = "Name";
-  static final String COLUMN_ADRESS = "Adress";
-  static final String COLUMN_MAIL = "Mail";
-  static final String COLUMN_PHONE = "Phone";
-  static final String COLUMN_STATUS = "Status";
+//  static final String COLUMN_CUSTOMER_ID = "Customer_ID";
+//  static final String COLUMN_CODE = "Code";
+//  static final String COLUMN_NAME = "Name";
+//  static final String COLUMN_ADRESS = "Adress";
+//  static final String COLUMN_MAIL = "Mail";
+//  static final String COLUMN_PHONE = "Phone";
+//  static final String COLUMN_STATUS = "Status";
+
+  static final String COLUMN_CUSTOMER_ID = "id";
+  static final String COLUMN_CODE = "codigo";
+  static final String COLUMN_NAME = "nombre";
+  static final String COLUMN_ADRESS = "direccion";
+  static final String COLUMN_MAIL = "correo";
+  static final String COLUMN_PHONE = "telefono";
+  static final String COLUMN_STATUS = "status";
 
   Customer() : super();
 

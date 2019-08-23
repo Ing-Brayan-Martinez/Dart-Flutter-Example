@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer.dart';
 
 class CreateCustomerForm extends StatefulWidget {
 
@@ -144,8 +144,11 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                             onPressed: () {
                               final form = _formKey.currentState;
                               if (form.validate()) {
+                                ///Salvar la entidad.
                                  form.save();
                                  _customer.save();
+
+                                 ///Mostrar el dialogo de confirmacion.
                                  _showDialog(context).then((val) {
                                    final ReloadCustomer _satrategy = new ReloadCustomer(context);
 

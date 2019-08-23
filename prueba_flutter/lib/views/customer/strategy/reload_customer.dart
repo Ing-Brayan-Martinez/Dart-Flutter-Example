@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer_from_data_strategy.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer_from_home_strategy.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer_from_data_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer_from_home_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer_strategy.dart';
 
 class ReloadCustomer implements ReloadCustomerStrategy {
 

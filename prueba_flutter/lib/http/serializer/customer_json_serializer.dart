@@ -1,5 +1,5 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
-import 'package:prueba_flutter/model/wrapper_customer_model.dart';
+import 'package:prueba_flutter/http/model/wrapper_customer_model.dart';
 
 @GenSerializer()
 class CustomerWrapperJsonSerializer extends Serializer<CustomerWrapper> {

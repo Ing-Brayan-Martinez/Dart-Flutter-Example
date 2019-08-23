@@ -1,7 +1,7 @@
 import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
 import 'package:flutter/material.dart';
 import 'package:optional/optional.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer.dart';
 import 'package:prueba_flutter/views/customer/create_customer_screen.dart';
 import 'package:prueba_flutter/views/invoice/create_invoice_screen.dart';
 

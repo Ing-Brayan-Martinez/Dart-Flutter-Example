@@ -5,7 +5,7 @@ import 'package:prueba_flutter/observer/observer.dart';
 import 'package:prueba_flutter/observer/observer_action.dart';
 import 'package:prueba_flutter/observer/observer_event.dart';
 import 'package:prueba_flutter/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer.dart';
 import 'package:prueba_flutter/views/customer/create_customer_screen.dart';
 import 'package:prueba_flutter/views/data/frame/event/create_event.dart';
 import 'package:prueba_flutter/views/data/lists/customer_list.dart';

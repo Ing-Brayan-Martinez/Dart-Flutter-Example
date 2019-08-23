@@ -107,7 +107,7 @@ class CustomerListState extends State<CustomerList> {
       child: Column(
         children: <Widget>[
           Container(
-            color: Colors.yellowAccent,
+            //color: Colors.yellowAccent,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.max,

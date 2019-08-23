@@ -3,7 +3,7 @@ import 'package:prueba_flutter/observer/observer.dart';
 import 'package:prueba_flutter/observer/observer_action.dart';
 import 'package:prueba_flutter/observer/observer_event.dart';
 import 'package:prueba_flutter/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/strategy/customer/reload_customer_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/reload_customer_strategy.dart';
 
 class ReloadCustomerFromDataStrategy extends ReloadCustomerStrategy {
 
