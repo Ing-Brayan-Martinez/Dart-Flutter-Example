@@ -19,13 +19,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #ui
   animated_floatactionbuttons: ^0.1.0
+  #database
   optional: ^3.0.2+1
   sqflite: ^1.1.6+3
   path_provider: ^1.2.0
+  #http
   dio: ^2.1.13
+  dio_flutter_transformer: ^2.0.10
+  jaguar_serializer: ^2.2.12
+  #log
   log4d: ^1.0.4
 
+  #mi libreria
   persistence_flutter:
     path: ../persistence_flutter
 
@@ -37,7 +44,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  jaguar_serializer_cli: ^2.1.14
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

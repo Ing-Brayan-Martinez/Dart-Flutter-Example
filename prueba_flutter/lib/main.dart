@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:dio_flutter_transformer/dio_flutter_transformer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistence_flutter/persistence_flutter.dart';
@@ -17,7 +19,7 @@ import 'package:prueba_flutter/views/invoice/create_invoice_screen.dart';
 
 /// Correr la aplicacion
 ///
-void main(List<String> arg) {
+void main(List<String> arg) async {
 
   DatabaseManager().init((config) {
     config.databaseName = "sample6.db";
@@ -55,3 +57,5 @@ class MyApp extends StatelessWidget {
   }
 
 }
+
+

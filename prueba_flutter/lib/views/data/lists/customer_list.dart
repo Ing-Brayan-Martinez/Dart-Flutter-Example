@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/http/customer_http.dart';
 import 'package:prueba_flutter/observer/observer.dart';
 import 'package:prueba_flutter/observer/observer_action.dart';
 import 'package:prueba_flutter/observer/observer_event.dart';
 import 'package:prueba_flutter/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
 import 'package:prueba_flutter/views/customer/see_customer_screen.dart';
 import 'package:prueba_flutter/views/customer/update_customer_screen.dart';
 import 'package:prueba_flutter/views/data/lists/event/customer_item_event.dart';
@@ -22,7 +22,7 @@ class CustomerList extends StatefulWidget {
 
 class CustomerListState extends State<CustomerList> {
 
-  CustomerRepository _repository;
+  CustomerHttp _repository;
   List<Customer> _customers;
   Observer _observer;
   bool _visible = true;
@@ -64,11 +64,11 @@ class CustomerListState extends State<CustomerList> {
             FlatButton(
               child: Text('Ok'),
               onPressed: () {
-                this._repository.findCustomer(model).then((list) {
-                  this.setState(() => this._customers = list);
-                  _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
-                  Navigator.of(context).pop();
-                });
+//                this._repository.findCustomer(model).then((list) {
+//                  this.setState(() => this._customers = list);
+//                  _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
+//                  Navigator.of(context).pop();
+//                });
               },
             ),
           ],
@@ -85,7 +85,7 @@ class CustomerListState extends State<CustomerList> {
   @override
   void initState() {
     super.initState();
-    _repository = new CustomerRepository();
+    _repository = new CustomerHttp();
     _customers = new List();
 
     _observer = SinglentonObserver.get();
