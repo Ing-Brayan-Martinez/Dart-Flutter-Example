@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';
@@ -9,6 +10,30 @@ import 'package:prueba_flutter/http/serializer/customer_json_serializer.dart';
 import 'package:prueba_flutter/http/util/http.dart';
 
 class CustomerHttp extends Http<Customer> {
+
+  @override
+  void add(Customer customer) async {
+    await getHttpManager()
+        .post("/clientes", data: customer.toJson(), options:
+        new Options(contentType: ContentType.parse("application/json")));
+  }
+
+  @override
+  void update(Customer customer) async {
+    await getHttpManager()
+        .put("/clientes", data: customer.toJson(), options:
+        new Options(contentType: ContentType.parse("application/json")));
+  }
+
+  @override
+  void delete(List<Customer> customers) async {
+    Map<String, dynamic> body = new Map();
+    body['clientes'] = customers.map((cli) => cli.toJson()).toList();
+
+    await getHttpManager()
+        .put("/clientes/estatus", data: body, options:
+        new Options(contentType: ContentType.parse("application/json")));
+  }
 
   @override
   Stream<Customer> findAll() async* {

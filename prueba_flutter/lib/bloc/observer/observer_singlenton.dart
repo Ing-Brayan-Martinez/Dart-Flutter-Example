@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/observer/observer.dart';
+import 'package:prueba_flutter/bloc/observer/observer.dart';
 
 class SinglentonObserver {
 

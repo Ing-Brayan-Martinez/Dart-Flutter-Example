@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:optional/optional.dart';
+import 'package:prueba_flutter/bloc/observer/observer.dart';
+import 'package:prueba_flutter/bloc/observer/observer_action.dart';
+import 'package:prueba_flutter/bloc/observer/observer_event.dart';
+import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
 import 'package:prueba_flutter/domain/customer.dart';
 import 'package:prueba_flutter/http/customer_http.dart';
-import 'package:prueba_flutter/observer/observer.dart';
-import 'package:prueba_flutter/observer/observer_action.dart';
-import 'package:prueba_flutter/observer/observer_event.dart';
-import 'package:prueba_flutter/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/views/customer/event/update_customer_event.dart';
 import 'package:prueba_flutter/views/customer/see_customer_screen.dart';
+import 'package:prueba_flutter/views/customer/strategy/update/reload_customer_update.dart';
 import 'package:prueba_flutter/views/customer/update_customer_screen.dart';
 import 'package:prueba_flutter/views/data/lists/event/customer_item_event.dart';
-import 'package:prueba_flutter/views/data/model/filter_customer_model.dart';
 
 class CustomerList extends StatefulWidget {
 
@@ -25,11 +25,60 @@ class CustomerListState extends State<CustomerList> {
   CustomerHttp _repository;
   List<Customer> _customers;
   Observer _observer;
-  bool _visible = true;
 
-  Future<String> _asyncInputDialog(BuildContext context) async {
+  /// Para mostrar la confirmacion de
+  /// una accion.
+  Future<Null> _showConfirmDialog(BuildContext context, String messenger) async {
+    Scaffold.of(context).showSnackBar(
+        SnackBar(
+            content: Text(messenger)
+        )
+    );
+    return Future.delayed(Duration(seconds: 1), () => null);
+  }
 
-    final FilterCustomerModel model = new FilterCustomerModel();
+  /// Este dilag es el encargado de confirmar
+  /// la eliminacion de un cliente.
+  Future<String> _showDeleteDialog(BuildContext context, Customer customer) async {
+
+    return showDialog<String>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text('Esta seguro que desea eliminar este cliente.'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+              },
+            ),
+            FlatButton(
+              child: Text('Ok'),
+              onPressed: () async {
+
+                /// borrar en la base de datos.
+                this._repository.delete([customer]);
+
+                /// borrar en la UI.
+                this.setState(() => this._customers.removeWhere((val) => val == customer));
+
+                /// cerrar el dialog
+                Navigator.of(dialogContext).pop();
+
+                await _showConfirmDialog(context, "Se ha eliminado un cliente.");
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<String> _showFilterDialog(BuildContext context) async {
+    int _currVal = 1;
+    String _currText = "";
 
     return showDialog<String>(
       context: context,
@@ -39,21 +88,30 @@ class CustomerListState extends State<CustomerList> {
           title: Text('Coloque los datos para filtrar.'),
           content: SingleChildScrollView(
             child: Container(
-              height: 150,
+              height: 200,
               child: Column(
                 children: <Widget>[
-                 TextField(
-                    autofocus: true,
-                    decoration: InputDecoration(labelText: 'Codigo', hintText: 'eg. 010203'),
-                    onChanged: (value) {
-                      model.code = value;
+                  RadioListTile(
+                      title: Text("Codigo"),
+                      groupValue: _currVal,
+                      value: 1,
+                      onChanged: (val) {
+                        this.setState(() => _currVal = val);
+                      },
+                  ),
+                  RadioListTile(
+                    title: Text("Nombre"),
+                    groupValue: _currVal,
+                    value: 2,
+                    onChanged: (val) {
+                      this.setState(() => _currVal = val);
                     },
                   ),
                   TextField(
                     autofocus: true,
-                    decoration: InputDecoration(labelText: 'Nombre', hintText: 'eg. Beco C.A'),
+                    decoration: InputDecoration(labelText: 'Valor', hintText: 'eg. 010203'),
                     onChanged: (value) {
-                      model.name = value;
+                      _currText = value;
                     },
                   ),
                 ],
@@ -62,13 +120,29 @@ class CustomerListState extends State<CustomerList> {
           ),
           actions: <Widget>[
             FlatButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
               child: Text('Ok'),
               onPressed: () {
-//                this._repository.findCustomer(model).then((list) {
-//                  this.setState(() => this._customers = list);
-//                  _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
-//                  Navigator.of(context).pop();
-//                });
+
+                if (_currVal == 1) {
+                  this._repository.findByCode(_currText).then((list) {
+                    this.setState(() => this._customers = list);
+                    Navigator.of(context).pop();
+                  });
+                }
+
+                if (_currVal == 2) {
+                  this._repository.findByName(_currText.toUpperCase()).then((list) {
+                    this.setState(() => this._customers = list);
+                    Navigator.of(context).pop();
+                  });
+                }
+
               },
             ),
           ],
@@ -77,6 +151,8 @@ class CustomerListState extends State<CustomerList> {
     );
   }
 
+  /// Para cargar el estado desde
+  /// un repository
   void _loadList() {
     this._repository.findAllList()
         .then((list) => setState(() => this._customers = list));
@@ -123,10 +199,7 @@ class CustomerListState extends State<CustomerList> {
                   icon: Icon(Icons.filter_list), //`Icon` to display
                   label: Text('Filtrar'), //`Text` to display
                   onPressed: () {
-                    //_asyncInputDialog(context);
-                    setState(() {
-                      _visible = !_visible;
-                    });
+                    _showFilterDialog(context);
                   },
                 ),
               ],
@@ -148,21 +221,17 @@ class CustomerListState extends State<CustomerList> {
                       switch(val.type) {
 
                         case CustomerItemEvent.EVENT_SEE:
-                          Navigator.pushNamed(context, SeeCustomeScreen.routeName);
+                          Navigator.pushNamed(context, SeeCustomerScreen.routeName,
+                              arguments: val.customer);
                           break;
 
                         case CustomerItemEvent.EVENT_UPDATE:
-                          Navigator.pushNamed(context, UpdateCustomeScreen.routeName,
-                              arguments: Optional.ofNullable(val.customer));
+                          Navigator.pushNamed(context, UpdateCustomerScreen.routeName,
+                              arguments: new UpdateCustomerEvent(val.customer, ReloadCustomerUpdate.DATA_STRATEGY));
                           break;
 
                         case CustomerItemEvent.EVENT_DELETE:
-                          final Customer result = val.customer;
-                          result.delete();
-                          this._customers.removeWhere((val) => val == result);
-                          this._repository.findAllList()
-                              .then((list) => setState(() => this._customers = list));
-                          print("Se ha eliminado a: ${result.toString()}");
+                          _showDeleteDialog(context, val.customer);
                           break;
 
                       }
@@ -186,7 +255,8 @@ class CustomerListState extends State<CustomerList> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, SeeCustomeScreen.routeName);
+                    Navigator.pushNamed(context, SeeCustomerScreen.routeName,
+                        arguments: data);
                   },
                 );
 

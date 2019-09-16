@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer.dart';
+import 'package:prueba_flutter/http/customer_http.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create.dart';
 
 class CreateCustomerForm extends StatefulWidget {
 
@@ -16,13 +17,13 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
 
   GlobalKey<FormState> _formKey;
   Customer _customer;
-  bool _status;
   String _strategyFlag;
+  CustomerHttp _repository;
 
   Future<Null> _showDialog(BuildContext context) async {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text("Se ha guardado el Cliente.")));
-    return Future.delayed(Duration(seconds: 1), () => null);
+    return Future.delayed(new Duration(seconds: 1), () => null);
   }
 
   @override
@@ -30,9 +31,9 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     super.initState();
     _formKey = new GlobalKey<FormState>();
     _customer = new Customer();
-    _status = false;
+    _customer.setStatus(1);
     _strategyFlag = "";
-
+    _repository = new CustomerHttp();
   }
 
   @override
@@ -44,8 +45,10 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
   @override
   Widget build(BuildContext context) {
 
-    final Optional<String> arg = ModalRoute.of(context).settings.arguments;
-    _strategyFlag = arg.orElse("");
+     final String arg = ModalRoute.of(context).settings.arguments;
+     if (arg != null) {
+       _strategyFlag = arg;
+     }
 
     return SingleChildScrollView(
           child: Container(
@@ -79,7 +82,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.setName(val);
+                          _customer.setName(val.toUpperCase());
                         },
                       ),
                       TextFormField(
@@ -121,22 +124,6 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           _customer.setPhone(val);
                         },
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text("Status"),
-                          Checkbox(
-//                            value: _customer.getStatus().isPresent
-//                                ? (_customer.getStatus().value == 1 ? true : false)
-//                                : false,
-                            value: _status,
-                            onChanged: (bool val) {
-                              _status = val;
-                              _customer.setStatus(val ? 1 : 0);
-                            },
-                          ),
-                        ],
-                      ),
                       Container(
                         padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                         child: RaisedButton(
@@ -144,24 +131,26 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                             onPressed: () {
                               final form = _formKey.currentState;
                               if (form.validate()) {
-                                ///Salvar la entidad.
+
+                                 ///Salvar la entidad.
                                  form.save();
-                                 _customer.save();
+
+                                 /// Guardar entidad en el Back End
+                                 _repository.add(_customer);
 
                                  ///Mostrar el dialogo de confirmacion.
                                  _showDialog(context).then((val) {
-                                   final ReloadCustomer _satrategy = new ReloadCustomer(context);
+                                   final ReloadCustomerCreate _satrategy = new ReloadCustomerCreate(context);
 
                                    switch (_strategyFlag) {
 
-                                     case ReloadCustomer.HOME_STRATEGY:
+                                     case ReloadCustomerCreate.HOME_STRATEGY:
                                        _satrategy.setReloadCustomerFromHome();
                                        break;
 
-                                     case ReloadCustomer.DATA_STRATEGY:
+                                     case ReloadCustomerCreate.DATA_STRATEGY:
                                        _satrategy.setReloadCustomerFromData();
                                        break;
-
                                    }
 
                                    _satrategy.reloadCustomer();

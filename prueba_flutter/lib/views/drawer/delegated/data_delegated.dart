@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/observer/observer.dart';
-import 'package:prueba_flutter/observer/observer_action.dart';
-import 'package:prueba_flutter/observer/observer_event.dart';
-import 'package:prueba_flutter/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/bloc/observer/observer.dart';
+import 'package:prueba_flutter/bloc/observer/observer_action.dart';
+import 'package:prueba_flutter/bloc/observer/observer_event.dart';
+import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
 import 'package:prueba_flutter/views/drawer/delegated/delegated.dart';
 
 

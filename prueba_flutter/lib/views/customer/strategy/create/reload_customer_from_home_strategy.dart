@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/observer/observer.dart';
-import 'package:prueba_flutter/observer/observer_action.dart';
-import 'package:prueba_flutter/observer/observer_event.dart';
-import 'package:prueba_flutter/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer_strategy.dart';
+import 'package:prueba_flutter/bloc/observer/observer.dart';
+import 'package:prueba_flutter/bloc/observer/observer_action.dart';
+import 'package:prueba_flutter/bloc/observer/observer_event.dart';
+import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create_strategy.dart';
 import 'package:prueba_flutter/views/data/data_screen.dart';
 
-class ReloadCustomerFromHomeStrategy extends ReloadCustomerStrategy {
+class ReloadCustomerFromHomeStrategy extends ReloadCustomerCreateStrategy {
 
   Observer _observer;
   BuildContext _context;

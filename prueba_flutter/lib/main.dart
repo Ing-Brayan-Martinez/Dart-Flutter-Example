@@ -1,9 +1,6 @@
-import 'package:dio/dio.dart';
-import 'package:dio_flutter_transformer/dio_flutter_transformer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistence_flutter/persistence_flutter.dart';
-
 import 'package:prueba_flutter/domain/customer.dart';
 import 'package:prueba_flutter/domain/home.dart';
 import 'package:prueba_flutter/domain/invoice.dart';
@@ -16,9 +13,7 @@ import 'package:prueba_flutter/views/home/home_screen.dart';
 import 'package:prueba_flutter/views/invoice/create_invoice_screen.dart';
 
 
-
 /// Correr la aplicacion
-///
 void main(List<String> arg) async {
 
   DatabaseManager().init((config) {
@@ -46,12 +41,12 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData(primarySwatch: Colors.blue),
         initialRoute: HomeScreen.routeName,
         routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
-          DataScreen.routeName: (context) => DataScreen(),
-          CreateInvoiceScreen.routeName: (context) => CreateInvoiceScreen(),
-          CreateCustomeScreen.routeName: (context) => CreateCustomeScreen(),
-          UpdateCustomeScreen.routeName: (context) => UpdateCustomeScreen(),
-          SeeCustomeScreen.routeName: (context) => SeeCustomeScreen(),
+          HomeScreen.routeName: (context) => new HomeScreen(),
+          DataScreen.routeName: (context) => new DataScreen(),
+          CreateInvoiceScreen.routeName: (context) => new CreateInvoiceScreen(),
+          CreateCustomeScreen.routeName: (context) => new CreateCustomeScreen(),
+          UpdateCustomerScreen.routeName: (context) => new UpdateCustomerScreen(),
+          SeeCustomerScreen.routeName: (context) => new SeeCustomerScreen(),
         }
     );
   }

@@ -3,6 +3,7 @@ import 'package:prueba_flutter/http/model/wrapper_customer_model.dart';
 
 @GenSerializer()
 class CustomerWrapperJsonSerializer extends Serializer<CustomerWrapper> {
+
   @override
   CustomerWrapper fromMap(Map map) {
     return new CustomerWrapper.fromMap(map['clientes'], map['type']);
@@ -12,4 +13,5 @@ class CustomerWrapperJsonSerializer extends Serializer<CustomerWrapper> {
   Map<String, Object> toMap(CustomerWrapper model) {
     return null;
   }
+
 }

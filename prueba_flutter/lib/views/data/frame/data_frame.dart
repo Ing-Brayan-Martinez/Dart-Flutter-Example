@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:optional/optional.dart';
-import 'package:prueba_flutter/observer/observer.dart';
-import 'package:prueba_flutter/observer/observer_action.dart';
-import 'package:prueba_flutter/observer/observer_event.dart';
-import 'package:prueba_flutter/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer.dart';
+import 'package:prueba_flutter/bloc/observer/observer.dart';
+import 'package:prueba_flutter/bloc/observer/observer_action.dart';
+import 'package:prueba_flutter/bloc/observer/observer_event.dart';
+import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create.dart';
 import 'package:prueba_flutter/views/customer/create_customer_screen.dart';
 import 'package:prueba_flutter/views/data/frame/event/create_event.dart';
 import 'package:prueba_flutter/views/data/lists/customer_list.dart';
@@ -86,7 +86,8 @@ class DataFrameState extends State<DataFrame> with SingleTickerProviderStateMixi
                 }
 
                 if (val == CreateEvent.EVENT_CUSTOMER) {
-                  Navigator.pushNamed(context, CreateCustomeScreen.routeName, arguments: Optional.of(ReloadCustomer.DATA_STRATEGY));
+                  Navigator.pushNamed(context, CreateCustomeScreen.routeName,
+                      arguments: ReloadCustomerCreate.DATA_STRATEGY);
                 }
 
               },

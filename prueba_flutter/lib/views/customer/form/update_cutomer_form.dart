@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/observer/observer.dart';
-import 'package:prueba_flutter/observer/observer_action.dart';
-import 'package:prueba_flutter/observer/observer_event.dart';
-import 'package:prueba_flutter/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/http/customer_http.dart';
+import 'package:prueba_flutter/views/customer/event/update_customer_event.dart';
+import 'package:prueba_flutter/views/customer/strategy/update/reload_customer_update.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
 
-  Optional<Customer> customerOpt;
-
-  UpdateCustomerForm({Key key, this.customerOpt}) : super(key: key);
+  UpdateCustomerForm({Key key}) : super(key: key);
 
   @override
   UpdateCustomerFormState createState() => UpdateCustomerFormState();
@@ -20,23 +16,24 @@ class UpdateCustomerForm extends StatefulWidget {
 class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
   GlobalKey<FormState> _formKey;
+  CustomerHttp _repository;
   Customer _oldCustomer;
   Customer _newCustomer;
-  Observer _observer;
+  String _strategyFlag;
 
   Future<Null> _showDialog(BuildContext context) async {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text("Se ha actualizado el cliente.")));
-    return Future.delayed(Duration(seconds: 1), () => null);
+    return Future.delayed(new Duration(seconds: 1), () => null);
   }
 
   @override
   void initState() {
     super.initState();
-    _observer = SinglentonObserver.get();
     _formKey = new GlobalKey<FormState>();
-    _oldCustomer = widget.customerOpt.orElseThrow(() => ArgumentError('Not customer in the form.'));
     _newCustomer = new Customer();
+    _oldCustomer = new Customer();
+    _repository = new CustomerHttp();
   }
 
   @override
@@ -48,7 +45,25 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
   @override
   Widget build(BuildContext context) {
 
-    _newCustomer.setId(_oldCustomer.getId().value);
+    final UpdateCustomerEvent event =
+        ModalRoute.of(context).settings.arguments;
+
+    if (event != null) {
+
+      /// Asignar lo que venga del evento.
+      _strategyFlag = event.flag;
+      _oldCustomer = event.customer;
+
+      /// Establecer el id de la entidad.
+      _newCustomer.setId(_oldCustomer.getId().orElse(0));
+
+      /// Establecer el estatus de la entidad.
+      if (_oldCustomer.getStatus().isPresent) {
+        final int val = _oldCustomer.getStatus().orElse(0);
+        _newCustomer.setStatus(val);
+      }
+
+    }
 
     return SingleChildScrollView(
           child: Container(
@@ -84,7 +99,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setName(val);
+                          _newCustomer.setName(val.toUpperCase());
                         },
                       ),
                       TextFormField(
@@ -129,20 +144,6 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           _newCustomer.setPhone(val);
                         },
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text("Status"),
-                          Checkbox(
-                            value: _oldCustomer.getStatus().isPresent
-                                ? (_oldCustomer.getStatus().value == 1 ? true : false)
-                                : false,
-                            onChanged: (bool val) {
-                              _newCustomer.setStatus(val ? 1 : 0);
-                            },
-                          ),
-                        ],
-                      ),
                       Container(
                         padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                         child: RaisedButton(
@@ -150,11 +151,33 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                             onPressed: () {
                               final form = _formKey.currentState;
                               if (form.validate()) {
-                                 form.save();
-                                 _newCustomer.update();
+
+                                ///Salvar la entidad.
+                                form.save();
+
+                                ///Guardar entidad en el Back End
+                                _repository.update(_newCustomer);
+
+                                ///Mostrar el dialogo de confirmacion.
                                  _showDialog(context).then((val) {
-                                   _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
-                                   Navigator.of(context).pop();
+
+                                   final ReloadCustomerUpdate _satrategy =
+                                      new ReloadCustomerUpdate(context);
+
+                                   switch (_strategyFlag) {
+
+                                     case ReloadCustomerUpdate.SEE_STRATEGY:
+                                       _satrategy.setReloadCustomerFromSeeCustomer();
+                                       break;
+
+                                     case ReloadCustomerUpdate.DATA_STRATEGY:
+                                       _satrategy.setReloadCustomerFromData();
+                                       break;
+
+                                   }
+
+                                   _satrategy.reloadCustomer();
+
                                  });
                               }
                             }

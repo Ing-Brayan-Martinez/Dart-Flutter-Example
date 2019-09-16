@@ -7,7 +7,7 @@ class HomeDelegated implements Delegated {
 
   @override
   void onHome(BuildContext context) {
-
+    Navigator.of(context).pop();
   }
 
   @override

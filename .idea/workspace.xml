@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1945f61-874d-427e-8470-b0a75773c024" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/flutter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flutter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/event/update_customer_event.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/create/reload_customer_create_strategy.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/create/reload_customer_from_data_strategy.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_from_data_strategy.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_from_see_customer_strategy.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_update.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_update_strategy.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persistence_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/persistence_flutter/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prueba_flutter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/http/customer_http.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/http/customer_http.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/http/invoice_http.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/http/invoice_http.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/http/serializer/customer_json_serializer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/http/serializer/customer_json_serializer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/http/util/http.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/http/util/http.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/observer/observer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/bloc/observer/observer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/observer/observer_action.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/bloc/observer/observer_action.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/observer/observer_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/bloc/observer/observer_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/observer/observer_singlenton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/bloc/observer/observer_singlenton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/create_cutomer_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/create_cutomer_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/update_cutomer_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/update_cutomer_form.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/see_customer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/see_customer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/reload_customer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/create/reload_customer_create.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/reload_customer_from_data_strategy.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/reload_customer_from_home_strategy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/create/reload_customer_from_home_strategy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/reload_customer_strategy.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/update_customer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/customer/update_customer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/data/frame/data_frame.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/data/frame/data_frame.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/data/lists/customer_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/data/lists/customer_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/drawer/delegated/data_delegated.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/drawer/delegated/data_delegated.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/drawer/delegated/home_delegated.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/drawer/delegated/home_delegated.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba_flutter/lib/views/home/floating/floating_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/prueba_flutter/lib/views/home/floating/floating_button.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,15 +44,66 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/main.dart">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/data/lists/customer_list.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="1343">
+              <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/update_customer_screen.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/update_cutomer_form.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-468">
+              <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/http/serializer/customer_json_serializer.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/event/update_customer_event.dart">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/bin/flutter/packages/flutter/lib/src/widgets/framework.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66521">
+              <caret line="3938" column="40" selection-start-line="3938" selection-start-column="40" selection-end-line="3938" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -71,14 +145,19 @@
         <option value="$PROJECT_DIR$/prueba_flutter/pubspec.yaml" />
         <option value="$PROJECT_DIR$/persistence_flutter/lib/persistence/query/query_builder.dart" />
         <option value="$PROJECT_DIR$/persistence_flutter/lib/persistence/query/query_execute.dart" />
+        <option value="$PROJECT_DIR$/prueba_flutter/lib/views/data/lists/customer_list.dart" />
+        <option value="$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_update.dart" />
+        <option value="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/create_cutomer_form.dart" />
+        <option value="$PROJECT_DIR$/prueba_flutter/lib/views/customer/update_customer_screen.dart" />
+        <option value="$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/update_cutomer_form.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="435" />
-    <option name="y" value="56" />
-    <option name="width" value="994" />
-    <option name="height" value="766" />
+    <option name="x" value="793" />
+    <option name="y" value="40" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -86,6 +165,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,23 +176,6 @@
             <path>
               <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence_flutter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
-              <item name="persistence_flutter" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
               <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -120,19 +183,60 @@
               <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
               <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
+              <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
+              <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
+              <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customer" type="462c0819:PsiDirectoryNode" />
+              <item name="form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
+              <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Dart-Flutter-Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dart-Flutter-Example" type="462c0819:PsiDirectoryNode" />
+              <item name="prueba_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="lists" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/prueba_flutter" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -184,6 +288,14 @@
       <workItem from="1566403065851" duration="3572000" />
       <workItem from="1566406872380" duration="382000" />
     </task>
+    <task id="LOCAL-00001" summary="cambios del 29 de agosto del 2019">
+      <created>1567104639701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567104639701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -201,7 +313,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1616" height="886" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26285347" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20244215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -213,19 +325,19 @@
       <window_info id="Resources Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5753425" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5383562" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32871014" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32739726" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32871014" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Logcat" order="11" />
       <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32871014" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" visible="true" weight="0.32739726" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.50208044" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.32871014" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -234,7 +346,7 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Flutter Inspector" order="6" />
+      <window_info anchor="right" id="Flutter Inspector" order="6" weight="0.32969153" />
       <window_info anchor="right" id="Device File Explorer" order="7" side_tool="true" />
       <window_info anchor="right" id="Flutter Outline" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
@@ -249,6 +361,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/prueba_flutter" />
     </ignored-roots>
+    <MESSAGE value="cambios del 29 de agosto del 2019" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios del 29 de agosto del 2019" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/persistence_flutter/lib/persistence_flutter.dart">
@@ -333,13 +447,6 @@
           <folding>
             <element signature="e#1#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/repository/customer_repository.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="62" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -496,15 +603,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/persistence_flutter/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/persistence_flutter/lib/main.dart" />
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/repository/customer_repository.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/see_customer_screen.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/create/reload_customer_create.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state>
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/http/customer_http.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/strategy/update/reload_customer_update.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/create_cutomer_form.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/data/lists/customer_list.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/update_customer_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/bin/flutter/packages/flutter/lib/src/widgets/framework.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66521">
+          <caret line="3938" column="40" selection-start-line="3938" selection-start-column="40" selection-end-line="3938" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/event/update_customer_event.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/views/customer/form/update_cutomer_form.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prueba_flutter/lib/http/serializer/customer_json_serializer.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

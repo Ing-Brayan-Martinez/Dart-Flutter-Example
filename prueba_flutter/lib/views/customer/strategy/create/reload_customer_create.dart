@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer_from_data_strategy.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer_from_home_strategy.dart';
-import 'package:prueba_flutter/views/customer/strategy/reload_customer_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_from_data_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_from_home_strategy.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create_strategy.dart';
 
-class ReloadCustomer implements ReloadCustomerStrategy {
+class ReloadCustomerCreate implements ReloadCustomerCreateStrategy {
 
   static const String HOME_STRATEGY = "Home";
   static const String DATA_STRATEGY = "Data";
 
-  ReloadCustomerStrategy _strategy;
+  ReloadCustomerCreateStrategy _strategy;
   BuildContext _context;
 
 
-  ReloadCustomer(BuildContext context) {
+  ReloadCustomerCreate(BuildContext context) {
     _context = context;
 
     //Estrategia por defecto.

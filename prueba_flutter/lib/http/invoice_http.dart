@@ -11,6 +11,21 @@ import 'package:prueba_flutter/http/util/http.dart';
 class InvoiceHttp extends Http<Invoice> {
 
   @override
+  void add(Invoice customer) {
+
+  }
+
+  @override
+  void update(Invoice customer) {
+
+  }
+
+  @override
+  void delete(List<Invoice> ids) {
+    // TODO: implement delete
+  }
+
+  @override
   Stream<Invoice> findAll() async* {
     final Response res = await getHttpManager()
         .get("/facturas");
@@ -131,4 +146,5 @@ class InvoiceHttp extends Http<Invoice> {
 
     return list;
   }
+
 }
