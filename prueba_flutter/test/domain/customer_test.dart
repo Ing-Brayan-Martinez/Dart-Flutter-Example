@@ -1,7 +1,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/legacy/repository/customer_repository.dart';
 
 void main() {
 

@@ -2,11 +2,11 @@
 import 'package:dio/dio.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:optional/optional_internal.dart';
-import 'package:prueba_flutter/domain/invoice.dart';
-import 'package:prueba_flutter/http/model/wrapper_invoice_model.dart';
-import 'package:prueba_flutter/http/serializer/invoice_json_serializer.dart';
-import 'package:prueba_flutter/http/util/filter.dart';
-import 'package:prueba_flutter/http/util/http.dart';
+import 'package:prueba_flutter/legacy/domain/invoice.dart';
+import 'package:prueba_flutter/legacy/http/model/wrapper_invoice_model.dart';
+import 'package:prueba_flutter/legacy/http/serializer/invoice_json_serializer.dart';
+import 'package:prueba_flutter/legacy/http/util/filter.dart';
+import 'package:prueba_flutter/legacy/http/util/http.dart';
 
 class InvoiceHttp extends Http<Invoice> {
 

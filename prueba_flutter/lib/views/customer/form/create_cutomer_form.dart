@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:optional/optional.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/http/customer_http.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/legacy/http/customer_http.dart';
 import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create.dart';
 
 class CreateCustomerForm extends StatefulWidget {
@@ -39,7 +38,6 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
   @override
   void dispose() {
     super.dispose();
-
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/domain/invoice.dart';
-import 'package:prueba_flutter/repository/invoice_repository.dart';
+import 'package:prueba_flutter/legacy/domain/invoice.dart';
+import 'package:prueba_flutter/legacy/repository/invoice_repository.dart';
 import 'package:prueba_flutter/views/data/lists/event/invoice_item_event.dart';
 
 

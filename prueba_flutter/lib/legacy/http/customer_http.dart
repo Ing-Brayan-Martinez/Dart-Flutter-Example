@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:optional/optional_internal.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/http/model/wrapper_customer_model.dart';
-import 'package:prueba_flutter/http/serializer/customer_json_serializer.dart';
-import 'package:prueba_flutter/http/util/http.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/legacy/http/model/wrapper_customer_model.dart';
+import 'package:prueba_flutter/legacy/http/serializer/customer_json_serializer.dart';
+import 'package:prueba_flutter/legacy/http/util/http.dart';
 
 class CustomerHttp extends Http<Customer> {
 

@@ -1,91 +1,41 @@
 
-import 'package:optional/optional.dart';
-import 'package:persistence_flutter/persistence_flutter.dart';
+class Home {
 
-class Home extends PO {
+  final int homeId;
+  final String title;
+  final String subTitle;
+  final String image;
+  final String status;
+  final String createdAt;
+  final String updatedAt;
 
-  static final String TABLE_NAME = "Home";
+  Home(this.homeId, this.title, this.subTitle, this.image, this.status,
+      this.createdAt, this.updatedAt);
 
-  static final String COLUMN_HOME_ID = "Home_ID";
-  static final String COLUMN_TITLE = "Title";
-  static final String COLUMN_SUBTITLE = "SubTitle";
-  static final String COLUMN_IMAGE = "Image";
+  Home.fromJson(Map<String, Object> json)
+      : homeId = json['homeId'],
+        title = json['title'],
+        subTitle = json['subTitle'],
+        image = json['image'],
+        status = json['status'],
+        createdAt = json['createdAt'],
+        updatedAt = json['updatedAt'];
 
-  Home() : super();
-
-  Home.fromJson(Map<String, Object> data) : super() {
-    this.loadData(data);
-  }
-
-  Map<String, Object> toJson() => getData();
-
-  @override
-  void onHandleEntityContext(EntityContext ctx) {
-
-    ctx.table = TABLE_NAME;
-
-    ctx.addColumn(new Column()
-      ..name = COLUMN_HOME_ID
-      ..type = Types.INTEGER);
-
-    ctx.addColumn(new Column()
-      ..name = COLUMN_TITLE
-      ..type = Types.VARCHAR
-      ..lenght = 20);
-
-    ctx.addColumn(new Column()
-      ..name = COLUMN_SUBTITLE
-      ..type = Types.VARCHAR
-      ..lenght = 100);
-
-    ctx.addColumn(new Column()
-      ..name = COLUMN_IMAGE
-      ..type = Types.VARCHAR
-      ..lenght = 250);
-    
-  }
-
-  setId(int val) {
-    setValue(COLUMN_HOME_ID, val);
-  }
-
-  Optional<int> getId() {
-    return getValueAsInt(COLUMN_HOME_ID);
-  }
-
-  setTitle(String val) {
-    setValue(COLUMN_TITLE, val);
-  }
-
-  Optional<String> getTitle() {
-    return getValueAsString(COLUMN_TITLE);
-  }
-
-  setSubTitle(String val) {
-    setValue(COLUMN_SUBTITLE, val);
-  }
-
-  Optional<String> getSubTitle() {
-    return getValueAsString(COLUMN_SUBTITLE);
-  }
-
-  setImage(String val) {
-    setValue(COLUMN_IMAGE, val);
-  }
-
-  Optional<String> getImage() {
-    return getValueAsString(COLUMN_IMAGE);
-  }
+  Map<String, Object> toJson() => {
+    'homeId' : homeId,
+    'title' : title,
+    'subTitle' : subTitle,
+    'image' : image,
+    'status' : status,
+    'createdAt' : createdAt,
+    'updatedAt' : updatedAt
+  };
 
   @override
   String toString() {
-    return 'Home{'
-        ' id: ${getValue(COLUMN_HOME_ID)}, '
-        ' title: ${getValue(COLUMN_TITLE)}, '
-        ' subTitle: ${getValue(COLUMN_SUBTITLE)},'
-        ' image: ${getValue(COLUMN_IMAGE)}'
-        '}';
+    return 'Home{homeId: $homeId, title: $title, subTitle: $subTitle, '
+        'image: $image, status: $status, createdAt: $createdAt, '
+        'updatedAt: $updatedAt}';
   }
-
 
 }

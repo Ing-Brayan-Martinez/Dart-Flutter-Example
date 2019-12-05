@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
 
 class UpdateCustomerEvent {
   Customer customer;

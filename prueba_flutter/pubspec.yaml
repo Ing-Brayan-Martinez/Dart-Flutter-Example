@@ -31,6 +31,8 @@ dependencies:
   jaguar_serializer: ^2.2.12
   #log
   log4d: ^1.0.4
+  #reactive
+  rxdart: ^0.22.6
 
   #mi libreria
   persistence_flutter:

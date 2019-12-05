@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/bloc/observer/observer.dart';
-import 'package:prueba_flutter/bloc/observer/observer_action.dart';
-import 'package:prueba_flutter/bloc/observer/observer_event.dart';
-import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/http/customer_http.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/legacy/http/customer_http.dart';
+import 'package:prueba_flutter/legacy/observer/observer.dart';
+import 'package:prueba_flutter/legacy/observer/observer_action.dart';
+import 'package:prueba_flutter/legacy/observer/observer_event.dart';
+import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
 import 'package:prueba_flutter/views/customer/event/update_customer_event.dart';
 import 'package:prueba_flutter/views/customer/see_customer_screen.dart';
 import 'package:prueba_flutter/views/customer/strategy/update/reload_customer_update.dart';

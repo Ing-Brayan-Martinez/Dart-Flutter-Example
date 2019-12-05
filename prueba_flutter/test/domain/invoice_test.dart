@@ -1,6 +1,6 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prueba_flutter/domain/invoice.dart';
+import 'package:prueba_flutter/legacy/domain/invoice.dart';
 
 void main() {
 

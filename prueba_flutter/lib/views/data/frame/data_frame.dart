@@ -1,12 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:optional/optional.dart';
-import 'package:prueba_flutter/bloc/observer/observer.dart';
-import 'package:prueba_flutter/bloc/observer/observer_action.dart';
-import 'package:prueba_flutter/bloc/observer/observer_event.dart';
-import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create.dart';
+import 'package:prueba_flutter/legacy/observer/observer.dart';
+import 'package:prueba_flutter/legacy/observer/observer_action.dart';
+import 'package:prueba_flutter/legacy/observer/observer_event.dart';
+import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
 import 'package:prueba_flutter/views/customer/create_customer_screen.dart';
+import 'package:prueba_flutter/views/customer/strategy/create/reload_customer_create.dart';
 import 'package:prueba_flutter/views/data/frame/event/create_event.dart';
 import 'package:prueba_flutter/views/data/lists/customer_list.dart';
 import 'package:prueba_flutter/views/data/lists/invoice_list.dart';

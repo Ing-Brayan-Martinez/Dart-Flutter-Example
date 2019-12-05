@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/http/customer_http.dart';
+import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/legacy/http/customer_http.dart';
 import 'package:prueba_flutter/views/customer/event/update_customer_event.dart';
 import 'package:prueba_flutter/views/customer/strategy/update/reload_customer_update.dart';
 

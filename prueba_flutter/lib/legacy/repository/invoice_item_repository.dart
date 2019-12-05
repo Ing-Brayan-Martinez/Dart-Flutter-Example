@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:optional/optional.dart';
 import 'package:persistence_flutter/persistence_flutter.dart';
-
-import 'package:prueba_flutter/domain/invoice_item.dart';
+import 'package:prueba_flutter/legacy/domain/invoice_item.dart';
 
 class ItemsRepository extends Repository<InvoiceItem> {
 

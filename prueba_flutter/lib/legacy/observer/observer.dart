@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/bloc/observer/observer_action.dart';
+import 'package:prueba_flutter/legacy/observer/observer_action.dart';
 
 class Observer {
 

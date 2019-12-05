@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/bloc/observer/observer.dart';
-import 'package:prueba_flutter/bloc/observer/observer_action.dart';
-import 'package:prueba_flutter/bloc/observer/observer_event.dart';
-import 'package:prueba_flutter/bloc/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/legacy/observer/observer.dart';
+import 'package:prueba_flutter/legacy/observer/observer_action.dart';
+import 'package:prueba_flutter/legacy/observer/observer_event.dart';
+import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
 import 'package:prueba_flutter/views/customer/strategy/update/reload_customer_update_strategy.dart';
 
 class ReloadCustomerFromDataStrategy extends ReloadCustomerUpdateStrategy {

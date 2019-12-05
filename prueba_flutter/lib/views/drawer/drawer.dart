@@ -76,13 +76,6 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
               widget.delegated.onInvoiced(context);
             },
           ),
-//          ListTile(
-//            leading: Icon(Icons.description),
-//            title: Text("Items"),
-//            onTap: () {
-//              widget.delegated.onItems(context);
-//            },
-//          ),
           Divider(
             color: Colors.black26,
             indent: 10,

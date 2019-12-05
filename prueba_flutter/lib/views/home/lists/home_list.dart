@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/domain/home.dart';
-import 'package:prueba_flutter/repository/home_repository.dart';
+import 'package:prueba_flutter/legacy/domain/home.dart';
+import 'package:prueba_flutter/legacy/repository/home_repository.dart';
 
 class HomeList extends StatefulWidget {
 
