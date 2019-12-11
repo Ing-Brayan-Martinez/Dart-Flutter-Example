@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'dart:core';
-import 'dart:core' as prefix0;
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';

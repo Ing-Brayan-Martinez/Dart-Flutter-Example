@@ -14,7 +14,6 @@ class Invoice {
   final String createdAt;
   final String updatedAt;
 
-
   Invoice(this.invoiceId, this.code, this.customer, this.baseAmt, this.taxAmt,
       this.taxPorcentage, this.totalAmt, this.status, this.createdAt,
       this.updatedAt);
@@ -46,11 +45,10 @@ class Invoice {
 
   @override
   String toString() {
-    return 'Invoice{invoiceId: $invoiceId, code: $code,'
-        ' customer: $customer, baseAmt: $baseAmt, '
-        'taxAmt: $taxAmt, taxPorcentage: $taxPorcentage, '
-        'totalAmt: $totalAmt, status: $status, '
-        'createdAt: $createdAt, updatedAt: $updatedAt}';
+    return 'Invoice{invoiceId: $invoiceId, code: $code, customer: $customer, '
+        'baseAmt: $baseAmt, taxAmt: $taxAmt, taxPorcentage: $taxPorcentage, '
+        'totalAmt: $totalAmt, status: $status, createdAt: $createdAt, '
+        'updatedAt: $updatedAt}';
   }
 
 
