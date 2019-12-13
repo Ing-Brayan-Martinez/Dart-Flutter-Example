@@ -6,7 +6,7 @@ import 'package:prueba_flutter/legacy/domain/invoice.dart';
 import 'package:prueba_flutter/legacy/http/model/wrapper_invoice_model.dart';
 import 'package:prueba_flutter/legacy/http/serializer/invoice_json_serializer.dart';
 import 'package:prueba_flutter/legacy/http/util/filter.dart';
-import 'package:prueba_flutter/legacy/http/util/http.dart';
+import 'package:prueba_flutter/shared/provider/http.dart';
 
 class InvoiceHttp extends Http<Invoice> {
 

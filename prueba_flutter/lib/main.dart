@@ -1,36 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:persistence_flutter/persistence_flutter.dart';
-import 'package:prueba_flutter/legacy/domain/customer.dart';
-import 'package:prueba_flutter/legacy/domain/home.dart';
-import 'package:prueba_flutter/legacy/domain/invoice.dart';
-import 'package:prueba_flutter/legacy/domain/invoice_item.dart';
-import 'package:prueba_flutter/views/customer/create_customer_screen.dart';
-import 'package:prueba_flutter/views/customer/see_customer_screen.dart';
-import 'package:prueba_flutter/views/customer/update_customer_screen.dart';
-import 'package:prueba_flutter/views/data/data_screen.dart';
-import 'package:prueba_flutter/views/home/home_screen.dart';
-import 'package:prueba_flutter/views/invoice/create_invoice_screen.dart';
+
+import 'package:prueba_flutter/dashboard/views/data_screen.dart';
+import 'package:prueba_flutter/home/views/home_screen.dart';
+import 'package:prueba_flutter/invoice/views/create_invoice_screen.dart';
+
+import 'customer/views/create_customer_screen.dart';
+import 'customer/views/see_customer_screen.dart';
+import 'customer/views/update_customer_screen.dart';
 
 
 /// Correr la aplicacion
 void main(List<String> arg) async {
-
-  DatabaseManager().init((config) {
-    config.databaseName = "sample6.db";
-    config.databaseVersion = 1;
-    config.databaseTables = [
-      new Customer(),
-      new Home(),
-      new Invoice(),
-      new InvoiceItem(),
-    ];
-  }).then((value) {
-    if (value == true) {
-      runApp(new MyApp());
-    }
-  });
-
+  runApp(new MyApp());
 }
 
 class MyApp extends StatelessWidget {

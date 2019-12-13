@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:optional/optional.dart';
 import 'package:persistence_flutter/persistence_flutter.dart';
+import 'package:prueba_flutter/dashboard/model/filter_customer_model.dart';
 import 'package:prueba_flutter/legacy/domain//customer.dart';
-import 'package:prueba_flutter/views/data/model/filter_customer_model.dart';
 
 class CustomerRepository extends Repository<Customer> {
 

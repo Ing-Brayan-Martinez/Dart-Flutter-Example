@@ -245,7 +245,7 @@ packages:
   persistence_flutter:
     dependency: "direct main"
     description:
-      path: "..\\persistence_flutter"
+      path: "../persistence_flutter"
       relative: true
     source: path
     version: "0.0.1"

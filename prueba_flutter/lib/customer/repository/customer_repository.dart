@@ -1,28 +1,26 @@
-import 'dart:async';
+
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-import 'package:optional/optional_internal.dart';
-import 'package:prueba_flutter/legacy/domain/customer.dart';
-import 'package:prueba_flutter/legacy/http/model/wrapper_customer_model.dart';
-import 'package:prueba_flutter/legacy/http/serializer/customer_json_serializer.dart';
+import 'package:optional/optional.dart';
+import 'package:prueba_flutter/customer/model/customer.dart';
 import 'package:prueba_flutter/shared/provider/http.dart';
 
-class CustomerHttp extends Http<Customer> {
+class CustomerRepository extends Http<Customer> {
 
   @override
   void add(Customer customer) async {
     await getHttpManager()
         .post("/clientes", data: customer.toJson(), options:
-        new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
   void update(Customer customer) async {
     await getHttpManager()
         .put("/clientes", data: customer.toJson(), options:
-        new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
@@ -32,7 +30,7 @@ class CustomerHttp extends Http<Customer> {
 
     await getHttpManager()
         .put("/clientes/estatus", data: body, options:
-        new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
@@ -40,12 +38,7 @@ class CustomerHttp extends Http<Customer> {
     final Response res = await getHttpManager()
         .get("/clientes");
 
-    final repo = new JsonRepo();
-    repo.add(new CustomerWrapperJsonSerializer());
-
-    final CustomerWrapper data = repo.from<CustomerWrapper>(res.data);
-
-    final List<Customer> list = data.customers
+    final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
         .toList();
 
@@ -59,12 +52,7 @@ class CustomerHttp extends Http<Customer> {
     final Response res = await getHttpManager()
         .get("/clientes");
 
-    final repo = new JsonRepo();
-    repo.add(new CustomerWrapperJsonSerializer());
-
-    final CustomerWrapper data = repo.from<CustomerWrapper>(res.data);
-
-    final List<Customer> list = data.customers
+    final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
         .toList();
 
@@ -76,11 +64,8 @@ class CustomerHttp extends Http<Customer> {
     final Response res = await getHttpManager()
         .get("/clientes/${id}");
 
-    final repo = new JsonRepo(serializers: [CustomerWrapperJsonSerializer()]);
 
-    final CustomerWrapper data = repo.from<CustomerWrapper>(res.data);
-
-    final Customer single = data.customers
+    final Customer single = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
         .single;
 
@@ -91,12 +76,7 @@ class CustomerHttp extends Http<Customer> {
     final Response res = await getHttpManager()
         .get("/clientes/nombre/${name}");
 
-    final repo = new JsonRepo();
-    repo.add(new CustomerWrapperJsonSerializer());
-
-    final CustomerWrapper data = repo.from<CustomerWrapper>(res.data);
-
-    final List<Customer> list = data.customers
+    final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
         .toList();
 
@@ -107,12 +87,7 @@ class CustomerHttp extends Http<Customer> {
     final Response res = await getHttpManager()
         .get("/clientes/codigo/${code}");
 
-    final repo = new JsonRepo();
-    repo.add(new CustomerWrapperJsonSerializer());
-
-    final CustomerWrapper data = repo.from<CustomerWrapper>(res.data);
-
-    final List<Customer> list = data.customers
+    final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
         .toList();
 
