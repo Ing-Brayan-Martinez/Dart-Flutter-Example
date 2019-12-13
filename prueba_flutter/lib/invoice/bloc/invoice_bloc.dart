@@ -8,7 +8,7 @@ class InvoiceBloc {
   final BehaviorSubject<Invoice> _subject = new BehaviorSubject<Invoice>();
 
   void getInvoices() async {
-    List<Invoice> res = await _repository.getInvoices();
+    List<Invoice> res = await _repository.findAllList();
     res.forEach((co) =>  _subject.sink.add(co));
   }
 

@@ -8,7 +8,7 @@ class HomeBloc {
   final BehaviorSubject<Home> _subject = new BehaviorSubject<Home>();
 
   void getHomes() async {
-    List<Home> res = await _repository.getHomes();
+    List<Home> res = await _repository.findAllList();
     res.forEach((co) =>  _subject.sink.add(co));
   }
 

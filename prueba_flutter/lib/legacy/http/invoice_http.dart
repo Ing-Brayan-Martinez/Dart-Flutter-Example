@@ -22,7 +22,7 @@ class InvoiceHttp extends Http<Invoice> {
 
   @override
   void delete(List<Invoice> ids) {
-    // TODO: implement delete
+
   }
 
   @override

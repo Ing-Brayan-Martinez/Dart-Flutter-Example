@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -10,33 +9,33 @@ import 'package:prueba_flutter/shared/provider/http.dart';
 class CustomerRepository extends Http<Customer> {
 
   @override
-  void add(Customer customer) async {
+  void add(Customer entity) async {
     await getHttpManager()
-        .post("/clientes", data: customer.toJson(), options:
+        .post("/customers", data: entity.toJson(), options:
     new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
-  void update(Customer customer) async {
+  void update(Customer entity) async {
     await getHttpManager()
-        .put("/clientes", data: customer.toJson(), options:
+        .put("/customers", data: entity.toJson(), options:
     new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
-  void delete(List<Customer> customers) async {
+  void delete(List<Customer> entitys) async {
     Map<String, dynamic> body = new Map();
-    body['clientes'] = customers.map((cli) => cli.toJson()).toList();
+    body['customers'] = entitys.map((cli) => cli.toJson()).toList();
 
     await getHttpManager()
-        .put("/clientes/estatus", data: body, options:
+        .put("/customers/estatus", data: body, options:
     new Options(contentType: ContentType.parse("application/json")));
   }
 
   @override
   Stream<Customer> findAll() async* {
     final Response res = await getHttpManager()
-        .get("/clientes");
+        .get("/customers");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -50,7 +49,7 @@ class CustomerRepository extends Http<Customer> {
   @override
   Future<List<Customer>> findAllList() async {
     final Response res = await getHttpManager()
-        .get("/clientes");
+        .get("/customers");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -62,7 +61,7 @@ class CustomerRepository extends Http<Customer> {
   @override
   Future<Optional<Customer>> findById(int id) async {
     final Response res = await getHttpManager()
-        .get("/clientes/${id}");
+        .get("/customers/${id}");
 
 
     final Customer single = jsonDecode(res.data)
@@ -74,7 +73,7 @@ class CustomerRepository extends Http<Customer> {
 
   Future<List<Customer>> findByName(String name) async {
     final Response res = await getHttpManager()
-        .get("/clientes/nombre/${name}");
+        .get("/customers/name/${name}");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -85,7 +84,7 @@ class CustomerRepository extends Http<Customer> {
 
   Future<List<Customer>> findByCode(String code) async {
     final Response res = await getHttpManager()
-        .get("/clientes/codigo/${code}");
+        .get("/customers/code/${code}");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))

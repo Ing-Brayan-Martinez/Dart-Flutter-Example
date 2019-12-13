@@ -14,9 +14,9 @@ abstract class Http<T> {
     return new Dio(options);
   }
 
-  void add(T customer);
-  void update(T customer);
-  void delete(List<T> ids);
+  void add(T entity);
+  void update(T entity);
+  void delete(List<T> entitys);
   Stream<T> findAll();
   Future<List<T>> findAllList();
   Future<Optional<T>> findById(int id);
