@@ -5,17 +5,17 @@ import 'package:rxdart/rxdart.dart';
 class HomeBloc {
 
   final HomeRepository _repository =  new HomeRepository();
-  final BehaviorSubject<Home> _subject = new BehaviorSubject<Home>();
+  final BehaviorSubject<List<Home>> _subject = new BehaviorSubject<List<Home>>();
 
   void getHomes() async {
-    List<Home> res = await _repository.findAllList();
-    res.forEach((co) =>  _subject.sink.add(co));
+    final List<Home> res = await _repository.findAllList();
+    _subject.sink.add(res);
   }
 
   void dispose() {
     _subject.close();
   }
 
-  Stream<Home> get homeStream => _subject.stream;
+  Stream<List<Home>> get homeStream => _subject.stream;
 
 }

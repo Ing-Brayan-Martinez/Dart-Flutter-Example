@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/customer/bloc/customer_bloc.dart';
 import 'package:prueba_flutter/customer/model/customer.dart';
 import 'package:prueba_flutter/customer/views/event/update_customer_event.dart';
 import 'package:prueba_flutter/customer/views/see_customer_screen.dart';
 import 'package:prueba_flutter/customer/views/update_customer_screen.dart';
-import 'package:prueba_flutter/legacy/http/customer_http.dart';
-import 'package:prueba_flutter/legacy/observer/observer.dart';
-import 'package:prueba_flutter/legacy/observer/observer_action.dart';
-import 'package:prueba_flutter/legacy/observer/observer_event.dart';
-import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/dashboard/bloc/customer_list_bloc.dart';
 import 'package:prueba_flutter/legacy/strategy/update/reload_customer_update.dart';
 
 import 'event/customer_item_event.dart';
@@ -19,38 +14,18 @@ class CustomerList extends StatefulWidget {
   CustomerList({Key key}) : super(key: key);
 
   @override
-  CustomerListState createState() => CustomerListState();
+  CustomerListState createState() => new CustomerListState();
 
 }
 
 class CustomerListState extends State<CustomerList> {
 
-  CustomerBloc _bloc;
-
-  CustomerHttp _repository;
-  List<Customer> _customers;
-  Observer _observer;
+  final CustomerListBloc _bloc = new CustomerListBloc();
 
   @override
   void initState() {
     super.initState();
-
-    _bloc = new CustomerBloc();
-
-
-    _repository = new CustomerHttp();
-    _customers = new List();
-
-    _observer = SinglentonObserver.get();
-    _observer.subscribe((ObserverAction event) {
-      if (event.type == ObserverEvent.EVENT_LOAD_LIST_CUSTOMER) {
-        _loadList();
-      }
-    });
-    
-    //Initial loader
-    _loadList();
-    
+    _bloc.getCustomers();
   }
 
   @override
@@ -69,14 +44,14 @@ class CustomerListState extends State<CustomerList> {
                   icon: Icon(Icons.refresh), //`Icon` to display
                   label: Text('Recargar'), //`Text` to display
                   onPressed: () {
-                    _loadList();
+                    this._bloc.getCustomers();
                   },
                 ),
                 FlatButton.icon(
                   icon: Icon(Icons.filter_list), //`Icon` to display
                   label: Text('Filtrar'), //`Text` to display
                   onPressed: () {
-                    _showFilterDialog(context);
+                    this._showFilterDialog(context);
                   },
                 ),
               ],
@@ -84,27 +59,26 @@ class CustomerListState extends State<CustomerList> {
           ),
           Expanded(
             child: StreamBuilder<List<Customer>>(
-              stream: _bloc.customerStream,
+              stream: this._bloc.customerStream,
               // ignore: missing_return
               builder: (context, AsyncSnapshot<List<Customer>> snapshot) {
-                if (snapshot.hasData) {
+                /// caso de uso para una swich expretions
 
-                  ///Si hay stream con data
-                  if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
-                    return _buildDataWidget(snapshot.data);
-                  }
-
-                  ///Si hay data
-                  if (snapshot.hasError) {
-                    return _buildErrorWidget(snapshot.error);
-                  }
-
-                  ///Si no hay data
-                  if (!snapshot.hasData) {
-                    return _buildDataWidget(snapshot.data);
-                  }
-
+                ///Si hay stream con data
+                if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
+                  return _buildDataWidget(context, snapshot.data);
                 }
+
+                ///Si hay un error
+                if (snapshot.hasError) {
+                  return _buildErrorWidget(context, snapshot.error);
+                }
+
+                ///Si no hay data
+                if (!snapshot.hasData) {
+                  return _buildLoadingWidget(context);
+                }
+
               },
             )
           )
@@ -113,14 +87,25 @@ class CustomerListState extends State<CustomerList> {
     );
   }
 
-  Widget _buildErrorWidget(Object object) {
+  /// Esto es para mostrar una barra
+  /// de progreso mientras se consulta
+  /// la data.
+  Widget _buildLoadingWidget(BuildContext context) {
     return Center();
   }
 
-  Widget _buildDataWidget(List<Customer> customers) {
-    return ListView(
-      children: customers.map((Customer data) {
+  /// Esto es para mostrar algo en
+  /// el caso que se produsca un error
+  /// al momento de consultar la data.
+  Widget _buildErrorWidget(BuildContext context, Object object) {
+    return Center();
+  }
 
+  /// Esto es para mostrar la data
+  /// que fue consultada
+  Widget _buildDataWidget(BuildContext context, List<Customer> entity) {
+    return ListView(
+      children: entity.map((Customer data) {
         return ListTile(
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/astronauta.jpg'),
@@ -147,7 +132,6 @@ class CustomerListState extends State<CustomerList> {
                   break;
 
               }
-
             },
             icon: Icon(Icons.more_vert),
             itemBuilder: (context) =>
@@ -188,7 +172,7 @@ class CustomerListState extends State<CustomerList> {
     return Future.delayed(Duration(seconds: 1), () => null);
   }
 
-  /// Este dilag es el encargado de confirmar
+  /// Este dialogo es el encargado de confirmar
   /// la eliminacion de un cliente.
   Future<String> _showDeleteDialog(BuildContext context, Customer customer) async {
 
@@ -213,7 +197,7 @@ class CustomerListState extends State<CustomerList> {
                 //this._repository.delete([customer]);
 
                 /// borrar en la UI.
-                this.setState(() => this._customers.removeWhere((val) => val == customer));
+                //this.setState(() => this._customers.removeWhere((val) => val == customer));
 
                 /// cerrar el dialog
                 Navigator.of(dialogContext).pop();
@@ -227,6 +211,8 @@ class CustomerListState extends State<CustomerList> {
     );
   }
 
+  /// Este dialogo es el encargado
+  /// de filtrar
   Future<String> _showFilterDialog(BuildContext context) async {
     int _currVal = 1;
     String _currText = "";
@@ -281,17 +267,13 @@ class CustomerListState extends State<CustomerList> {
               onPressed: () {
 
                 if (_currVal == 1) {
-                  this._repository.findByCode(_currText).then((list) {
-                    //this.setState(() => this._customers = list);
-                    Navigator.of(context).pop();
-                  });
+                  this._bloc.getCustomersByCode(_currText);
+                  Navigator.of(context).pop();
                 }
 
                 if (_currVal == 2) {
-                  this._repository.findByName(_currText.toUpperCase()).then((list) {
-                    //this.setState(() => this._customers = list);
-                    Navigator.of(context).pop();
-                  });
+                  this._bloc.getCustomersByName(_currText.toUpperCase());
+                  Navigator.of(context).pop();
                 }
 
               },
@@ -302,11 +284,10 @@ class CustomerListState extends State<CustomerList> {
     );
   }
 
-  /// Para cargar el estado desde
-  /// un repository
-  void _loadList() {
-//    this._repository.findAllList()
-//        .then((list) => setState(() => this._customers = list));
+  @override
+  void dispose() {
+    super.dispose();
+    this._bloc.dispose();
   }
-
+  
 }

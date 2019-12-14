@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/domain/invoice.dart';
-import 'package:prueba_flutter/legacy/repository/invoice_repository.dart';
+import 'package:prueba_flutter/dashboard/bloc/invoice_list_bloc.dart';
+import 'package:prueba_flutter/invoice/model/invoice.dart';
 
 import 'event/invoice_item_event.dart';
 
@@ -16,15 +16,149 @@ class InvoiceList extends StatefulWidget {
 
 class InvoiceListState extends State<InvoiceList> {
 
-  final InvoiceRepository repository = new InvoiceRepository();
-  List<Invoice> invoices = new List();
+  final InvoiceListBloc _bloc = new InvoiceListBloc();
 
-  String _code = '';
-  String _name = '';
-  String _desde = '';
-  String _hasta = '';
+  @override
+  void initState() {
+    super.initState();
+    this._bloc.getInvoices();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Column(
+      children: <Widget>[
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              FlatButton.icon(
+                icon: Icon(Icons.refresh), //`Icon` to display
+                label: Text('Recargar'), //`Text` to display
+                onPressed: () {
+                  this._bloc.getInvoices();
+                },
+              ),
+              FlatButton.icon(
+                icon: Icon(Icons.filter_list), //`Icon` to display
+                label: Text('Filtrar'), //`Text` to display
+                onPressed: () {
+                  _asyncInputDialog(context);
+                },
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: StreamBuilder<List<Invoice>>(
+            stream: this._bloc.invoicesStream,
+            // ignore: missing_return
+            builder: (context, AsyncSnapshot<List<Invoice>> snapshot) {
+              /// caso de uso para una swich expretions
+
+              ///Si hay stream con data
+              if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
+                return _buildDataWidget(context, snapshot.data);
+              }
+
+              ///Si hay un error
+              if (snapshot.hasError) {
+                return _buildErrorWidget(context, snapshot.error);
+              }
+
+              ///Si no hay data
+              if (!snapshot.hasData) {
+                return _buildLoadingWidget(context);
+              }
+
+            },
+          )
+        ),
+      ],
+    );
+  }
+
+  /// Esto es para mostrar una barra
+  /// de progreso mientras se consulta
+  /// la data.
+  Widget _buildLoadingWidget(BuildContext context) {
+    return Center();
+  }
+
+  /// Esto es para mostrar algo en
+  /// el caso que se produsca un error
+  /// al momento de consultar la data.
+  Widget _buildErrorWidget(BuildContext context, Object object) {
+    return Center();
+  }
+
+  /// Esto es para mostrar la data
+  /// que fue consultada
+  Widget _buildDataWidget(BuildContext context, List<Invoice> entity) {
+    return ListView(
+
+      children: entity.map((data) {
+
+        return ListTile(
+          leading: CircleAvatar(
+            child: Icon(Icons.business),
+          ),
+          title: Text(data.code),
+          subtitle: Text("\$ ${data.baseAmt}"),
+          trailing: PopupMenuButton(
+            onSelected: (InvoiceItemEvent val) {
+
+              switch(val.type) {
+
+                case InvoiceItemEvent.EVENT_SEE:
+
+                  break;
+
+                case InvoiceItemEvent.EVENT_UPDATE:
+
+                  break;
+
+                case InvoiceItemEvent.EVENT_DELETE:
+                  final Invoice result = val.invoice;
+//                  result.delete();
+//                  this.invoices.removeWhere((val) => val == result);
+//                  this.repository.findAllList()
+//                      .then((list) => setState(() => this.invoices = list));
+                  print("Se ha eliminado a: ${result.toString()}");
+                  break;
+              }
+
+            },
+            icon: Icon(Icons.more_vert),
+            itemBuilder: (context) =>
+            [
+              PopupMenuItem(
+                value: InvoiceItemEvent(InvoiceItemEvent.EVENT_SEE, data),
+                child: Text("Ver"),
+              ),
+              PopupMenuItem(
+                value: InvoiceItemEvent(InvoiceItemEvent.EVENT_DELETE, data),
+                child: Text("Eliminar"),
+              ),
+              PopupMenuItem(
+                value: InvoiceItemEvent(InvoiceItemEvent.EVENT_UPDATE, data),
+                child: Text("Actualizar"),
+              ),
+            ],
+          ),
+        );
+
+      }).toList(),
+
+    );
+  }
 
   Future<String> _asyncInputDialog(BuildContext context) async {
+    String _code = '';
+    String _name = '';
+    String _desde = '';
+    String _hasta = '';
 
     return showDialog<String>(
       context: context,
@@ -90,110 +224,10 @@ class InvoiceListState extends State<InvoiceList> {
     );
   }
 
-  void reload() {
-    this.repository.findAllList()
-        .then((list) => setState(() => this.invoices = list));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    reload();
-  }
-
   @override
   void dispose() {
     super.dispose();
-
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-
-    return Column(
-      children: <Widget>[
-        Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              FlatButton.icon(
-                icon: Icon(Icons.refresh), //`Icon` to display
-                label: Text('Recargar'), //`Text` to display
-                onPressed: () {
-                  reload();
-                },
-              ),
-              FlatButton.icon(
-                icon: Icon(Icons.filter_list), //`Icon` to display
-                label: Text('Filtrar'), //`Text` to display
-                onPressed: () {
-                  _asyncInputDialog(context);
-                },
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: ListView(
-
-            children: this.invoices.map((data) {
-
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Icon(Icons.business),
-                ),
-                title: Text(data.getCode().orElse("")),
-                subtitle: Text("\$ ${data.getBaseAmt().orElse(0.00).toString()}"),
-                trailing: PopupMenuButton(
-                  onSelected: (InvoiceItemEvent val) {
-
-                    switch(val.type) {
-
-                      case InvoiceItemEvent.EVENT_SEE:
-
-                        break;
-
-                      case InvoiceItemEvent.EVENT_UPDATE:
-
-                        break;
-
-                      case InvoiceItemEvent.EVENT_DELETE:
-                        final Invoice result = val.invoice;
-                        result.delete();
-                        this.invoices.removeWhere((val) => val == result);
-                        this.repository.findAllList()
-                            .then((list) => setState(() => this.invoices = list));
-                        print("Se ha eliminado a: ${result.toString()}");
-                        break;
-                    }
-
-                  },
-                  icon: Icon(Icons.more_vert),
-                  itemBuilder: (context) =>
-                  [
-                    PopupMenuItem(
-                      value: InvoiceItemEvent(InvoiceItemEvent.EVENT_SEE, data),
-                      child: Text("Ver"),
-                    ),
-                    PopupMenuItem(
-                      value: InvoiceItemEvent(InvoiceItemEvent.EVENT_DELETE, data),
-                      child: Text("Eliminar"),
-                    ),
-                    PopupMenuItem(
-                      value: InvoiceItemEvent(InvoiceItemEvent.EVENT_UPDATE, data),
-                      child: Text("Actualizar"),
-                    ),
-                  ],
-                ),
-              );
-
-            }).toList(),
-
-          ),
-        ),
-      ],
-    );
+    this._bloc.dispose();
   }
 
 }
