@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/domain/customer.dart';
+import 'package:prueba_flutter/customer/model/customer.dart';
 
 
 class SeeCustomerScreen extends StatelessWidget {
@@ -46,7 +46,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: Icon(Icons.grid_on),
             title: Text("Codigo."),
             subtitle:Text(
-              _customer.getCode().orElse(""),
+              _customer.code,
               style: TextStyle(
                   fontStyle: FontStyle.normal,
                   fontSize: 20,
@@ -64,7 +64,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: Icon(Icons.person),
             title: Text("Nombre."),
             subtitle:Text(
-              _customer.getName().orElse(""),
+              _customer.name,
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -82,7 +82,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: Icon(Icons.directions),
             title: Text("Direccion."),
             subtitle:Text(
-              _customer.getAdress().orElse(""),
+              _customer.adress,
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -100,7 +100,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: Icon(Icons.mail),
             title: Text("Correo."),
             subtitle:Text(
-              _customer.getMail().orElse(""),
+              _customer.mail,
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -118,7 +118,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: Icon(Icons.phone),
             title: Text("Telefono."),
             subtitle:Text(
-              _customer.getPhone().orElse(""),
+              _customer.phone,
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,

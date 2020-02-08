@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/domain/customer.dart';
-import 'package:prueba_flutter/legacy/http/customer_http.dart';
-import 'package:prueba_flutter/legacy/strategy/create/reload_customer_create.dart';
+import 'package:prueba_flutter/customer/model/customer.dart';
+import 'package:prueba_flutter/customer/repository/customer_repository.dart';
+import 'package:prueba_flutter/shared/strategy/create/reload_customer_create.dart';
 
 class CreateCustomerForm extends StatefulWidget {
 
@@ -17,7 +17,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
   GlobalKey<FormState> _formKey;
   Customer _customer;
   String _strategyFlag;
-  CustomerHttp _repository;
+  CustomerRepository _repository;
 
   Future<Null> _showDialog(BuildContext context) async {
     Scaffold.of(context)
@@ -30,9 +30,9 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     super.initState();
     _formKey = new GlobalKey<FormState>();
     _customer = new Customer();
-    _customer.setStatus(1);
+    _customer.status = "Y";
     _strategyFlag = "";
-    _repository = new CustomerHttp();
+    _repository = new CustomerRepository();
   }
 
   @override
@@ -67,7 +67,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.setCode(val);
+                          _customer.code = val;
                         },
                       ),
                       TextFormField(
@@ -80,7 +80,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.setName(val.toUpperCase());
+                          _customer.name = val.toUpperCase();
                         },
                       ),
                       TextFormField(
@@ -93,7 +93,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.setAdress(val);
+                          _customer.adress = val;
                         },
                       ),
                       TextFormField(
@@ -106,7 +106,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                           _customer.setMail(val);
+                           _customer.mail = val;
                         },
                       ),
                       TextFormField(
@@ -119,7 +119,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.setPhone(val);
+                          _customer.phone = val;
                         },
                       ),
                       Container(
@@ -134,7 +134,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                                  form.save();
 
                                  /// Guardar entidad en el Back End
-                                 _repository.add(_customer);
+                                 //_repository.add(_customer);
 
                                  ///Mostrar el dialogo de confirmacion.
                                  _showDialog(context).then((val) {

@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/observer/observer.dart';
-import 'package:prueba_flutter/legacy/observer/observer_action.dart';
-import 'package:prueba_flutter/legacy/observer/observer_event.dart';
-import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/shared/observer/observer.dart';
+import 'package:prueba_flutter/shared/observer/observer_action.dart';
+import 'package:prueba_flutter/shared/observer/observer_event.dart';
+import 'package:prueba_flutter/shared/observer/observer_singlenton.dart';
 
 import 'delegated.dart';
 

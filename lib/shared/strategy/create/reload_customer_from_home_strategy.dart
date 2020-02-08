@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/observer/observer.dart';
-import 'package:prueba_flutter/legacy/observer/observer_action.dart';
-import 'package:prueba_flutter/legacy/observer/observer_event.dart';
-import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/legacy//strategy/create/reload_customer_create_strategy.dart';
 import 'package:prueba_flutter/dashboard/views/data_screen.dart';
+import 'package:prueba_flutter/shared//strategy/create/reload_customer_create_strategy.dart';
+import 'package:prueba_flutter/shared/observer/observer.dart';
+import 'package:prueba_flutter/shared/observer/observer_action.dart';
+import 'package:prueba_flutter/shared/observer/observer_event.dart';
+import 'package:prueba_flutter/shared/observer/observer_singlenton.dart';
 
 class ReloadCustomerFromHomeStrategy extends ReloadCustomerCreateStrategy {
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prueba_flutter/customer/model/customer.dart';
+import 'package:prueba_flutter/customer/repository/customer_repository.dart';
 import 'package:prueba_flutter/customer/views/event/update_customer_event.dart';
-import 'package:prueba_flutter/legacy/domain/customer.dart';
-import 'package:prueba_flutter/legacy/http/customer_http.dart';
-import 'package:prueba_flutter/legacy/strategy/update/reload_customer_update.dart';
+import 'package:prueba_flutter/shared/strategy/update/reload_customer_update.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
 
@@ -16,7 +16,7 @@ class UpdateCustomerForm extends StatefulWidget {
 class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
   GlobalKey<FormState> _formKey;
-  CustomerHttp _repository;
+  CustomerRepository _repository;
   Customer _oldCustomer;
   Customer _newCustomer;
   String _strategyFlag;
@@ -33,7 +33,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
     _formKey = new GlobalKey<FormState>();
     _newCustomer = new Customer();
     _oldCustomer = new Customer();
-    _repository = new CustomerHttp();
+    _repository = new CustomerRepository();
   }
 
   @override
@@ -55,12 +55,12 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
       //_oldCustomer = event.customer;
 
       /// Establecer el id de la entidad.
-      _newCustomer.setId(_oldCustomer.getId().orElse(0));
+      //_newCustomer.setId(_oldCustomer.getId().orElse(0));
 
       /// Establecer el estatus de la entidad.
-      if (_oldCustomer.getStatus().isPresent) {
-        final int val = _oldCustomer.getStatus().orElse(0);
-        _newCustomer.setStatus(val);
+      if (_oldCustomer.status.isEmpty) {
+        final int val = int.parse(_oldCustomer.status);
+        //_newCustomer.setStatus(val);
       }
 
     }
@@ -75,7 +75,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        initialValue: _oldCustomer.getCode().orElse(""),
+                        initialValue: _oldCustomer.code,
                         autofocus: true,
                         decoration: InputDecoration(icon: Icon(Icons.grid_on), labelText: "Codigo", hintText: "eg. 01010102"),
                         validator: (value) {
@@ -85,11 +85,11 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setCode(val);
+                          _newCustomer.code = val;
                         },
                       ),
                       TextFormField(
-                        initialValue: _oldCustomer.getName().orElse(""),
+                        initialValue: _oldCustomer.name,
                         autofocus: true,
                         decoration: InputDecoration(icon: Icon(Icons.person), labelText: "Nombre", hintText: "eg. Beco C.A"),
                         validator: (value) {
@@ -99,11 +99,11 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setName(val.toUpperCase());
+                          _newCustomer.name = val.toUpperCase();
                         },
                       ),
                       TextFormField(
-                        initialValue: _oldCustomer.getAdress().orElse(""),
+                        initialValue: _oldCustomer.adress,
                         autofocus: true,
                         decoration: InputDecoration(icon: Icon(Icons.directions), labelText: "Direccion", hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                         validator: (value) {
@@ -113,11 +113,11 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setAdress(val);
+                          _newCustomer.adress = val;
                         },
                       ),
                       TextFormField(
-                        initialValue: _oldCustomer.getMail().orElse(""),
+                        initialValue: _oldCustomer.mail,
                         autofocus: true,
                         decoration: InputDecoration(icon: Icon(Icons.mail), labelText: "Correo", hintText: "eg. ejemplo@mail.com"),
                         validator: (value) {
@@ -127,11 +127,11 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setMail(val);
+                          _newCustomer.mail = val;
                         },
                       ),
                       TextFormField(
-                        initialValue: _oldCustomer.getPhone().orElse(""),
+                        initialValue: _oldCustomer.phone,
                         autofocus: true,
                         decoration: InputDecoration(icon: const Icon(Icons.phone), labelText: "Telefono", hintText: "eg. +584263214569"),
                         validator: (value) {
@@ -141,7 +141,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                           return null;
                         },
                         onSaved: (val) {
-                          _newCustomer.setPhone(val);
+                          _newCustomer.phone = val;
                         },
                       ),
                       Container(
@@ -156,7 +156,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                                 form.save();
 
                                 ///Guardar entidad en el Back End
-                                _repository.update(_newCustomer);
+                                //_repository.update(_newCustomer);
 
                                 ///Mostrar el dialogo de confirmacion.
                                  _showDialog(context).then((val) {

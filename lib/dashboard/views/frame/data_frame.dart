@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:prueba_flutter/customer/views/create_customer_screen.dart';
 import 'package:prueba_flutter/dashboard/views/lists/customer_list.dart';
 import 'package:prueba_flutter/dashboard/views/lists/invoice_list.dart';
-import 'package:prueba_flutter/legacy/observer/observer.dart';
-import 'package:prueba_flutter/legacy/observer/observer_action.dart';
-import 'package:prueba_flutter/legacy/observer/observer_event.dart';
-import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/legacy/strategy/create/reload_customer_create.dart';
 import 'package:prueba_flutter/invoice/views/create_invoice_screen.dart';
+import 'package:prueba_flutter/shared/observer/observer.dart';
+import 'package:prueba_flutter/shared/observer/observer_action.dart';
+import 'package:prueba_flutter/shared/observer/observer_event.dart';
+import 'package:prueba_flutter/shared/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/shared/strategy/create/reload_customer_create.dart';
 import 'package:prueba_flutter/shared/views/drawer/delegated/data_delegated.dart';
 import 'package:prueba_flutter/shared/views/drawer/drawer.dart';
 

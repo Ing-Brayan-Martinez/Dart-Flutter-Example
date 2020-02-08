@@ -1,17 +1,19 @@
 
 class Customer {
 
-  final int id;
-  final String code;
-  final String name;
-  final String adress;
-  final String mail;
-  final String phone;
-  final String status;
-  final String createdAt;
-  final String updatedAt;
+  int id;
+  String code;
+  String name;
+  String adress;
+  String mail;
+  String phone;
+  String status;
+  String createdAt;
+  String updatedAt;
 
-  Customer(this.id, this.code, this.name, this.adress, this.mail, this.phone,
+  Customer();
+
+  Customer.from(this.id, this.code, this.name, this.adress, this.mail, this.phone,
       this.status, this.createdAt, this.updatedAt);
 
   Customer.fromJson(Map<String, Object> json)

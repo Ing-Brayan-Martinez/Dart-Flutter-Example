@@ -1,9 +1,10 @@
 
-import 'package:prueba_flutter/legacy/observer/observer.dart';
+
+import 'observer.dart';
 
 class SinglentonObserver {
 
-  static Observer _instance = null;
+  static Observer _instance;
 
   static Observer get() {
 

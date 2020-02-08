@@ -4,7 +4,7 @@ import 'package:prueba_flutter/customer/views/event/update_customer_event.dart';
 import 'package:prueba_flutter/customer/views/see_customer_screen.dart';
 import 'package:prueba_flutter/customer/views/update_customer_screen.dart';
 import 'package:prueba_flutter/dashboard/bloc/customer_list_bloc.dart';
-import 'package:prueba_flutter/legacy/strategy/update/reload_customer_update.dart';
+import 'package:prueba_flutter/shared/strategy/update/reload_customer_update.dart';
 
 import 'event/customer_item_event.dart';
 

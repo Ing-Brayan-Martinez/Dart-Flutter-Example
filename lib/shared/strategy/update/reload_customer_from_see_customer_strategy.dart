@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/legacy/observer/observer.dart';
-import 'package:prueba_flutter/legacy/observer/observer_action.dart';
-import 'package:prueba_flutter/legacy/observer/observer_event.dart';
-import 'package:prueba_flutter/legacy/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/legacy/strategy/update/reload_customer_update_strategy.dart';
+import 'package:prueba_flutter/shared/observer/observer.dart';
+import 'package:prueba_flutter/shared/observer/observer_action.dart';
+import 'package:prueba_flutter/shared/observer/observer_event.dart';
+import 'package:prueba_flutter/shared/observer/observer_singlenton.dart';
+import 'package:prueba_flutter/shared/strategy/update/reload_customer_update_strategy.dart';
 
 class ReloadCustomerFromSeeCustomerStrategy extends ReloadCustomerUpdateStrategy {
 

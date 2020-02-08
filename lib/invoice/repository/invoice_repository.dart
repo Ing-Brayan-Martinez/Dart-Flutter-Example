@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/invoice/model/invoice.dart';
-import 'package:prueba_flutter/legacy/http/util/filter.dart';
 import 'package:prueba_flutter/shared/provider/http.dart';
 
 class InvoiceRepository extends Http<Invoice> {
@@ -104,20 +103,20 @@ class InvoiceRepository extends Http<Invoice> {
     return list;
   }
 
-  Future<List<Invoice>> findByFilter(FilterInvoice filter) async {
-    final Response res = await getHttpManager()
-        .get("""/facturas/filtros
-        ?nombreCliente=${filter.nameCustomer}
-        &codigoCliente=${filter.codeCustomer}
-        &codigoFactura=${filter.codeInvoice}
-        &fechaDesde=${filter.dateFrom}
-        &fechaHasta=${filter.dateTo}
-        """);
-
-    final List<Invoice> list = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .toList();
-
-    return list;
-  }
+//  Future<List<Invoice>> findByFilter(FilterInvoice filter) async {
+//    final Response res = await getHttpManager()
+//        .get("""/facturas/filtros
+//        ?nombreCliente=${filter.nameCustomer}
+//        &codigoCliente=${filter.codeCustomer}
+//        &codigoFactura=${filter.codeInvoice}
+//        &fechaDesde=${filter.dateFrom}
+//        &fechaHasta=${filter.dateTo}
+//        """);
+//
+//    final List<Invoice> list = jsonDecode(res.data)
+//        .map((result) => new Invoice.fromJson(result))
+//        .toList();
+//
+//    return list;
+//  }
 }

@@ -1,8 +1,8 @@
 import 'package:animated_floatactionbuttons/animated_floatactionbuttons.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/customer/views/create_customer_screen.dart';
-import 'package:prueba_flutter/legacy/strategy/create/reload_customer_create.dart';
 import 'package:prueba_flutter/invoice/views/create_invoice_screen.dart';
+import 'package:prueba_flutter/shared/strategy/create/reload_customer_create.dart';
 
 
 class FloatingButton extends StatefulWidget {

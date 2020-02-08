@@ -1,6 +1,5 @@
 import 'package:prueba_flutter/invoice/model/invoice.dart';
 import 'package:prueba_flutter/invoice/repository/invoice_repository.dart';
-import 'package:prueba_flutter/legacy/http/util/filter.dart';
 import 'package:rxdart/rxdart.dart';
 
 class InvoiceListBloc {
@@ -28,10 +27,10 @@ class InvoiceListBloc {
     _subject.sink.add(res);
   }
 
-  void getInvoicesByFilter(FilterInvoice filter) async {
-    final List<Invoice> res = await _repository.findByFilter(filter);
-    _subject.sink.add(res);
-  }
+//  void getInvoicesByFilter(FilterInvoice filter) async {
+//    final List<Invoice> res = await _repository.findByFilter(filter);
+//    _subject.sink.add(res);
+//  }
 
   void dispose() {
     _subject.close();

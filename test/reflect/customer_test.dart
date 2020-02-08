@@ -9,7 +9,7 @@ void main() {
 
     test('Customer Encode', () {
 
-        var co = new Customer(1, 'fff', 'brayan', 'valencia', 'brayanmartinez827@gmail.com',
+        var co = new Customer.from(1, 'fff', 'brayan', 'valencia', 'brayanmartinez827@gmail.com',
             '+58426649380', 'Y', DateTime.now().toString(), DateTime.now().toString());
 
         print(jsonEncode(co));
