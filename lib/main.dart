@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prueba_flutter/screens/create_invoice_screen.dart';
+import 'package:prueba_flutter/screens/data_screen.dart';
+import 'package:prueba_flutter/screens/home_screen.dart';
 
-import 'package:prueba_flutter/dashboard/views/data_screen.dart';
-import 'package:prueba_flutter/home/views/home_screen.dart';
-import 'package:prueba_flutter/invoice/views/create_invoice_screen.dart';
-
-import 'customer/views/create_customer_screen.dart';
-import 'customer/views/see_customer_screen.dart';
-import 'customer/views/update_customer_screen.dart';
+import 'screens/create_customer_screen.dart';
+import 'screens/see_customer_screen.dart';
+import 'screens/update_customer_screen.dart';
 
 
 /// Correr la aplicacion
