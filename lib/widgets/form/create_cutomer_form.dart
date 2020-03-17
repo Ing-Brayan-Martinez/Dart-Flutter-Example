@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_create.dart';
+import 'package:prueba_flutter/bloc/customer_bloc.dart';
 import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
 
 class CreateCustomerForm extends StatefulWidget {
 
@@ -17,7 +17,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
   GlobalKey<FormState> _formKey;
   Customer _customer;
   String _strategyFlag;
-  CustomerRepository _repository;
+  CustomerBloc _bloc;
 
   Future<Null> _showDialog(BuildContext context) async {
     Scaffold.of(context)
@@ -32,7 +32,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     _customer = new Customer();
     _customer.status = "Y";
     _strategyFlag = "";
-    _repository = new CustomerRepository();
+    _bloc = new CustomerBloc();
   }
 
   @override

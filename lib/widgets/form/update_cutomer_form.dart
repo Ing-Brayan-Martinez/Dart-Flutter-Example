@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_update.dart';
+import 'package:prueba_flutter/bloc/customer_bloc.dart';
 import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
 import 'package:prueba_flutter/shared/event/update_customer_event.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
@@ -16,7 +16,7 @@ class UpdateCustomerForm extends StatefulWidget {
 class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
   GlobalKey<FormState> _formKey;
-  CustomerRepository _repository;
+  CustomerBloc _bloc;
   Customer _oldCustomer;
   Customer _newCustomer;
   String _strategyFlag;
@@ -33,7 +33,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
     _formKey = new GlobalKey<FormState>();
     _newCustomer = new Customer();
     _oldCustomer = new Customer();
-    _repository = new CustomerRepository();
+    _bloc = new CustomerBloc();
   }
 
   @override

@@ -1,11 +1,12 @@
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
 import 'package:prueba_flutter/repository/customer_repository.dart';
+import 'package:prueba_flutter/repository/http/customer_repository_impl.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CustomerBloc {
 
-  final CustomerRepository _repository =  new CustomerRepository();
+  final CustomerRepository _repository =  new CustomerRepositoryImpl();
   // ignore: close_sinks
   final BehaviorSubject<Customer> _subject = new BehaviorSubject<Customer>();
   final BehaviorSubject<List<Customer>> _subjectList = new BehaviorSubject<List<Customer>>();
@@ -24,11 +25,11 @@ class CustomerBloc {
 
   void getCustomerById(int id) async {
     final Optional<Customer> res = await _repository.findById(id);
-   res.ifPresent((rest) { _subject.sink.add(rest); });
+    res.ifPresent((rest) { _subject.sink.add(rest); });
   }
 
   void getCustomers() async {
-    final List<Customer> res = await _repository.findAllList();
+    final List<Customer> res = await _repository.findAll();
     _subjectList.sink.add(res);
   }
 

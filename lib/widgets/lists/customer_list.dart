@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_update.dart';
-import 'package:prueba_flutter/bloc/customer_list_bloc.dart';
+import 'package:prueba_flutter/bloc/customer_bloc.dart';
 import 'package:prueba_flutter/domain/customer.dart';
 import 'package:prueba_flutter/screens/see_customer_screen.dart';
 import 'package:prueba_flutter/screens/update_customer_screen.dart';
@@ -20,7 +20,7 @@ class CustomerList extends StatefulWidget {
 
 class CustomerListState extends State<CustomerList> {
 
-  final CustomerListBloc _bloc = new CustomerListBloc();
+  final CustomerBloc _bloc = new CustomerBloc();
 
   @override
   void initState() {
@@ -59,7 +59,7 @@ class CustomerListState extends State<CustomerList> {
           ),
           Expanded(
             child: StreamBuilder<List<Customer>>(
-              stream: this._bloc.customerStream,
+              stream: this._bloc.customerListStream,
               // ignore: missing_return
               builder: (context, AsyncSnapshot<List<Customer>> snapshot) {
                 /// caso de uso para una swich expretions

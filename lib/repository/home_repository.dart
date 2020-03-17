@@ -1,74 +1,16 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:optional/optional_internal.dart';
 import 'package:prueba_flutter/domain/home.dart';
-import 'package:prueba_flutter/shared/provider/http.dart';
 
-class HomeRepository extends Http<Home> {
+abstract class HomeRepository  {
 
-  @override
-  void add(Home entity) async {
-    await getHttpManager()
-        .post("/homes", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
-  }
+  void add(Home entity);
 
-  @override
-  void update(Home entity) async {
-    await getHttpManager()
-        .put("/homes", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
-  }
+  void update(Home entity);
 
-  @override
-  void delete(List<Home> entitys) async {
-    Map<String, dynamic> body = new Map();
-    body['homes'] = entitys.map((cli) => cli.toJson()).toList();
+  void delete(List<Home> entitys);
 
-    await getHttpManager()
-        .put("/homes/estatus", data: body, options:
-    new Options(contentType: ContentType.parse("application/json")));
-  }
+  Future<List<Home>> findAll();
 
-  @override
-  Stream<Home> findAll() async* {
-    final Response res = await getHttpManager()
-        .get("/homes");
-
-    final List<Home> list = jsonDecode(res.data)
-        .map((result) => new Home.fromJson(result))
-        .toList();
-
-    for (Home value in list) {
-      yield value;
-    }
-  }
-
-  @override
-  Future<List<Home>> findAllList() async {
-    final Response res = await getHttpManager()
-        .get("/homes");
-
-    final List<Home> list = jsonDecode(res.data)
-        .map((result) => new Home.fromJson(result))
-        .toList();
-
-    return list;
-  }
-
-  @override
-  Future<Optional<Home>> findById(int id) async {
-    final Response res = await getHttpManager()
-        .get("/homes/${id}");
-
-    final Home single = jsonDecode(res.data)
-        .map((result) => new Home.fromJson(result))
-        .single;
-
-    return Optional.ofNullable(single);
-  }
-
+  Future<Optional<Home>> findById(int id);
 
 }

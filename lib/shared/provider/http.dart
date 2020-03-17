@@ -17,8 +17,7 @@ abstract class Http<T> {
   void add(T entity);
   void update(T entity);
   void delete(List<T> entitys);
-  Stream<T> findAll();
-  Future<List<T>> findAllList();
+  Future<List<T>> findAll();
   Future<Optional<T>> findById(int id);
 
 }

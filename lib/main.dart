@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/screens/create_invoice_screen.dart';
-import 'package:prueba_flutter/screens/data_screen.dart';
-import 'package:prueba_flutter/screens/home_screen.dart';
 
 import 'screens/create_customer_screen.dart';
+import 'screens/create_invoice_screen.dart';
+import 'screens/data_screen.dart';
+import 'screens/home_screen.dart';
 import 'screens/see_customer_screen.dart';
 import 'screens/update_customer_screen.dart';
 

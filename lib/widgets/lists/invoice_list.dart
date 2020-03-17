@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/bloc/invoice_list_bloc.dart';
+import 'package:prueba_flutter/bloc/invoice_bloc.dart';
 import 'package:prueba_flutter/domain/invoice.dart';
 import 'package:prueba_flutter/shared/event/invoice_item_event.dart';
 
@@ -16,7 +16,7 @@ class InvoiceList extends StatefulWidget {
 
 class InvoiceListState extends State<InvoiceList> {
 
-  final InvoiceListBloc _bloc = new InvoiceListBloc();
+  final InvoiceBloc _bloc = new InvoiceBloc();
 
   @override
   void initState() {
