@@ -23,7 +23,7 @@ dependencies:
   animated_floatactionbuttons: ^0.1.0
   #database
   optional: ^3.0.2+1
-  sqflite: ^1.1.6+3
+  #sqflite: ^1.1.6+3
   path_provider: ^1.2.0
   #http
   dio: ^2.1.13
@@ -47,6 +47,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   jaguar_serializer_cli: ^2.1.14
+
+module:
+  androidX: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
