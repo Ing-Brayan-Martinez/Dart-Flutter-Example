@@ -1,6 +1,6 @@
 import 'package:prueba_flutter/domain/home.dart';
 import 'package:prueba_flutter/repository/home_repository.dart';
-import 'package:prueba_flutter/repository/http/home_repository_impl.dart';
+import 'package:prueba_flutter/repository/memory/home_repository_impl.dart';
 import 'package:rxdart/rxdart.dart';
 
 class HomeBloc {

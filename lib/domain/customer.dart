@@ -8,10 +8,13 @@ class Customer {
   String mail;
   String phone;
   String status;
-  String createdAt;
-  String updatedAt;
+  DateTime createdAt;
+  DateTime updatedAt;
 
   Customer();
+
+
+  Customer.min(this.id, this.name);
 
   Customer.from(this.id, this.code, this.name, this.adress, this.mail, this.phone,
       this.status, this.createdAt, this.updatedAt);

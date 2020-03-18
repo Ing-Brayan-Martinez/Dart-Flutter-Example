@@ -1,7 +1,7 @@
 import 'package:optional/optional.dart';
 import 'package:prueba_flutter/domain/customer.dart';
 import 'package:prueba_flutter/repository/customer_repository.dart';
-import 'package:prueba_flutter/repository/http/customer_repository_impl.dart';
+import 'package:prueba_flutter/repository/memory//customer_repository_impl.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CustomerBloc {
