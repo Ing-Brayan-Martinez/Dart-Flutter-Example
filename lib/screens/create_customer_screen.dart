@@ -4,7 +4,7 @@ import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer
 import 'package:prueba_flutter/bloc/customer_bloc.dart';
 import 'package:prueba_flutter/domain/customer.dart';
 
-class CreateCustomeScreen extends StatelessWidget {
+class CreateCustomerScreen extends StatefulWidget {
 
   static const routeName = '/customer/create';
 
@@ -13,7 +13,7 @@ class CreateCustomeScreen extends StatelessWidget {
   String _strategyFlag;
   CustomerBloc _bloc;
 
-  CreateCustomeScreen({Key key}) {
+  CreateCustomerScreen({Key key}) {
     _formKey = new GlobalKey<FormState>();
     _customer = new Customer();
     _customer.status = "Y";
@@ -21,6 +21,11 @@ class CreateCustomeScreen extends StatelessWidget {
     _bloc = new CustomerBloc();
   }
 
+  @override
+  _CreateCustomerScreenState createState() => _CreateCustomerScreenState();
+}
+
+class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
   Future<Null> _showDialog(BuildContext context) async {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text("Se ha guardado el Cliente.")));
@@ -32,7 +37,7 @@ class CreateCustomeScreen extends StatelessWidget {
 
     final String arg = ModalRoute.of(context).settings.arguments;
     if (arg != null) {
-      _strategyFlag = arg;
+      widget._strategyFlag = arg;
     }
 
     return Scaffold(
@@ -45,7 +50,7 @@ class CreateCustomeScreen extends StatelessWidget {
           child: Builder(
               builder: (context) {
                 return Form(
-                  key: _formKey,
+                  key: widget._formKey,
                   child: Column(
                     children: <Widget>[
                       TextFormField(
@@ -58,7 +63,7 @@ class CreateCustomeScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.code = val;
+                          widget._customer.code = val;
                         },
                       ),
                       TextFormField(
@@ -71,7 +76,7 @@ class CreateCustomeScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.name = val.toUpperCase();
+                          widget._customer.name = val.toUpperCase();
                         },
                       ),
                       TextFormField(
@@ -84,7 +89,7 @@ class CreateCustomeScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.adress = val;
+                          widget._customer.adress = val;
                         },
                       ),
                       TextFormField(
@@ -97,7 +102,7 @@ class CreateCustomeScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.mail = val;
+                          widget._customer.mail = val;
                         },
                       ),
                       TextFormField(
@@ -110,7 +115,7 @@ class CreateCustomeScreen extends StatelessWidget {
                           return null;
                         },
                         onSaved: (val) {
-                          _customer.phone = val;
+                          widget._customer.phone = val;
                         },
                       ),
                       Container(
@@ -118,31 +123,29 @@ class CreateCustomeScreen extends StatelessWidget {
                         child: RaisedButton(
                             child: Text("Crear"),
                             onPressed: () {
-                              final form = _formKey.currentState;
+                              final form = widget._formKey.currentState;
                               if (form.validate()) {
 
                                 ///Salvar la entidad.
                                 form.save();
 
                                 /// Guardar entidad en el Back End
-                                _bloc.add(_customer);
+                                widget._bloc.add(widget._customer);
 
                                 ///Mostrar el dialogo de confirmacion.
                                 _showDialog(context).then((val) {
                                   final ReloadCustomerCreate _satrategy = new ReloadCustomerCreate(context);
 
-                                  switch (_strategyFlag) {
+                                  switch (widget._strategyFlag) {
 
                                     case ReloadCustomerCreate.HOME_STRATEGY:
-                                      _satrategy.setReloadCustomerFromHome();
+                                      _satrategy.setReloadCustomerFromHome().reload();
                                       break;
 
                                     case ReloadCustomerCreate.DATA_STRATEGY:
-                                      _satrategy.setReloadCustomerFromData();
+                                      _satrategy.setReloadCustomerFromData().reload();
                                       break;
                                   }
-
-                                  _satrategy.reloadCustomer();
 
                                 });
                               }
@@ -159,5 +162,4 @@ class CreateCustomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }

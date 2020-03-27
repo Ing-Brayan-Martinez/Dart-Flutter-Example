@@ -29,6 +29,12 @@ class CustomerListState extends State<CustomerList> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    this._bloc.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     return Container(
@@ -284,10 +290,4 @@ class CustomerListState extends State<CustomerList> {
     );
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    this._bloc.dispose();
-  }
-  
 }

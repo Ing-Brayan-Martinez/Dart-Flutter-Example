@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_from_data_strategy.dart';
+import 'package:prueba_flutter/behavior/strategy/reload_strategy.dart';
 import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_from_see_customer_strategy.dart';
-import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_update_strategy.dart';
 
 
 
-class ReloadCustomerUpdate implements ReloadCustomerUpdateStrategy {
+class ReloadCustomerUpdate implements ReloadStrategy {
 
   static const String SEE_STRATEGY = "See";
   static const String DATA_STRATEGY = "Data";
 
-  ReloadCustomerUpdateStrategy _strategy;
+  ReloadStrategy _strategy;
   BuildContext _context;
 
 
@@ -24,11 +24,11 @@ class ReloadCustomerUpdate implements ReloadCustomerUpdateStrategy {
   }
 
   void setReloadCustomerFromData() {
-    _strategy = new ReloadCustomerFromDataStrategy(_context) as ReloadCustomerUpdateStrategy;
+    _strategy = new ReloadCustomerFromDataStrategy(_context);
   }
 
   @override
-  void reloadCustomer() {
-    _strategy.reloadCustomer();
+  void reload() {
+    _strategy.reload();
   }
 }

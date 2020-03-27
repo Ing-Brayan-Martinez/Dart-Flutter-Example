@@ -40,7 +40,7 @@ class FloatingButtonState extends State<FloatingButton> with SingleTickerProvide
         tooltip: 'Crear clientes.',
         child: Icon(Icons.person_add),
         onPressed: () {
-          Navigator.pushNamed(context, CreateCustomeScreen.routeName,
+          Navigator.pushNamed(context, CreateCustomerScreen.routeName,
               arguments: ReloadCustomerCreate.HOME_STRATEGY);
         },
       ),

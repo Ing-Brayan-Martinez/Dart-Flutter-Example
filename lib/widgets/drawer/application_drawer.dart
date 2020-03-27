@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/delegated/delegated.dart';
+import 'package:prueba_flutter/behavior/delegated/drawer_delegate.dart';
 
+class ApplicationDrawer extends StatefulWidget {
+  final DrawerDelegate delegate;
 
-class AppDrawer extends StatefulWidget {
-
-  Delegated delegated;
-  
-  AppDrawer({Key key, this.delegated}) : super(key: key);
+  ApplicationDrawer({Key key, this.delegate}) : super(key: key);
 
   @override
-  AppDrawerState createState() => AppDrawerState();
-
+  ApplicationDrawerState createState() => ApplicationDrawerState();
 }
 
-class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixin {
-
+class ApplicationDrawerState extends State<ApplicationDrawer>
+    with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -27,7 +24,6 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context) {
-
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -36,8 +32,9 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
             accountName: Text("Ashish Rawat"),
             accountEmail: Text("ashishrawat2911@gmail.com"),
             currentAccountPicture: CircleAvatar(
-              backgroundColor:
-              Theme.of(context).platform == TargetPlatform.iOS ? Colors.blue : Colors.white,
+              backgroundColor: Theme.of(context).platform == TargetPlatform.iOS
+                  ? Colors.blue
+                  : Colors.white,
               child: Text(
                 "A",
                 style: TextStyle(fontSize: 40.0),
@@ -45,16 +42,15 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
             ),
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: ExactAssetImage('assets/astronauta.jpg'),
-                  fit: BoxFit.cover,
-                )
-            ),
+              image: ExactAssetImage('assets/astronauta.jpg'),
+              fit: BoxFit.cover,
+            )),
           ),
           ListTile(
             leading: Icon(Icons.home),
             title: Text("Inicio"),
             onTap: () {
-              widget.delegated.onHome(context);
+              widget.delegate.navigateToHome(context);
             },
           ),
           Divider(
@@ -67,14 +63,14 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
             leading: Icon(Icons.person),
             title: Text("Clientes"),
             onTap: () {
-              widget.delegated.onCustomer(context);
+              widget.delegate.navigateToCustomer(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.business),
             title: Text("Facturas"),
             onTap: () {
-              widget.delegated.onInvoiced(context);
+              widget.delegate.navigateToInvoiced(context);
             },
           ),
           Divider(
@@ -87,19 +83,18 @@ class AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixi
             leading: Icon(Icons.settings),
             title: Text("Configuracion"),
             onTap: () {
-              widget.delegated.onSettings(context);
+              widget.delegate.navigateToSettings(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.info_outline),
             title: Text("Acerca De"),
             onTap: () {
-              widget.delegated.onAbout(context);
+              widget.delegate.navigateToAbout(context);
             },
           ),
         ],
       ),
     );
   }
-
 }

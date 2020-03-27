@@ -21,12 +21,6 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
   Customer _newCustomer;
   String _strategyFlag;
 
-  Future<Null> _showDialog(BuildContext context) async {
-    Scaffold.of(context)
-        .showSnackBar(SnackBar(content: Text("Se ha actualizado el cliente.")));
-    return Future.delayed(new Duration(seconds: 1), () => null);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -176,7 +170,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
                                    }
 
-                                   _satrategy.reloadCustomer();
+                                   _satrategy.reload();
 
                                  });
                               }
@@ -192,5 +186,12 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
         );
 
   }
+
+  Future<Null> _showDialog(BuildContext context) async {
+    Scaffold.of(context)
+        .showSnackBar(SnackBar(content: Text("Se ha actualizado el cliente.")));
+    return Future.delayed(new Duration(seconds: 1), () => null);
+  }
+
 
 }

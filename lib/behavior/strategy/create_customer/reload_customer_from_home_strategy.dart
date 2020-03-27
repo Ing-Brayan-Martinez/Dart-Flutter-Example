@@ -3,12 +3,12 @@ import 'package:prueba_flutter/behavior/observer/observer.dart';
 import 'package:prueba_flutter/behavior/observer/observer_action.dart';
 import 'package:prueba_flutter/behavior/observer/observer_event.dart';
 import 'package:prueba_flutter/behavior/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_create_strategy.dart';
+import 'package:prueba_flutter/behavior/strategy/reload_strategy.dart';
 import 'package:prueba_flutter/screens/data_screen.dart';
 
 
 
-class ReloadCustomerFromHomeStrategy extends ReloadCustomerCreateStrategy {
+class ReloadCustomerFromHomeStrategy extends ReloadStrategy {
 
   Observer _observer;
   BuildContext _context;
@@ -19,7 +19,7 @@ class ReloadCustomerFromHomeStrategy extends ReloadCustomerCreateStrategy {
   }
 
   @override
-  void reloadCustomer() {
+  void reload() {
     //destruir la ventana anterior.
     Navigator.of(_context).pop();
 

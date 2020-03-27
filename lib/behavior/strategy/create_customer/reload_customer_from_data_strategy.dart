@@ -3,10 +3,10 @@ import 'package:prueba_flutter/behavior/observer/observer.dart';
 import 'package:prueba_flutter/behavior/observer/observer_action.dart';
 import 'package:prueba_flutter/behavior/observer/observer_event.dart';
 import 'package:prueba_flutter/behavior/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_create_strategy.dart';
+import 'package:prueba_flutter/behavior/strategy/reload_strategy.dart';
 
 
-class ReloadCustomerFromDataStrategy extends ReloadCustomerCreateStrategy {
+class ReloadCustomerFromDataStrategy extends ReloadStrategy {
 
   Observer _observer;
   BuildContext _context;
@@ -17,7 +17,7 @@ class ReloadCustomerFromDataStrategy extends ReloadCustomerCreateStrategy {
   }
 
   @override
-  void reloadCustomer() {
+  void reload() {
     _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
 
     Navigator.of(_context).pop();
