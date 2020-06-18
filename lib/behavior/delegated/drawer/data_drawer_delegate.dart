@@ -6,6 +6,7 @@ import 'package:prueba_flutter/behavior/observer/observer_event.dart';
 import 'package:prueba_flutter/behavior/observer/observer_singlenton.dart';
 
 class DataDrawerDelegated implements DrawerDelegate {
+
   Observer _observer;
 
   DataDrawerDelegated() {

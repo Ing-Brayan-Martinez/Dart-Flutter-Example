@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prueba_flutter">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that

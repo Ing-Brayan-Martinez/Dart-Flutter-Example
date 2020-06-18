@@ -3,6 +3,7 @@ import 'package:prueba_flutter/behavior/delegated/drawer_delegate.dart';
 import 'package:prueba_flutter/screens/data_screen.dart';
 
 class HomeDrawerDelegate implements DrawerDelegate {
+
   @override
   void navigateToHome(BuildContext context) {
     Navigator.of(context).pop();

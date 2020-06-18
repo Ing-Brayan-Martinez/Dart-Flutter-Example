@@ -135,8 +135,8 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       child: Text("Crear"),
                       onPressed: () {
                         final form = _formKey.currentState;
+
                         if (form.validate()) {
-                          ///Salvar la entidad.
                           form.save();
 
                           /// Guardar entidad en el Back End

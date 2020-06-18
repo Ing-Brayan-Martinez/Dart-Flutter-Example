@@ -9,9 +9,7 @@ import 'screens/see_customer_screen.dart';
 import 'screens/update_customer_screen.dart';
 
 /// Correr la aplicacion
-void main(List<String> arg) async {
-  runApp(new MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
