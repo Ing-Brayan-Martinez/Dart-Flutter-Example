@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 class CreateInvoiceScreen extends StatelessWidget {
-
   static const routeName = '/invoice/create';
 
   String _code = '';

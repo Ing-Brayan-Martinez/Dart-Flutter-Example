@@ -1,12 +1,11 @@
-import 'package:prueba_flutter/domain/invoice.dart';
+import 'package:prueba_flutter/domain/entity/invoice.dart';
 import 'package:prueba_flutter/repository/invoice_repository.dart';
-import 'package:prueba_flutter/repository/memory/invoice_repository_impl.dart';
 import 'package:rxdart/rxdart.dart';
 
 
 class InvoiceBloc {
 
-  final InvoiceRepository _repository =  new InvoiceRepositoryImpl();
+  final InvoiceRepository _repository =  new InvoiceMemoryRepository();
   final BehaviorSubject<List<Invoice>> _subject = new BehaviorSubject<List<Invoice>>();
 
   void getInvoices() async {

@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/domain/entity/customer.dart';
 
 class CustomerItemEvent {
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_update.dart';
 import 'package:prueba_flutter/bloc/customer_bloc.dart';
-import 'package:prueba_flutter/domain/customer.dart';
-import 'package:prueba_flutter/screens/see_customer_screen.dart';
-import 'package:prueba_flutter/screens/update_customer_screen.dart';
-import 'package:prueba_flutter/shared/event/customer_item_event.dart';
-import 'package:prueba_flutter/shared/event/update_customer_event.dart';
+import 'package:prueba_flutter/domain/entity/customer.dart';
+import 'package:prueba_flutter/domain/event/customer_item_event.dart';
+import 'package:prueba_flutter/domain/event/update_customer_event.dart';
+import 'package:prueba_flutter/screens/customer_see_screen.dart';
+import 'package:prueba_flutter/screens/customer_update_screen.dart';
 
 
 

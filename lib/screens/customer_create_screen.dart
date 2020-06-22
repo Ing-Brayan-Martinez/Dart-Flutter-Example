@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_create.dart';
 import 'package:prueba_flutter/bloc/customer_bloc.dart';
-import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/domain/entity/customer.dart';
 
 class CreateCustomerScreen extends StatefulWidget {
 

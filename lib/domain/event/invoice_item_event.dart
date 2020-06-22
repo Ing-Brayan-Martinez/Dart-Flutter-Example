@@ -1,6 +1,6 @@
 
 
-import 'package:prueba_flutter/domain/invoice.dart';
+import 'package:prueba_flutter/domain/entity/invoice.dart';
 
 class InvoiceItemEvent {
 

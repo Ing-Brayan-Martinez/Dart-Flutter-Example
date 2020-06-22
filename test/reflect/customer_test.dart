@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:core';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/domain/entity/customer.dart';
 
 void main() {
 

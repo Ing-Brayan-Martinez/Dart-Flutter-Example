@@ -1,16 +1,5 @@
 name: prueba_flutter
 description: A new Flutter project.
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
 environment:
@@ -21,27 +10,22 @@ dependencies:
         sdk: flutter
     #ui
     animated_floatactionbuttons: ^0.1.0
+    flutter_swiper: ^1.1.6
+    cupertino_icons: ^0.1.2
     #database
     optional: ^3.0.2+1
-    #sqflite: ^1.1.6+3
     path_provider: ^1.2.0
+    #sqflite: ^1.1.6+3
     #http
     dio: ^2.1.13
     dio_flutter_transformer: ^2.0.10
     jaguar_serializer: ^2.2.12
+    #depency injections
+    flutter_modular: ^1.2.5+1
     #log
     log4d: ^1.0.4
     #reactive
     rxdart: ^0.22.6
-
-    #mi libreria
-    #persistence_flutter:
-    #  path: ../persistence_flutter
-
-
-    # The following adds the Cupertino Icons font to your application.
-    # Use with the CupertinoIcons class for iOS style icons.
-    cupertino_icons: ^0.1.2
 
 dev_dependencies:
     flutter_test:
@@ -63,9 +47,6 @@ flutter:
     uses-material-design: true
 
     # To add assets to your application, add an assets section, like this:
-    # assets:
-    #  - images/a_dot_burr.jpeg
-    #  - images/a_dot_ham.jpeg
     assets:
         - assets/astronauta.jpg
         - assets/image1.jpg
@@ -76,12 +57,6 @@ flutter:
         - assets/image6.jpg
         - assets/image7.jpg
         - assets/images.jpeg
-
-    # An image asset can refer to one or more resolution-specific "variants", see
-    # https://flutter.dev/assets-and-images/#resolution-aware.
-
-    # For details regarding adding assets from package dependencies, see
-    # https://flutter.dev/assets-and-images/#from-packages
 
     # To add custom fonts to your application, add a fonts section here,
     # in this "flutter" section. Each entry in this list should have a

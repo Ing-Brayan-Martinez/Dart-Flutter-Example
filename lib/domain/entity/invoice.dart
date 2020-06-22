@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/domain/customer.dart';
+import 'package:prueba_flutter/domain/entity/customer.dart';
 
 class Invoice {
 
@@ -13,6 +13,8 @@ class Invoice {
   String status;
   DateTime createdAt;
   DateTime updatedAt;
+
+  Invoice();
 
   Invoice.from(this.id, this.code, this.customer, this.baseAmt, this.taxAmt,
       this.taxPorcentage, this.totalAmt, this.status, this.createdAt,

@@ -1,8 +1,7 @@
 
 import 'package:dio/dio.dart';
-import 'package:optional/optional.dart';
 
-abstract class Http<T> {
+class Http {
 
   Dio getHttpManager() {
     final BaseOptions options = new BaseOptions(
@@ -13,11 +12,5 @@ abstract class Http<T> {
 
     return new Dio(options);
   }
-
-  void add(T entity);
-  void update(T entity);
-  void delete(List<T> entitys);
-  Future<List<T>> findAll();
-  Future<Optional<T>> findById(int id);
 
 }

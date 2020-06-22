@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:prueba_flutter/behavior/delegated/drawer/home_drawer_delegate.dart';
 import 'package:prueba_flutter/behavior/delegated/search/custom_search_delegate.dart';
 import 'package:prueba_flutter/bloc/home_bloc.dart';
-import 'package:prueba_flutter/domain/home.dart';
+import 'package:prueba_flutter/domain/entity/home.dart';
 import 'package:prueba_flutter/widgets/drawer/application_drawer.dart';
 import 'package:prueba_flutter/widgets/floating/floating_button.dart';
 
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   HomeBloc _bloc;
 
   HomeScreen({Key key}) {
-    _bloc = new HomeBloc();
+    _bloc = Modular.get<HomeBloc>();
     _bloc.getHomes();
   }
 
@@ -56,9 +57,7 @@ class HomeScreen extends StatelessWidget {
                   /// caso de uso para una swich expretions
 
                   ///Si hay stream con data
-                  if (snapshot.hasData &&
-                      snapshot.data != null &&
-                      snapshot.data.length > 0) {
+                  if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
                     return _buildDataWidget(context, snapshot.data);
                   }
 
@@ -84,14 +83,14 @@ class HomeScreen extends StatelessWidget {
   /// de progreso mientras se consulta
   /// la data.
   Widget _buildLoadingWidget(BuildContext context) {
-    return Center();
+    return Center(child: CircularProgressIndicator());
   }
 
   /// Esto es para mostrar algo en
   /// el caso que se produsca un error
   /// al momento de consultar la data.
   Widget _buildErrorWidget(BuildContext context, Object object) {
-    return Center();
+    return Center(child: Text(object.toString()));
   }
 
   /// Esto es para mostrar la data

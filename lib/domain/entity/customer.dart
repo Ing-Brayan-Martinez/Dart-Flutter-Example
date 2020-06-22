@@ -13,7 +13,6 @@ class Customer {
 
   Customer();
 
-
   Customer.min(this.id, this.name);
 
   Customer.from(this.id, this.code, this.name, this.adress, this.mail, this.phone,
