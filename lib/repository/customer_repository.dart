@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:optional/optional.dart';
@@ -82,14 +81,14 @@ class CustomerHttpRepository extends Http implements CustomerRepository {
   void add(Customer entity) async {
     await getHttpManager()
         .post("/customers", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
   void update(Customer entity) async {
     await getHttpManager()
         .put("/customers", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
@@ -99,7 +98,7 @@ class CustomerHttpRepository extends Http implements CustomerRepository {
 
     await getHttpManager()
         .put("/customers/estatus", data: body, options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override

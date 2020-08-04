@@ -97,14 +97,14 @@ class InvoiceHttpRepository extends Http implements InvoiceRepository {
   void add(Invoice entity) async {
     await getHttpManager()
         .post("/invoices", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
   void update(Invoice entity) async {
     await getHttpManager()
         .put("/invoices", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
@@ -114,7 +114,7 @@ class InvoiceHttpRepository extends Http implements InvoiceRepository {
 
     await getHttpManager()
         .put("/invoices/estatus", data: body, options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override

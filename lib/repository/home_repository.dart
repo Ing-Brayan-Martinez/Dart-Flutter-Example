@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:optional/optional_internal.dart';
@@ -68,14 +67,14 @@ class HomeHttpRepository extends Http implements HomeRepository {
   void add(Home entity) async {
     await getHttpManager()
         .post("/homes", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
   void update(Home entity) async {
     await getHttpManager()
         .put("/homes", data: entity.toJson(), options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
@@ -85,7 +84,7 @@ class HomeHttpRepository extends Http implements HomeRepository {
 
     await getHttpManager()
         .put("/homes/estatus", data: body, options:
-    new Options(contentType: ContentType.parse("application/json")));
+    new Options(contentType: "application/json"));
   }
 
   @override
