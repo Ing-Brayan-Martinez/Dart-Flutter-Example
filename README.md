@@ -13,7 +13,7 @@
 
 En estos tiempos las plataformas mobiles han sufrido grandes cambios, empesando que hoy solo existen 2 plataformas principales de desarrollo
 Android, IOS, luego tenemos la gran variedad de opciones tecnologicas que existen en el para ofrecer la creacion de Apps Moviles con la misma 
-base de codigo, viendo esto Google desicidio crear su version de framework para estos fines, dicha es llamado Flutter SDK.
+base de codigo, viendo esto Google desicidio crear su version de framework para estos fines, dicha herramienta es llamado Flutter SDK.
 
 ### Tabla de Contenidos
 
