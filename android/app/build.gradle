@@ -47,8 +47,21 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable = true
+            jniDebuggable = true
+            renderscriptDebuggable = true
+
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable = true
             jniDebuggable = true
@@ -77,15 +90,6 @@ flutter {
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
-    }
-    maven {
-        url "https://jitpack.io"
-    }
-    maven {
-        url 'https://maven.fabric.io/public'
-    }
 }
 
 dependencies {
