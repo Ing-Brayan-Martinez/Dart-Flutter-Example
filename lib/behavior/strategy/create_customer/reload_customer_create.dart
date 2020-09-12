@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_from_data_strategy.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_from_home_strategy.dart';
+import 'package:dart_flutter_example/behavior/strategy/create_customer/reload_customer_from_data_strategy.dart';
+import 'package:dart_flutter_example/behavior/strategy/create_customer/reload_customer_from_home_strategy.dart';
 
 import '../reload_strategy.dart';
 

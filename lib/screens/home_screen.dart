@@ -1,11 +1,11 @@
+import 'package:dart_flutter_example/behavior/delegated/drawer/home_drawer_delegate.dart';
+import 'package:dart_flutter_example/behavior/delegated/search/custom_search_delegate.dart';
+import 'package:dart_flutter_example/bloc/home_bloc.dart';
+import 'package:dart_flutter_example/domain/entity/home.dart';
+import 'package:dart_flutter_example/widgets/drawer/application_drawer.dart';
+import 'package:dart_flutter_example/widgets/floating/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:prueba_flutter/behavior/delegated/drawer/home_drawer_delegate.dart';
-import 'package:prueba_flutter/behavior/delegated/search/custom_search_delegate.dart';
-import 'package:prueba_flutter/bloc/home_bloc.dart';
-import 'package:prueba_flutter/domain/entity/home.dart';
-import 'package:prueba_flutter/widgets/drawer/application_drawer.dart';
-import 'package:prueba_flutter/widgets/floating/floating_button.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = '/';

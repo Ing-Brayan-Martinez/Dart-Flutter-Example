@@ -1,21 +1,21 @@
+import 'package:dart_flutter_example/bloc/customer_bloc.dart';
+import 'package:dart_flutter_example/bloc/home_bloc.dart';
+import 'package:dart_flutter_example/bloc/invoice_bloc.dart';
+import 'package:dart_flutter_example/factory/customer_factory.dart';
+import 'package:dart_flutter_example/factory/home_factory.dart';
+import 'package:dart_flutter_example/factory/invoice_factory.dart';
+import 'package:dart_flutter_example/repository/customer_repository.dart';
+import 'package:dart_flutter_example/repository/home_repository.dart';
+import 'package:dart_flutter_example/repository/invoice_repository.dart';
+import 'package:dart_flutter_example/screens/customer_create_screen.dart';
+import 'package:dart_flutter_example/screens/customer_see_screen.dart';
+import 'package:dart_flutter_example/screens/customer_update_screen.dart';
+import 'package:dart_flutter_example/screens/data_screen.dart';
+import 'package:dart_flutter_example/screens/home_screen.dart';
+import 'package:dart_flutter_example/screens/invoice_create_screen.dart';
+import 'package:dart_flutter_example/shared/provider/http.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:prueba_flutter/bloc/customer_bloc.dart';
-import 'package:prueba_flutter/bloc/home_bloc.dart';
-import 'package:prueba_flutter/bloc/invoice_bloc.dart';
-import 'package:prueba_flutter/factory/customer_factory.dart';
-import 'package:prueba_flutter/factory/home_factory.dart';
-import 'package:prueba_flutter/factory/invoice_factory.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
-import 'package:prueba_flutter/repository/home_repository.dart';
-import 'package:prueba_flutter/repository/invoice_repository.dart';
-import 'package:prueba_flutter/screens/customer_create_screen.dart';
-import 'package:prueba_flutter/screens/customer_see_screen.dart';
-import 'package:prueba_flutter/screens/customer_update_screen.dart';
-import 'package:prueba_flutter/screens/data_screen.dart';
-import 'package:prueba_flutter/screens/home_screen.dart';
-import 'package:prueba_flutter/screens/invoice_create_screen.dart';
-import 'package:prueba_flutter/shared/provider/http.dart';
 
 
 

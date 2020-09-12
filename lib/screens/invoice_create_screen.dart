@@ -1,13 +1,20 @@
 
 import 'package:flutter/material.dart';
 
-class CreateInvoiceScreen extends StatelessWidget {
+class CreateInvoiceScreen extends StatefulWidget {
   static const routeName = '/invoice/create';
+
+
+  CreateInvoiceScreen({Key key}) : super(key: key);
+
+  @override
+  _CreateInvoiceScreenState createState() => _CreateInvoiceScreenState();
+}
+
+class _CreateInvoiceScreenState extends State<CreateInvoiceScreen> {
 
   String _code = '';
   String _name = '';
-
-  CreateInvoiceScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +55,4 @@ class CreateInvoiceScreen extends StatelessWidget {
         ),
     );
   }
-
-
 }

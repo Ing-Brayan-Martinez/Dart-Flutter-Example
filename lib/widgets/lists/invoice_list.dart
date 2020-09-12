@@ -1,7 +1,7 @@
+import 'package:dart_flutter_example/bloc/invoice_bloc.dart';
+import 'package:dart_flutter_example/domain/entity/invoice.dart';
+import 'package:dart_flutter_example/domain/event/invoice_item_event.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/bloc/invoice_bloc.dart';
-import 'package:prueba_flutter/domain/entity/invoice.dart';
-import 'package:prueba_flutter/domain/event/invoice_item_event.dart';
 
 
 

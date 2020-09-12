@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/delegated/drawer_delegate.dart';
-import 'package:prueba_flutter/screens/data_screen.dart';
+import 'package:dart_flutter_example/behavior/delegated/drawer_delegate.dart';
+import 'package:dart_flutter_example/screens/data_screen.dart';
 
 class HomeDrawerDelegate implements DrawerDelegate {
 

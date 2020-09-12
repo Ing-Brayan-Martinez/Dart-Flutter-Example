@@ -1,5 +1,5 @@
-import 'package:prueba_flutter/domain/entity/invoice.dart';
-import 'package:prueba_flutter/repository/invoice_repository.dart';
+import 'package:dart_flutter_example/domain/entity/invoice.dart';
+import 'package:dart_flutter_example/repository/invoice_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 

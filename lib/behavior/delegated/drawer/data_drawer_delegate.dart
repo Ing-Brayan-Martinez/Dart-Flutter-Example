@@ -1,9 +1,9 @@
+import 'package:dart_flutter_example/behavior/delegated/drawer_delegate.dart';
+import 'package:dart_flutter_example/behavior/observer/observer.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_action.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_event.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_singlenton.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/delegated/drawer_delegate.dart';
-import 'package:prueba_flutter/behavior/observer/observer.dart';
-import 'package:prueba_flutter/behavior/observer/observer_action.dart';
-import 'package:prueba_flutter/behavior/observer/observer_event.dart';
-import 'package:prueba_flutter/behavior/observer/observer_singlenton.dart';
 
 class DataDrawerDelegated implements DrawerDelegate {
 

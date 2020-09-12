@@ -1,8 +1,8 @@
+import 'package:dart_flutter_example/behavior/strategy/update_customer/reload_customer_update.dart';
+import 'package:dart_flutter_example/bloc/customer_bloc.dart';
+import 'package:dart_flutter_example/domain/entity/customer.dart';
+import 'package:dart_flutter_example/domain/event/update_customer_event.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_update.dart';
-import 'package:prueba_flutter/bloc/customer_bloc.dart';
-import 'package:prueba_flutter/domain/entity/customer.dart';
-import 'package:prueba_flutter/domain/event/update_customer_event.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
 

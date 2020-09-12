@@ -1,7 +1,7 @@
+import 'package:dart_flutter_example/behavior/strategy/create_customer/reload_customer_from_data_strategy.dart';
+import 'package:dart_flutter_example/behavior/strategy/reload_strategy.dart';
+import 'package:dart_flutter_example/behavior/strategy/update_customer/reload_customer_from_see_customer_strategy.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_from_data_strategy.dart';
-import 'package:prueba_flutter/behavior/strategy/reload_strategy.dart';
-import 'package:prueba_flutter/behavior/strategy/update_customer/reload_customer_from_see_customer_strategy.dart';
 
 
 

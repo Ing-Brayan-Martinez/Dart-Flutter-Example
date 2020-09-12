@@ -2,8 +2,8 @@
 import 'dart:convert';
 import 'dart:core';
 
+import 'package:dart_flutter_example/domain/entity/customer.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prueba_flutter/domain/entity/customer.dart';
 
 void main() {
 

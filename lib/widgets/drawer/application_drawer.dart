@@ -1,5 +1,5 @@
+import 'package:dart_flutter_example/behavior/delegated/drawer_delegate.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/delegated/drawer_delegate.dart';
 
 class ApplicationDrawer extends StatefulWidget {
   final DrawerDelegate delegate;

@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/domain/entity/customer.dart';
+import 'package:dart_flutter_example/domain/entity/customer.dart';
 
 class Invoice {
 

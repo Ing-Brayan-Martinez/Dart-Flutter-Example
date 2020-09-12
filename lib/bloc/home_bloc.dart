@@ -1,5 +1,5 @@
-import 'package:prueba_flutter/domain/entity/home.dart';
-import 'package:prueba_flutter/repository/home_repository.dart';
+import 'package:dart_flutter_example/domain/entity/home.dart';
+import 'package:dart_flutter_example/repository/home_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 

@@ -1,16 +1,16 @@
+import 'package:dart_flutter_example/behavior/delegated/drawer/data_drawer_delegate.dart';
+import 'package:dart_flutter_example/behavior/observer/observer.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_action.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_event.dart';
+import 'package:dart_flutter_example/behavior/observer/observer_singlenton.dart';
+import 'package:dart_flutter_example/behavior/strategy/create_customer/reload_customer_create.dart';
+import 'package:dart_flutter_example/domain/event/create_event.dart';
+import 'package:dart_flutter_example/screens/customer_create_screen.dart';
+import 'package:dart_flutter_example/screens/invoice_create_screen.dart';
+import 'package:dart_flutter_example/widgets/drawer/application_drawer.dart';
+import 'package:dart_flutter_example/widgets/lists/customer_list.dart';
+import 'package:dart_flutter_example/widgets/lists/invoice_list.dart';
 import 'package:flutter/material.dart';
-import 'package:prueba_flutter/behavior/delegated/drawer/data_drawer_delegate.dart';
-import 'package:prueba_flutter/behavior/observer/observer.dart';
-import 'package:prueba_flutter/behavior/observer/observer_action.dart';
-import 'package:prueba_flutter/behavior/observer/observer_event.dart';
-import 'package:prueba_flutter/behavior/observer/observer_singlenton.dart';
-import 'package:prueba_flutter/behavior/strategy/create_customer/reload_customer_create.dart';
-import 'package:prueba_flutter/domain/event/create_event.dart';
-import 'package:prueba_flutter/screens/customer_create_screen.dart';
-import 'package:prueba_flutter/screens/invoice_create_screen.dart';
-import 'package:prueba_flutter/widgets/drawer/application_drawer.dart';
-import 'package:prueba_flutter/widgets/lists/customer_list.dart';
-import 'package:prueba_flutter/widgets/lists/invoice_list.dart';
 
 class DataScreen extends StatefulWidget {
   static const routeName = '/data';

@@ -14,7 +14,7 @@ packages:
       name: ansicolor
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.4"
   args:
     dependency: transitive
     description:
@@ -84,7 +84,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.9"
+    version: "3.0.10"
   fake_async:
     dependency: transitive
     description:
@@ -185,7 +185,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.11"
+    version: "1.6.14"
   path_provider_linux:
     dependency: transitive
     description:
@@ -206,7 +206,7 @@ packages:
       name: path_provider_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   platform:
     dependency: transitive
     description:
@@ -241,7 +241,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.7"
+    version: "0.7.9"
   shelf_web_socket:
     dependency: transitive
     description:

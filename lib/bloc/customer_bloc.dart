@@ -1,7 +1,7 @@
+import 'package:dart_flutter_example/domain/entity/customer.dart';
+import 'package:dart_flutter_example/repository/customer_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:optional/optional.dart';
-import 'package:prueba_flutter/domain/entity/customer.dart';
-import 'package:prueba_flutter/repository/customer_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CustomerBloc {
@@ -13,6 +13,8 @@ class CustomerBloc {
 
   CustomerBloc() {
     this._repository = Modular.get<CustomerMemoryRepository>();
+
+
   }
 
   void add(Customer entity) async {

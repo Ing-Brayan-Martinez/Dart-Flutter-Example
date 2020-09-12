@@ -1,5 +1,5 @@
 
-import 'package:prueba_flutter/domain/entity/home.dart';
+import 'package:dart_flutter_example/domain/entity/home.dart';
 
 
 class HomeFactory {
