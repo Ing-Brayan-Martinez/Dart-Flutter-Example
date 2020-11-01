@@ -2,7 +2,7 @@
 <h1 align="center">Presentacion de una solucion tecnologica de ECommerce</h1>
 
 <h1 align="center">
-  <img src="https://github.com/Ing-Brayan-Martinez/Dart-ECommerce-Architecture-Example/blob/master/assest/ecommerce-workana-glosario-850x400.jpg" alt="Ecommerce" width="800"/>
+  <img src="https://github.com/Ing-Brayan-Martinez/Dart-ECommerce-Architecture-Example/blob/master/assets/ecommerce-workana-glosario-850x400.jpg" alt="Ecommerce" width="800"/>
 </h1>
 
 [![Build Status](https://travis-ci.org/leerob/dart-react-todo.svg?branch=master)](https://travis-ci.org/leerob/dart-react-todo)
