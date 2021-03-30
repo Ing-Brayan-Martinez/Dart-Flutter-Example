@@ -29,33 +29,26 @@ class CustomerListState extends State<CustomerList> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    this._bloc.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-
-    return Container(
-      child: Column(
+    return new Container(
+      child: new Column(
         children: <Widget>[
-          Container(
+          new Container(
             //color: Colors.yellowAccent,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 FlatButton.icon(
-                  icon: Icon(Icons.refresh), //`Icon` to display
-                  label: Text('Recargar'), //`Text` to display
+                  icon: new Icon(Icons.refresh), //`Icon` to display
+                  label: new Text('Recargar'), //`Text` to display
                   onPressed: () {
                     this._bloc.getCustomers();
                   },
                 ),
                 FlatButton.icon(
-                  icon: Icon(Icons.filter_list), //`Icon` to display
-                  label: Text('Filtrar'), //`Text` to display
+                  icon: new Icon(Icons.filter_list), //`Icon` to display
+                  label: new Text('Filtrar'), //`Text` to display
                   onPressed: () {
                     this._showFilterDialog(context);
                   },
@@ -63,8 +56,8 @@ class CustomerListState extends State<CustomerList> {
               ],
             ),
           ),
-          Expanded(
-            child: StreamBuilder<List<Customer>>(
+          new Expanded(
+            child: new StreamBuilder<List<Customer>>(
               stream: this._bloc.customerListStream,
               // ignore: missing_return
               builder: (context, AsyncSnapshot<List<Customer>> snapshot) {
@@ -91,6 +84,12 @@ class CustomerListState extends State<CustomerList> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    this._bloc.dispose();
   }
 
   /// Esto es para mostrar una barra
@@ -228,7 +227,7 @@ class CustomerListState extends State<CustomerList> {
       barrierDismissible: false, // dialog is dismissible with a tap on the barrier
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Coloque los datos para filtrar.'),
+          title: Text('Coloque los datos para filtrarjjjjjjjj.'),
           content: SingleChildScrollView(
             child: Container(
               height: 200,

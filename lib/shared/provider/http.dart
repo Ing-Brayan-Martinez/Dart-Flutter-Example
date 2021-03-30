@@ -1,7 +1,7 @@
 
 import 'package:dio/dio.dart';
 
-class Http {
+abstract class Http {
 
   Dio getHttpManager() {
     final BaseOptions options = new BaseOptions(

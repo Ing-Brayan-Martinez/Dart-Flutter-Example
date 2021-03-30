@@ -5,13 +5,13 @@ import 'package:dart_flutter_example/shared/provider/http.dart';
 import 'package:dio/dio.dart';
 import 'package:optional/optional.dart';
 
-abstract class CustomerRepository {
+abstract class ICustomerRepository {
 
   void add(Customer entity);
 
   void update(Customer entity);
 
-  void delete(List<Customer> entitys);
+  void delete(List<Customer> entity);
 
   Future<List<Customer>> findAll();
 
@@ -23,7 +23,7 @@ abstract class CustomerRepository {
 
 }
 
-class CustomerMemoryRepository implements CustomerRepository {
+class CustomerMemoryRepository implements ICustomerRepository {
 
   List<Customer> _list = [
     new Customer.from(1,"0101","Epa","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
@@ -75,13 +75,12 @@ class CustomerMemoryRepository implements CustomerRepository {
 
 }
 
-class CustomerHttpRepository extends Http implements CustomerRepository {
+class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   void add(Customer entity) async {
     await getHttpManager()
-        .post("/customers", data: entity.toJson(), options:
-    new Options(contentType: "application/json"));
+        .post("/customers", data: entity.toJson(), options: new Options(contentType: "application/json"));
   }
 
   @override

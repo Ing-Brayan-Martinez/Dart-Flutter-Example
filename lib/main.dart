@@ -13,7 +13,6 @@ import 'package:dart_flutter_example/screens/customer_update_screen.dart';
 import 'package:dart_flutter_example/screens/data_screen.dart';
 import 'package:dart_flutter_example/screens/home_screen.dart';
 import 'package:dart_flutter_example/screens/invoice_create_screen.dart';
-import 'package:dart_flutter_example/shared/provider/http.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -40,8 +39,6 @@ class MyAppModule extends MainModule {
     Bind((_) => InvoiceBloc()),
     Bind((_) => InvoiceMemoryRepository()),
     Bind((_) => InvoiceFactory()),
-    //http
-    Bind((_) => Http()),
   ];
 
   // Provide all the routes for your module
@@ -57,7 +54,7 @@ class MyAppModule extends MainModule {
 
   // Provide the root widget associated with your module
   @override
-  Widget get bootstrap => MyApp();
+  Widget get bootstrap => new MyApp();
 
 }
 

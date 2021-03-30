@@ -10,8 +10,8 @@ class ApplicationDrawer extends StatefulWidget {
   ApplicationDrawerState createState() => ApplicationDrawerState();
 }
 
-class ApplicationDrawerState extends State<ApplicationDrawer>
-    with SingleTickerProviderStateMixin {
+class ApplicationDrawerState extends State<ApplicationDrawer> with SingleTickerProviderStateMixin {
+
   @override
   void initState() {
     super.initState();

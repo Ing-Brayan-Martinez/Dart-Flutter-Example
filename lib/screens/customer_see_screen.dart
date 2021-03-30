@@ -21,9 +21,9 @@ class SeeCustomerScreen extends StatelessWidget {
       _customer = customer;
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Datos del Cliente"),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Datos del Cliente"),
       ),
       body: ListView(
         children: <Widget>[

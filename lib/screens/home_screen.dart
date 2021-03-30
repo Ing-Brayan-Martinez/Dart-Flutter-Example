@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      '',
+                      'Hola',
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 25),
                     ),
@@ -51,26 +51,26 @@ class HomeScreen extends StatelessWidget {
               ),
               Expanded(
                   child: StreamBuilder<List<Home>>(
-                stream: this._bloc.homeStream,
-                // ignore: missing_return
-                builder: (context, AsyncSnapshot<List<Home>> snapshot) {
-                  /// caso de uso para una swich expretions
+                    stream: this._bloc.homeStream,
+                    // ignore: missing_return
+                    builder: (context, AsyncSnapshot<List<Home>> snapshot) {
+                      /// caso de uso para una swich expretions
 
-                  ///Si hay stream con data
-                  if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
-                    return _buildDataWidget(context, snapshot.data);
-                  }
+                      ///Si hay stream con data
+                      if (snapshot.hasData && snapshot.data != null && snapshot.data.length > 0) {
+                        return _buildDataWidget(context, snapshot.data);
+                      }
 
-                  ///Si hay un error
-                  if (snapshot.hasError) {
-                    return _buildErrorWidget(context, snapshot.error);
-                  }
+                      ///Si hay un error
+                      if (snapshot.hasError) {
+                        return _buildErrorWidget(context, snapshot.error);
+                      }
 
-                  ///Si no hay data
-                  if (!snapshot.hasData) {
-                    return _buildLoadingWidget(context);
-                  }
-                },
+                      ///Si no hay data
+                      if (!snapshot.hasData) {
+                        return _buildLoadingWidget(context);
+                      }
+                    },
               )),
             ],
           ),
