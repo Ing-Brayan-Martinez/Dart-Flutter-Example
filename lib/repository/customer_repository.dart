@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:dart_flutter_example/domain/entity/customer.dart';
+import 'package:dart_flutter_example/helper/provider/http.dart';
 import 'package:dart_flutter_example/shared/provider/http.dart';
 import 'package:dio/dio.dart';
 import 'package:optional/optional.dart';
 
 abstract class ICustomerRepository {
-
   void add(Customer entity);
 
   void update(Customer entity);
@@ -20,18 +20,22 @@ abstract class ICustomerRepository {
   Future<List<Customer>> findByName(String name);
 
   Future<List<Customer>> findByCode(String code);
-
 }
 
 class CustomerMemoryRepository implements ICustomerRepository {
-
   List<Customer> _list = [
-    new Customer.from(1,"0101","Epa","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
-    new Customer.from(2,"0102","Beco","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
-    new Customer.from(3,"0103","Promotora Tántalo","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
-    new Customer.from(4,"0104","Sillaca","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
-    new Customer.from(5,"0105","Febeca","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
-    new Customer.from(6,"0106","Beval","Valencia, Edo Carabobo","prueba@gmail.com","04142589632","Y", DateTime.now(), DateTime.now()),
+    new Customer.from(1, "0101", "Epa", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
+    new Customer.from(2, "0102", "Beco", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
+    new Customer.from(3, "0103", "Promotora Tántalo", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
+    new Customer.from(4, "0104", "Sillaca", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
+    new Customer.from(5, "0105", "Febeca", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
+    new Customer.from(6, "0106", "Beval", "Valencia, Edo Carabobo",
+        "prueba@gmail.com", "04142589632", "Y", DateTime.now(), DateTime.now()),
   ];
 
   @override
@@ -72,22 +76,21 @@ class CustomerMemoryRepository implements ICustomerRepository {
   Future<List<Customer>> findByName(String name) async {
     return _list.where((el) => el.name == name).toList();
   }
-
 }
 
 class CustomerHttpRepository extends Http implements ICustomerRepository {
-
   @override
   void add(Customer entity) async {
-    await getHttpManager()
-        .post("/customers", data: entity.toJson(), options: new Options(contentType: "application/json"));
+    await getHttpManager().post("/customers",
+        data: entity.toJson(),
+        options: new Options(contentType: "application/json"));
   }
 
   @override
   void update(Customer entity) async {
-    await getHttpManager()
-        .put("/customers", data: entity.toJson(), options:
-    new Options(contentType: "application/json"));
+    await getHttpManager().put("/customers",
+        data: entity.toJson(),
+        options: new Options(contentType: "application/json"));
   }
 
   @override
@@ -95,15 +98,13 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
     Map<String, dynamic> body = new Map();
     body['customers'] = entitys.map((cli) => cli.toJson()).toList();
 
-    await getHttpManager()
-        .put("/customers/estatus", data: body, options:
-    new Options(contentType: "application/json"));
+    await getHttpManager().put("/customers/estatus",
+        data: body, options: new Options(contentType: "application/json"));
   }
 
   @override
   Future<List<Customer>> findAll() async {
-    final Response res = await getHttpManager()
-        .get("/customers");
+    final Response res = await getHttpManager().get("/customers");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -114,9 +115,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<Optional<Customer>> findById(int id) async {
-    final Response res = await getHttpManager()
-        .get("/customers/${id}");
-
+    final Response res = await getHttpManager().get("/customers/${id}");
 
     final Customer single = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -127,8 +126,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<List<Customer>> findByName(String name) async {
-    final Response res = await getHttpManager()
-        .get("/customers/name/${name}");
+    final Response res = await getHttpManager().get("/customers/name/${name}");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -139,8 +137,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<List<Customer>> findByCode(String code) async {
-    final Response res = await getHttpManager()
-        .get("/customers/code/${code}");
+    final Response res = await getHttpManager().get("/customers/code/${code}");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => new Customer.fromJson(result))
@@ -148,5 +145,4 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
     return list;
   }
-
 }

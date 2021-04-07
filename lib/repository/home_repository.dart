@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 import 'package:dart_flutter_example/domain/entity/home.dart';
-import 'package:dart_flutter_example/shared/provider/http.dart';
+import 'package:dart_flutter_example/helper/provider/http.dart';
 import 'package:dio/dio.dart';
 import 'package:optional/optional_internal.dart';
 
-abstract class HomeRepository  {
-
+abstract class HomeRepository {
   void add(Home entity);
 
   void update(Home entity);
@@ -16,22 +15,26 @@ abstract class HomeRepository  {
   Future<List<Home>> findAll();
 
   Future<Optional<Home>> findById(int id);
-
 }
 
 class HomeMemoryRepository implements HomeRepository {
-
   List<Home> _list = [
-    new Home.from(1,"bike","Flutter.dev","assets/image1.jpg","Y", DateTime.now(), DateTime.now()),
-    new Home.from(2,"boat","Flutter.dev","assets/image2.jpg","Y", DateTime.now(), DateTime.now()),
-    new Home.from(3,"bike","Yahoo.com","assets/image3.jpg","Y", DateTime.now(), DateTime.now()),
-    new Home.from(4,"car","Google.com","assets/image4.jpg","Y", DateTime.now(), DateTime.now()),
-    new Home.from(5,"run","Github.com","assets/image5.jpg","Y", DateTime.now(), DateTime.now()),
-    new Home.from(6,"railway","Github.com","assets/image6.jpg","Y", DateTime.now(), DateTime.now()),
+    new Home.from(1, "bike", "Flutter.dev", "assets/image1.jpg", "Y",
+        DateTime.now(), DateTime.now()),
+    new Home.from(2, "boat", "Flutter.dev", "assets/image2.jpg", "Y",
+        DateTime.now(), DateTime.now()),
+    new Home.from(3, "bike", "Yahoo.com", "assets/image3.jpg", "Y",
+        DateTime.now(), DateTime.now()),
+    new Home.from(4, "car", "Google.com", "assets/image4.jpg", "Y",
+        DateTime.now(), DateTime.now()),
+    new Home.from(5, "run", "Github.com", "assets/image5.jpg", "Y",
+        DateTime.now(), DateTime.now()),
+    new Home.from(6, "railway", "Github.com", "assets/image6.jpg", "Y",
+        DateTime.now(), DateTime.now()),
   ];
 
   @override
-  void add(Home entity) async{
+  void add(Home entity) async {
     _list.add(entity);
   }
 
@@ -58,23 +61,21 @@ class HomeMemoryRepository implements HomeRepository {
     var result = _list.where((el) => el.id == id).first;
     return Optional.ofNullable(result);
   }
-
 }
 
 class HomeHttpRepository extends Http implements HomeRepository {
-
   @override
   void add(Home entity) async {
-    await getHttpManager()
-        .post("/homes", data: entity.toJson(), options:
-    new Options(contentType: "application/json"));
+    await getHttpManager().post("/homes",
+        data: entity.toJson(),
+        options: new Options(contentType: "application/json"));
   }
 
   @override
   void update(Home entity) async {
-    await getHttpManager()
-        .put("/homes", data: entity.toJson(), options:
-    new Options(contentType: "application/json"));
+    await getHttpManager().put("/homes",
+        data: entity.toJson(),
+        options: new Options(contentType: "application/json"));
   }
 
   @override
@@ -82,15 +83,13 @@ class HomeHttpRepository extends Http implements HomeRepository {
     Map<String, dynamic> body = new Map();
     body['homes'] = entitys.map((cli) => cli.toJson()).toList();
 
-    await getHttpManager()
-        .put("/homes/estatus", data: body, options:
-    new Options(contentType: "application/json"));
+    await getHttpManager().put("/homes/estatus",
+        data: body, options: new Options(contentType: "application/json"));
   }
 
   @override
   Future<List<Home>> findAll() async {
-    final Response res = await getHttpManager()
-        .get("/homes");
+    final Response res = await getHttpManager().get("/homes");
 
     final List<Home> list = jsonDecode(res.data)
         .map((result) => new Home.fromJson(result))
@@ -101,15 +100,11 @@ class HomeHttpRepository extends Http implements HomeRepository {
 
   @override
   Future<Optional<Home>> findById(int id) async {
-    final Response res = await getHttpManager()
-        .get("/homes/${id}");
+    final Response res = await getHttpManager().get("/homes/${id}");
 
-    final Home single = jsonDecode(res.data)
-        .map((result) => new Home.fromJson(result))
-        .single;
+    final Home single =
+        jsonDecode(res.data).map((result) => new Home.fromJson(result)).single;
 
     return Optional.ofNullable(single);
   }
-
-
 }

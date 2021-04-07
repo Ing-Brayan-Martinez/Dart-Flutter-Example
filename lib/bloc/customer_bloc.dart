@@ -1,21 +1,16 @@
 import 'package:dart_flutter_example/domain/entity/customer.dart';
 import 'package:dart_flutter_example/repository/customer_repository.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:optional/optional.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CustomerBloc {
-
   final BehaviorSubject<Customer> _subject = new BehaviorSubject<Customer>();
-  final BehaviorSubject<List<Customer>> _subjectList = new BehaviorSubject<List<Customer>>();
+  final BehaviorSubject<List<Customer>> _subjectList =
+      new BehaviorSubject<List<Customer>>();
 
   CustomerMemoryRepository _repository;
 
-  CustomerBloc() {
-    this._repository = Modular.get<CustomerMemoryRepository>();
-
-
-  }
+  CustomerBloc() {}
 
   void add(Customer entity) async {
     _repository.add(entity);
