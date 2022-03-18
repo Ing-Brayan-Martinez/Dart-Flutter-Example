@@ -4,18 +4,20 @@ import 'observer_action.dart';
 
 class Observer {
 
-  List<Function> actions;
+  late List<Function> actions;
 
   Observer() {
-    this.actions = [];
+    actions = [];
   }
 
   void subscribe(Function suscriber) {
-    this.actions.add(suscriber);
+    actions.add(suscriber);
   }
 
   void notify(ObserverAction action) {
-    actions.forEach((f) => f(action));
+    for (var f in actions) {
+      f(action);
+    }
   }
 
 }

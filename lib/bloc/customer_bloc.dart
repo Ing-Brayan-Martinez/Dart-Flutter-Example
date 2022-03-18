@@ -4,13 +4,15 @@ import 'package:optional/optional.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CustomerBloc {
-  final BehaviorSubject<Customer> _subject = new BehaviorSubject<Customer>();
+
+  final BehaviorSubject<Customer> _subject =
+      BehaviorSubject<Customer>();
+
   final BehaviorSubject<List<Customer>> _subjectList =
-      new BehaviorSubject<List<Customer>>();
+      BehaviorSubject<List<Customer>>();
 
-  CustomerMemoryRepository _repository;
+  final CustomerMemoryRepository _repository = CustomerMemoryRepository();
 
-  CustomerBloc() {}
 
   void add(Customer entity) async {
     _repository.add(entity);

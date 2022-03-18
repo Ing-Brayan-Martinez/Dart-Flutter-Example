@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class UpdateCustomerScreen extends StatelessWidget {
   static const routeName = '/customer/update';
 
-  UpdateCustomerScreen({Key key}) : super(key: key);
+  const UpdateCustomerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Editar Cliente"),
+        title: const Text("Editar Cliente"),
       ),
       body: UpdateCustomerForm(),
     );

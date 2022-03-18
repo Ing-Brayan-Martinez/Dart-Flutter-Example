@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import '../reload_strategy.dart';
 
 class ReloadCustomerFromDataStrategy extends ReloadStrategy {
-  Observer _observer;
-  BuildContext _context;
+  late Observer? _observer;
+  late BuildContext _context;
 
   ReloadCustomerFromDataStrategy(BuildContext context) {
     _context = context;
@@ -18,7 +18,7 @@ class ReloadCustomerFromDataStrategy extends ReloadStrategy {
   @override
   void reload() {
     _observer
-        .notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
+        ?.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
     Navigator.of(_context).pop();
   }
 }

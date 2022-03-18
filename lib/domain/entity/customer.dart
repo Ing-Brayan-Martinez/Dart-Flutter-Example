@@ -1,15 +1,15 @@
 
 class Customer {
 
-  int id;
-  String code;
-  String name;
-  String adress;
-  String mail;
-  String phone;
-  String status;
-  DateTime createdAt;
-  DateTime updatedAt;
+  int? id;
+  String? code;
+  String? name;
+  String? adress;
+  String? mail;
+  String? phone;
+  String? status;
+  DateTime? createdAt;
+  DateTime? updatedAt;
 
   Customer();
 
@@ -30,13 +30,13 @@ class Customer {
         updatedAt = DateTime.parse(json['updatedAt'] as String);
 
   Map<String, Object> toJson() => {
-    'id' : id,
-    'code' : code,
-    'name' : name,
-    'adress' : adress,
-    'mail' : mail,
-    'phone' : phone,
-    'status' : status,
+    'id' : id as int,
+    'code' : code as String,
+    'name' : name as String,
+    'adress' : adress as String,
+    'mail' : mail as String,
+    'phone' : phone as String,
+    'status' : status as String,
     'createdAt' : createdAt.toString(),
     'updatedAt' : updatedAt.toString()
   };

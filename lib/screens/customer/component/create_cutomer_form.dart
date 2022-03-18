@@ -4,8 +4,9 @@ import 'package:dart_flutter_example/domain/entity/customer.dart';
 import 'package:flutter/material.dart';
 
 class CreateCustomerForm extends StatefulWidget {
-  CreateCustomerForm({
-    Key key,
+
+  const CreateCustomerForm({
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -13,19 +14,20 @@ class CreateCustomerForm extends StatefulWidget {
 }
 
 class CreateCustomerFormState extends State<CreateCustomerForm> {
-  GlobalKey<FormState> _formKey;
-  Customer _customer;
-  String _strategyFlag;
-  CustomerBloc _bloc;
+
+  late GlobalKey<FormState> _formKey;
+  late Customer _customer;
+  late String _strategyFlag;
+  late CustomerBloc _bloc;
 
   @override
   void initState() {
     super.initState();
-    _formKey = new GlobalKey<FormState>();
-    _customer = new Customer();
+    _formKey = GlobalKey<FormState>();
+    _customer = Customer();
     _customer.status = "Y";
     _strategyFlag = "";
-    _bloc = new CustomerBloc();
+    _bloc = CustomerBloc();
   }
 
   @override
@@ -35,14 +37,14 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
 
   @override
   Widget build(BuildContext context) {
-    final String arg = ModalRoute.of(context).settings.arguments;
+    final String arg = ModalRoute.of(context)?.settings.arguments as String;
     if (arg != null) {
       _strategyFlag = arg;
     }
 
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: Builder(builder: (context) {
           return Form(
             key: _formKey,
@@ -50,15 +52,12 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
               children: <Widget>[
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.grid_on),
                       labelText: "Codigo",
                       hintText: "eg. 01010102"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el codigo correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _customer.code = val;
@@ -66,31 +65,25 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                 ),
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.person),
                       labelText: "Nombre",
                       hintText: "eg. Beco C.A"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el nombre correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
-                    _customer.name = val.toUpperCase();
+                    _customer.name = val?.toUpperCase();
                   },
                 ),
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.directions),
                       labelText: "Direccion",
                       hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese la direccion correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _customer.adress = val;
@@ -98,15 +91,12 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                 ),
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.mail),
                       labelText: "Correo",
                       hintText: "eg. ejemplo@mail.com"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el correo correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _customer.mail = val;
@@ -114,15 +104,12 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                 ),
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
-                      icon: const Icon(Icons.phone),
+                  decoration: const InputDecoration(
+                      icon: Icon(Icons.phone),
                       labelText: "Telefono",
                       hintText: "eg. +584263214569"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el telefono correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _customer.phone = val;
@@ -130,10 +117,11 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                 ),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                      const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                   child: RaisedButton(
-                      child: Text("Crear"),
+                      child: const Text("Crear"),
                       onPressed: () {
+                        /*
                         final form = _formKey.currentState;
 
                         if (form.validate()) {
@@ -158,6 +146,8 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                             }
                           });
                         }
+
+                         */
                       }),
                 ),
               ],
@@ -168,9 +158,9 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     );
   }
 
-  Future<Null> _showDialog(BuildContext context) async {
+  Future<void> _showDialog(BuildContext context) async {
     Scaffold.of(context)
-        .showSnackBar(SnackBar(content: Text("Se ha guardado el Cliente.")));
-    return Future.delayed(new Duration(seconds: 1), () => null);
+        .showSnackBar(const SnackBar(content: Text("Se ha guardado el Cliente.")));
+    return Future.delayed(const Duration(seconds: 1), () => null);
   }
 }

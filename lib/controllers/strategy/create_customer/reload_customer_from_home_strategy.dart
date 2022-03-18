@@ -8,8 +8,9 @@ import 'package:flutter/material.dart';
 import '../reload_strategy.dart';
 
 class ReloadCustomerFromHomeStrategy extends ReloadStrategy {
-  Observer _observer;
-  BuildContext _context;
+
+  late Observer? _observer;
+  late BuildContext _context;
 
   ReloadCustomerFromHomeStrategy(BuildContext context) {
     _context = context;
@@ -26,7 +27,7 @@ class ReloadCustomerFromHomeStrategy extends ReloadStrategy {
 
     //recargar la lista de laotra ventana para ver el resultado
     _observer
-        .notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
+        ?.notify(ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
     print("He pasado por home strategy");
   }
 }

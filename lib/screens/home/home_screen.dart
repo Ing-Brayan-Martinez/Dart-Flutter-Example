@@ -11,16 +11,18 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = "/";
 
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final HomeBloc bloc = new HomeBloc()..getHomes();
+    final HomeBloc bloc = HomeBloc()..getHomes();
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Sci Fi Space"),
+          title: const Text("Sci Fi Space"),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               onPressed: () {
                 showSearch(
                   context: context,
@@ -35,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children: const <Widget>[
                   Text(
                     'Hola',
                     style:
@@ -50,23 +52,25 @@ class HomeScreen extends StatelessWidget {
               // ignore: missing_return
               builder: (context, AsyncSnapshot<List<Home>> snapshot) {
                 /// caso de uso para una swich expretions
+                Widget result = _buildLoadingWidget(context);
 
                 ///Si hay stream con data
                 if (snapshot.hasData &&
-                    snapshot.data != null &&
-                    snapshot.data.length > 0) {
-                  return _buildDataWidget(context, snapshot.data);
+                    snapshot.data != null) {
+                  result = _buildDataWidget(context, snapshot.data!);
                 }
 
                 ///Si hay un error
                 if (snapshot.hasError) {
-                  return _buildErrorWidget(context, snapshot.error);
+                  result = _buildErrorWidget(context, snapshot.error!);
                 }
 
                 ///Si no hay data
                 if (!snapshot.hasData) {
-                  return _buildLoadingWidget(context);
+                  result = _buildLoadingWidget(context);
                 }
+
+                return result;
               },
             )),
           ],
@@ -79,7 +83,7 @@ class HomeScreen extends StatelessWidget {
   /// de progreso mientras se consulta
   /// la data.
   Widget _buildLoadingWidget(BuildContext context) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 
   /// Esto es para mostrar algo en
@@ -95,13 +99,13 @@ class HomeScreen extends StatelessWidget {
     return ListView(
       children: entity.map((data) {
         return Card(
-          child: new Column(
+          child: Column(
             children: <Widget>[
-              Image.asset(data.image),
+              Image.asset(data.image!),
               ListTile(
-                leading: Icon(Icons.access_time),
-                title: Text(data.title),
-                subtitle: Text(data.subTitle),
+                leading: const Icon(Icons.access_time),
+                title: Text(data.title!),
+                subtitle: Text(data.subTitle!),
               ),
             ],
           ),

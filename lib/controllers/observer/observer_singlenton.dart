@@ -4,13 +4,11 @@ import 'observer.dart';
 
 class SinglentonObserver {
 
-  static Observer _instance;
+  static Observer? _instance;
 
-  static Observer get() {
+  static Observer? get() {
 
-    if (_instance == null) {
-      _instance = new Observer();
-    }
+    _instance ??= Observer();
 
     return _instance;
 

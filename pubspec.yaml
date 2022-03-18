@@ -1,34 +1,42 @@
 name: dart_flutter_example
 description: A new Flutter project.
+publish_to: 'none'
 version: 1.0.0
 
 environment:
-    sdk: ">=2.0.0 <3.0.0"
+    sdk: ">=2.15.1 <3.0.0"
 
 dependencies:
     flutter:
         sdk: flutter
+
     #ui
-    animated_floatactionbuttons: ^0.1.0
-    flutter_swiper: ^1.1.6
-    cupertino_icons: ^0.1.3
+    #animated_floatactionbuttons: ^0.1.0
+    #flutter_swiper: ^1.1.6
+    #cupertino_icons: ^0.1.3
+
     #database
-    optional: ^5.0.0
-    path_provider: ^1.6.11
+    optional: ^6.1.0+1
+    #path_provider: ^1.6.11
     #sqflite: ^1.1.6+3
+
     #http
-    dio: ^3.0.9
+    dio: ^4.0.4
+
     #depency injections
-    get: ^4.1.3
+    #get: ^4.1.3
+
     #log
-    log4d: ^1.0.4
+    #log4d: ^1.0.4
+
     #reactive
-    rxdart: ^0.24.1
-    dwds: ^7.1.1
+    rxdart: ^0.27.3
+    #dwds: ^7.1.1
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
+    flutter_lints: ^1.0.0
 
 module:
     androidX: true

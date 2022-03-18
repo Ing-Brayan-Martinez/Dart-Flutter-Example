@@ -15,8 +15,8 @@ import 'package:flutter/material.dart';
 class DataScreen extends StatefulWidget {
   static const routeName = '/data';
 
-  DataScreen({
-    Key key,
+  const DataScreen({
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -25,29 +25,30 @@ class DataScreen extends StatefulWidget {
 
 class DataScreenState extends State<DataScreen>
     with SingleTickerProviderStateMixin {
-  Observer _observer;
-  TabController _controller;
-  int _currentIndex = 0;
+
+  late Observer? _observer;
+  late TabController _controller;
+  int? _currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
 
     _controller =
-        TabController(length: 2, vsync: this, initialIndex: _currentIndex);
-    _controller.animateTo(_currentIndex);
+        TabController(length: 2, vsync: this, initialIndex: _currentIndex!);
+    _controller.animateTo(_currentIndex!);
 
     _observer = SinglentonObserver.get();
-    _observer.subscribe((ObserverAction event) {
+    _observer?.subscribe((ObserverAction event) {
       switch (event.type) {
         case ObserverEvent.EVENT_TAB_CUSTOMER:
           _currentIndex = event.value;
-          _controller.animateTo(_currentIndex);
+          _controller.animateTo(_currentIndex!);
           break;
 
         case ObserverEvent.EVENT_TAB_INVOICE:
           _currentIndex = event.value;
-          _controller.animateTo(_currentIndex);
+          _controller.animateTo(_currentIndex!);
           break;
 
         default:
@@ -64,14 +65,14 @@ class DataScreenState extends State<DataScreen>
 
   @override
   Widget build(BuildContext context) {
-    _currentIndex = ModalRoute.of(context).settings.arguments;
-    _controller.animateTo(_currentIndex);
+    _currentIndex = ModalRoute.of(context)?.settings.arguments as int?;
+    _controller.animateTo(_currentIndex!);
 
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Sci Fi Space'),
+          title: const Text('Sci Fi Space'),
           actions: <Widget>[
             PopupMenuButton(
               onSelected: (String val) {
@@ -86,11 +87,11 @@ class DataScreenState extends State<DataScreen>
               },
               icon: Icon(Icons.more_vert),
               itemBuilder: (context) => [
-                PopupMenuItem(
+                const PopupMenuItem(
                   value: CreateEvent.EVENT_CUSTOMER,
                   child: Text("Crear Cliente"),
                 ),
-                PopupMenuItem(
+                const PopupMenuItem(
                   value: CreateEvent.EVENT_INVOICE,
                   child: Text("Crear Factura"),
                 ),
@@ -99,7 +100,7 @@ class DataScreenState extends State<DataScreen>
           ],
           bottom: TabBar(
             controller: DefaultTabController.of(context),
-            tabs: <Widget>[
+            tabs: const <Widget>[
               Tab(text: 'Clientes'),
               Tab(text: 'Facturas'),
             ],
@@ -107,7 +108,7 @@ class DataScreenState extends State<DataScreen>
         ),
         body: TabBarView(
           controller: DefaultTabController.of(context),
-          children: <Widget>[
+          children: const <Widget>[
             CustomerList(),
             InvoiceList(),
           ],

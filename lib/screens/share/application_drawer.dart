@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ApplicationDrawer extends StatefulWidget {
   final DrawerDelegate delegate;
 
-  ApplicationDrawer({Key key, this.delegate}) : super(key: key);
+  const ApplicationDrawer({Key? key, required this.delegate}) : super(key: key);
 
   @override
   ApplicationDrawerState createState() => ApplicationDrawerState();

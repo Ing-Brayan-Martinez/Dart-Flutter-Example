@@ -8,22 +8,22 @@ class ReloadCustomerUpdate implements ReloadStrategy {
   static const String SEE_STRATEGY = "See";
   static const String DATA_STRATEGY = "Data";
 
-  ReloadStrategy _strategy;
-  BuildContext _context;
+  late ReloadStrategy _strategy;
+  late BuildContext _context;
 
   ReloadCustomerUpdate(BuildContext context) {
     _context = context;
     _strategy =
-        new ReloadCustomerFromSeeCustomerStrategy(_context) as ReloadStrategy;
+        ReloadCustomerFromSeeCustomerStrategy(_context);
   }
 
   void setReloadCustomerFromSeeCustomer() {
     _strategy =
-        new ReloadCustomerFromSeeCustomerStrategy(_context) as ReloadStrategy;
+        ReloadCustomerFromSeeCustomerStrategy(_context);
   }
 
   void setReloadCustomerFromData() {
-    _strategy = new ReloadCustomerFromDataStrategy(_context);
+    _strategy = ReloadCustomerFromDataStrategy(_context);
   }
 
   @override

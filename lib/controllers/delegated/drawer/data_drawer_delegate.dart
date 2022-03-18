@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../drawer_delegate.dart';
 
 class DataDrawerDelegated implements DrawerDelegate {
-  Observer _observer;
+  late Observer? _observer;
 
   DataDrawerDelegated() {
     _observer = SinglentonObserver.get();
@@ -22,13 +22,13 @@ class DataDrawerDelegated implements DrawerDelegate {
 
   @override
   void navigateToCustomer(BuildContext context) {
-    _observer.notify(new ObserverAction(ObserverEvent.EVENT_TAB_CUSTOMER, 0));
+    _observer?.notify(ObserverAction(ObserverEvent.EVENT_TAB_CUSTOMER, 0));
     Navigator.of(context).pop();
   }
 
   @override
   void navigateToInvoiced(BuildContext context) {
-    _observer.notify(new ObserverAction(ObserverEvent.EVENT_TAB_INVOICE, 1));
+    _observer?.notify(ObserverAction(ObserverEvent.EVENT_TAB_INVOICE, 1));
     Navigator.of(context).pop();
   }
 

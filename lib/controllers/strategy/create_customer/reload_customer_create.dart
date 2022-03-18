@@ -13,10 +13,10 @@ class ReloadCustomerCreate {
   ReloadCustomerCreate(this._context);
 
   ReloadStrategy setReloadCustomerFromHome() {
-    return new ReloadCustomerFromHomeStrategy(_context);
+    return ReloadCustomerFromHomeStrategy(_context);
   }
 
   ReloadStrategy setReloadCustomerFromData() {
-    return new ReloadCustomerFromDataStrategy(_context);
+    return ReloadCustomerFromDataStrategy(_context);
   }
 }

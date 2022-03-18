@@ -5,26 +5,27 @@ import 'package:dart_flutter_example/domain/event/update_customer_event.dart';
 import 'package:flutter/material.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
-  UpdateCustomerForm({Key key}) : super(key: key);
+
+  const UpdateCustomerForm({Key? key}) : super(key: key);
 
   @override
   UpdateCustomerFormState createState() => UpdateCustomerFormState();
 }
 
 class UpdateCustomerFormState extends State<UpdateCustomerForm> {
-  GlobalKey<FormState> _formKey;
-  CustomerBloc _bloc;
-  Customer _oldCustomer;
-  Customer _newCustomer;
-  String _strategyFlag;
+  late GlobalKey<FormState> _formKey;
+  late CustomerBloc _bloc;
+  late Customer _oldCustomer;
+  late Customer _newCustomer;
+  late String _strategyFlag;
 
   @override
   void initState() {
     super.initState();
-    _formKey = new GlobalKey<FormState>();
-    _newCustomer = new Customer();
-    _oldCustomer = new Customer();
-    _bloc = new CustomerBloc();
+    _formKey = GlobalKey<FormState>();
+    _newCustomer = Customer();
+    _oldCustomer = Customer();
+    _bloc = CustomerBloc();
   }
 
   @override
@@ -34,7 +35,8 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
   @override
   Widget build(BuildContext context) {
-    final UpdateCustomerEvent event = ModalRoute.of(context).settings.arguments;
+    final UpdateCustomerEvent event =
+        ModalRoute.of(context)?.settings.arguments as UpdateCustomerEvent;
 
     if (event != null) {
       /// Asignar lo que venga del evento.
@@ -45,15 +47,15 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
       //_newCustomer.setId(_oldCustomer.getId().orElse(0));
 
       /// Establecer el estatus de la entidad.
-      if (_oldCustomer.status.isEmpty) {
-        final int val = int.parse(_oldCustomer.status);
+      if (null ==_oldCustomer.status) {
+        final int val = int.parse(_oldCustomer.status!);
         //_newCustomer.setStatus(val);
       }
     }
 
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: Builder(builder: (context) {
           return Form(
             key: _formKey,
@@ -62,15 +64,12 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                 TextFormField(
                   initialValue: _oldCustomer.code,
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.grid_on),
                       labelText: "Codigo",
                       hintText: "eg. 01010102"),
                   validator: (value) {
-                    if (value.isEmpty) {
-                      return "Por favor ingrese el codigo correctamente.";
-                    }
-                    return null;
+                    return "Por favor ingrese el codigo correctamente.";
                   },
                   onSaved: (val) {
                     _newCustomer.code = val;
@@ -79,32 +78,26 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                 TextFormField(
                   initialValue: _oldCustomer.name,
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.person),
                       labelText: "Nombre",
                       hintText: "eg. Beco C.A"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el nombre correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
-                    _newCustomer.name = val.toUpperCase();
+                    _newCustomer.name = val?.toUpperCase();
                   },
                 ),
                 TextFormField(
                   initialValue: _oldCustomer.adress,
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.directions),
                       labelText: "Direccion",
                       hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese la direccion correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _newCustomer.adress = val;
@@ -113,15 +106,12 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                 TextFormField(
                   initialValue: _oldCustomer.mail,
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.mail),
                       labelText: "Correo",
                       hintText: "eg. ejemplo@mail.com"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el correo correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _newCustomer.mail = val;
@@ -130,15 +120,12 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                 TextFormField(
                   initialValue: _oldCustomer.phone,
                   autofocus: true,
-                  decoration: InputDecoration(
-                      icon: const Icon(Icons.phone),
+                  decoration: const InputDecoration(
+                      icon: Icon(Icons.phone),
                       labelText: "Telefono",
                       hintText: "eg. +584263214569"),
                   validator: (value) {
-                    if (value.isEmpty) {
                       return "Por favor ingrese el telefono correctamente.";
-                    }
-                    return null;
                   },
                   onSaved: (val) {
                     _newCustomer.phone = val;
@@ -150,7 +137,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                   child: RaisedButton(
                       child: Text("Actualizar"),
                       onPressed: () {
-                        final form = _formKey.currentState;
+                        /*final form = _formKey.currentState;
                         if (form.validate()) {
                           ///Salvar la entidad.
                           form.save();
@@ -175,7 +162,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
                             _satrategy.reload();
                           });
-                        }
+                        }*/
                       }),
                 ),
               ],
@@ -186,9 +173,9 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
     );
   }
 
-  Future<Null> _showDialog(BuildContext context) async {
+  Future<void> _showDialog(BuildContext context) async {
     Scaffold.of(context)
-        .showSnackBar(SnackBar(content: Text("Se ha actualizado el cliente.")));
-    return Future.delayed(new Duration(seconds: 1), () => null);
+        .showSnackBar(const SnackBar(content: Text("Se ha actualizado el cliente.")));
+    return Future.delayed(const Duration(seconds: 1), () => null);
   }
 }

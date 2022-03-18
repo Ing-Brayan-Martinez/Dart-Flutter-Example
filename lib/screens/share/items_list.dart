@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ItemsList extends StatefulWidget {
 
-  ItemsList({Key key}) : super(key: key);
+  const ItemsList({Key? key}) : super(key: key);
 
   @override
   ItemsListState createState() => ItemsListState();

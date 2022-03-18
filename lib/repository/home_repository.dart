@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dart_flutter_example/domain/entity/home.dart';
 import 'package:dart_flutter_example/helper/provider/http.dart';
 import 'package:dio/dio.dart';
-import 'package:optional/optional_internal.dart';
+import 'package:optional/optional.dart';
 
 abstract class HomeRepository {
   void add(Home entity);
@@ -18,18 +18,18 @@ abstract class HomeRepository {
 }
 
 class HomeMemoryRepository implements HomeRepository {
-  List<Home> _list = [
-    new Home.from(1, "bike", "Flutter.dev", "assets/image1.jpg", "Y",
+  final List<Home> _list = [
+    Home.from(1, "bike", "Flutter.dev", "assets/image1.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    new Home.from(2, "boat", "Flutter.dev", "assets/image2.jpg", "Y",
+    Home.from(2, "boat", "Flutter.dev", "assets/image2.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    new Home.from(3, "bike", "Yahoo.com", "assets/image3.jpg", "Y",
+    Home.from(3, "bike", "Yahoo.com", "assets/image3.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    new Home.from(4, "car", "Google.com", "assets/image4.jpg", "Y",
+    Home.from(4, "car", "Google.com", "assets/image4.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    new Home.from(5, "run", "Github.com", "assets/image5.jpg", "Y",
+    Home.from(5, "run", "Github.com", "assets/image5.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    new Home.from(6, "railway", "Github.com", "assets/image6.jpg", "Y",
+    Home.from(6, "railway", "Github.com", "assets/image6.jpg", "Y",
         DateTime.now(), DateTime.now()),
   ];
 
@@ -68,23 +68,23 @@ class HomeHttpRepository extends Http implements HomeRepository {
   void add(Home entity) async {
     await getHttpManager().post("/homes",
         data: entity.toJson(),
-        options: new Options(contentType: "application/json"));
+        options: Options(contentType: "application/json"));
   }
 
   @override
   void update(Home entity) async {
     await getHttpManager().put("/homes",
         data: entity.toJson(),
-        options: new Options(contentType: "application/json"));
+        options: Options(contentType: "application/json"));
   }
 
   @override
   void delete(List<Home> entitys) async {
-    Map<String, dynamic> body = new Map();
+    Map<String, dynamic> body = {};
     body['homes'] = entitys.map((cli) => cli.toJson()).toList();
 
     await getHttpManager().put("/homes/estatus",
-        data: body, options: new Options(contentType: "application/json"));
+        data: body, options: Options(contentType: "application/json"));
   }
 
   @override
@@ -92,7 +92,7 @@ class HomeHttpRepository extends Http implements HomeRepository {
     final Response res = await getHttpManager().get("/homes");
 
     final List<Home> list = jsonDecode(res.data)
-        .map((result) => new Home.fromJson(result))
+        .map((result) => Home.fromJson(result))
         .toList();
 
     return list;
@@ -103,7 +103,7 @@ class HomeHttpRepository extends Http implements HomeRepository {
     final Response res = await getHttpManager().get("/homes/${id}");
 
     final Home single =
-        jsonDecode(res.data).map((result) => new Home.fromJson(result)).single;
+        jsonDecode(res.data).map((result) => Home.fromJson(result)).single;
 
     return Optional.ofNullable(single);
   }

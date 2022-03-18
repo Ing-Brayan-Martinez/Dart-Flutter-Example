@@ -9,8 +9,8 @@ import '../reload_strategy.dart';
 
 class ReloadCustomerFromSeeCustomerStrategy extends ReloadStrategy {
 
-  Observer _observer;
-  BuildContext _context;
+  late Observer? _observer;
+  late BuildContext _context;
 
   ReloadCustomerFromSeeCustomerStrategy(BuildContext context) {
     _context = context;
@@ -19,7 +19,7 @@ class ReloadCustomerFromSeeCustomerStrategy extends ReloadStrategy {
 
   @override
   void reload() {
-    _observer.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
+    _observer?.notify(ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
     Navigator.of(_context).pop();
     Navigator.of(_context).pop();
   }

@@ -5,7 +5,7 @@ class CreateInvoiceScreen extends StatefulWidget {
   static const routeName = '/invoice/create';
 
 
-  CreateInvoiceScreen({Key key}) : super(key: key);
+  CreateInvoiceScreen({Key? key}) : super(key: key);
 
   @override
   _CreateInvoiceScreenState createState() => _CreateInvoiceScreenState();
