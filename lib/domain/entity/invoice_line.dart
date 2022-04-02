@@ -1,8 +1,6 @@
-
 import 'package:dart_flutter_example/domain/entity/invoice.dart';
 
 class InvoiceLine {
-
   int? invoiceLineId;
   Invoice? invoice;
   String? description;
@@ -28,16 +26,16 @@ class InvoiceLine {
         updatedAt = json['updatedAt'] as String;
 
   Map<String, Object> toJson() => {
-    'invoiceLineId' : invoiceLineId as int,
-    'invoice' : invoice as Invoice,
-    'description' : description as String,
-    'unit' : unit as int,
-    'itemAmt' : itemAmt as double,
-    'totalAmt' : totalAmt as double,
-    'status' : status as String,
-    'createdAt' : createdAt as String,
-    'updatedAt' : updatedAt as String,
-  };
+        'invoiceLineId': invoiceLineId as int,
+        'invoice': invoice as Invoice,
+        'description': description as String,
+        'unit': unit as int,
+        'itemAmt': itemAmt as double,
+        'totalAmt': totalAmt as double,
+        'status': status as String,
+        'createdAt': createdAt as String,
+        'updatedAt': updatedAt as String,
+      };
 
   @override
   String toString() {
@@ -47,6 +45,4 @@ class InvoiceLine {
         'status: $status, createdAt: $createdAt, '
         'updatedAt: $updatedAt}';
   }
-
-
 }

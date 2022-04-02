@@ -1,6 +1,4 @@
-
 class Customer {
-
   int? id;
   String? code;
   String? name;
@@ -15,8 +13,8 @@ class Customer {
 
   Customer.min(this.id, this.name);
 
-  Customer.from(this.id, this.code, this.name, this.adress, this.mail, this.phone,
-      this.status, this.createdAt, this.updatedAt);
+  Customer.from(this.id, this.code, this.name, this.adress, this.mail,
+      this.phone, this.status, this.createdAt, this.updatedAt);
 
   Customer.fromJson(Map<String, Object> json)
       : id = json['id'] as int,
@@ -30,16 +28,16 @@ class Customer {
         updatedAt = DateTime.parse(json['updatedAt'] as String);
 
   Map<String, Object> toJson() => {
-    'id' : id as int,
-    'code' : code as String,
-    'name' : name as String,
-    'adress' : adress as String,
-    'mail' : mail as String,
-    'phone' : phone as String,
-    'status' : status as String,
-    'createdAt' : createdAt.toString(),
-    'updatedAt' : updatedAt.toString()
-  };
+        'id': id as int,
+        'code': code as String,
+        'name': name as String,
+        'adress': adress as String,
+        'mail': mail as String,
+        'phone': phone as String,
+        'status': status as String,
+        'createdAt': createdAt.toString(),
+        'updatedAt': updatedAt.toString()
+      };
 
   @override
   String toString() {
@@ -48,5 +46,4 @@ class Customer {
         'status: $status, createdAt: $createdAt, '
         'updatedAt: $updatedAt}';
   }
-
 }

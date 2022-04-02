@@ -7,7 +7,6 @@ void main() => runApp(AppWidget());
 
 /// Widget inicaial
 class AppWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

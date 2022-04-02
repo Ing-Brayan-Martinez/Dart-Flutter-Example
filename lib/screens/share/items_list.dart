@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ItemsList extends StatefulWidget {
-
   const ItemsList({Key? key}) : super(key: key);
 
   @override
   ItemsListState createState() => ItemsListState();
-
 }
 
 class ItemsListState extends State<ItemsList> {
-
   final List<String> _frutas = [
     'piña',
     'Limon',
@@ -25,25 +22,20 @@ class ItemsListState extends State<ItemsList> {
     'Guayaba'
   ];
 
-  void _onSelectedItem(dynamic val) {
-
-  }
+  void _onSelectedItem(dynamic val) {}
 
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
   void dispose() {
     super.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       child: Column(
         children: <Widget>[
@@ -65,34 +57,33 @@ class ItemsListState extends State<ItemsList> {
           ),
           Expanded(
             child: ListView(
-              children: _frutas.map((data) => ListTile(
-                title: Text(data),
-                trailing: PopupMenuButton(
-                  onSelected: _onSelectedItem,
-                  icon: Icon(Icons.more_vert),
-                  itemBuilder: (context) => [
-                    PopupMenuItem(
-                      value: data,
-                      child: Text("Ver"),
-                    ),
-                    PopupMenuItem(
-                      value: data,
-                      child: Text("Eliminar"),
-                    ),
-                    PopupMenuItem(
-                      value: data,
-                      child: Text("Compartir"),
-                    ),
-                  ],
-                ),
-              ))
+              children: _frutas
+                  .map((data) => ListTile(
+                        title: Text(data),
+                        trailing: PopupMenuButton(
+                          onSelected: _onSelectedItem,
+                          icon: Icon(Icons.more_vert),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: data,
+                              child: Text("Ver"),
+                            ),
+                            PopupMenuItem(
+                              value: data,
+                              child: Text("Eliminar"),
+                            ),
+                            PopupMenuItem(
+                              value: data,
+                              child: Text("Compartir"),
+                            ),
+                          ],
+                        ),
+                      ))
                   .toList(),
             ),
           )
-
         ],
       ),
     );
   }
-
 }

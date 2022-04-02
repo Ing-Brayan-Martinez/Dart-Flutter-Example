@@ -25,7 +25,6 @@ class DataScreen extends StatefulWidget {
 
 class DataScreenState extends State<DataScreen>
     with SingleTickerProviderStateMixin {
-
   late Observer? _observer;
   late TabController _controller;
   int? _currentIndex = 0;

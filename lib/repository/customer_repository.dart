@@ -116,9 +116,8 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
   Future<Optional<Customer>> findById(int id) async {
     final Response res = await getHttpManager().get("/customers/${id}");
 
-    final Customer single = jsonDecode(res.data)
-        .map((result) => Customer.fromJson(result))
-        .single;
+    final Customer single =
+        jsonDecode(res.data).map((result) => Customer.fromJson(result)).single;
 
     return Optional.ofNullable(single);
   }

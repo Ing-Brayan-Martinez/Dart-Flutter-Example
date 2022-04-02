@@ -1,6 +1,4 @@
-
 class Home {
-
   int? id;
   String? title;
   String? subTitle;
@@ -24,14 +22,14 @@ class Home {
         updatedAt = json['updatedAt'] as DateTime;
 
   Map<String, Object> toJson() => {
-    'homeId' : id as int,
-    'title' : title as String,
-    'subTitle' : subTitle as String,
-    'image' : image as String,
-    'status' : status as String,
-    'createdAt' : createdAt as DateTime,
-    'updatedAt' : updatedAt as DateTime,
-  };
+        'homeId': id as int,
+        'title': title as String,
+        'subTitle': subTitle as String,
+        'image': image as String,
+        'status': status as String,
+        'createdAt': createdAt as DateTime,
+        'updatedAt': updatedAt as DateTime,
+      };
 
   @override
   String toString() {
@@ -39,5 +37,4 @@ class Home {
         'image: $image, status: $status, createdAt: $createdAt, '
         'updatedAt: $updatedAt}';
   }
-
 }

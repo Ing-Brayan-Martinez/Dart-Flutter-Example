@@ -1,6 +1,4 @@
-
 class FilterCustomerModel {
-
   String _code = '';
   String _name = '';
 
@@ -25,5 +23,4 @@ class FilterCustomerModel {
         ' _name: $_name'
         '}';
   }
-
 }

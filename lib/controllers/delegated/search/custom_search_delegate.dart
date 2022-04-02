@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
-
   @override
   List<Widget> buildActions(BuildContext context) {
     // TODO: implement buildActions

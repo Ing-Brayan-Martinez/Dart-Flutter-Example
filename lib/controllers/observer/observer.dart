@@ -1,9 +1,6 @@
-
-
 import 'observer_action.dart';
 
 class Observer {
-
   late List<Function> actions;
 
   Observer() {
@@ -19,5 +16,4 @@ class Observer {
       f(action);
     }
   }
-
 }

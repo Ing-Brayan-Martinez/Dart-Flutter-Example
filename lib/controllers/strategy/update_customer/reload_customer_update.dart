@@ -13,13 +13,11 @@ class ReloadCustomerUpdate implements ReloadStrategy {
 
   ReloadCustomerUpdate(BuildContext context) {
     _context = context;
-    _strategy =
-        ReloadCustomerFromSeeCustomerStrategy(_context);
+    _strategy = ReloadCustomerFromSeeCustomerStrategy(_context);
   }
 
   void setReloadCustomerFromSeeCustomer() {
-    _strategy =
-        ReloadCustomerFromSeeCustomerStrategy(_context);
+    _strategy = ReloadCustomerFromSeeCustomerStrategy(_context);
   }
 
   void setReloadCustomerFromData() {

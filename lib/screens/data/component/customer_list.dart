@@ -157,14 +157,16 @@ class CustomerListState extends State<CustomerList> {
 
   /// Para mostrar la confirmacion de
   /// una accion.
-  Future<void> _showConfirmDialog(BuildContext context, String messenger) async {
+  Future<void> _showConfirmDialog(
+      BuildContext context, String messenger) async {
     Scaffold.of(context).showSnackBar(SnackBar(content: Text(messenger)));
     return Future.delayed(const Duration(seconds: 1), () => null);
   }
 
   /// Este dialogo es el encargado de confirmar
   /// la eliminacion de un cliente.
-  Future<Future<String?>> _showDeleteDialog(BuildContext context, Customer customer) async {
+  Future<Future<String?>> _showDeleteDialog(
+      BuildContext context, Customer customer) async {
     return showDialog<String>(
       context: context,
       barrierDismissible: false,

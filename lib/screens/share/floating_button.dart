@@ -63,7 +63,6 @@ class FloatingButtonState extends State<FloatingButton>
   }
 }
 
-
 class AnimatedFloatingActionButton extends StatefulWidget {
   final List<Widget> fabButtons;
   final Color colorStartAnimation;
@@ -72,10 +71,10 @@ class AnimatedFloatingActionButton extends StatefulWidget {
 
   const AnimatedFloatingActionButton(
       {Key? key,
-        required this.fabButtons,
-        required this.colorStartAnimation,
-        required this.colorEndAnimation,
-        required this.animatedIconData})
+      required this.fabButtons,
+      required this.colorStartAnimation,
+      required this.colorEndAnimation,
+      required this.animatedIconData})
       : super(key: key);
 
   @override

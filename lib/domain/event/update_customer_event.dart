@@ -1,5 +1,3 @@
-
-
 import 'package:dart_flutter_example/domain/entity/customer.dart';
 
 class UpdateCustomerEvent {
@@ -7,5 +5,4 @@ class UpdateCustomerEvent {
   String flag;
 
   UpdateCustomerEvent(this.customer, this.flag);
-
 }

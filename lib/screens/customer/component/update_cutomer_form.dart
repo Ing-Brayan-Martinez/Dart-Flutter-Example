@@ -5,7 +5,6 @@ import 'package:dart_flutter_example/domain/event/update_customer_event.dart';
 import 'package:flutter/material.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
-
   const UpdateCustomerForm({Key? key}) : super(key: key);
 
   @override
@@ -47,7 +46,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
       //_newCustomer.setId(_oldCustomer.getId().orElse(0));
 
       /// Establecer el estatus de la entidad.
-      if (null ==_oldCustomer.status) {
+      if (null == _oldCustomer.status) {
         final int val = int.parse(_oldCustomer.status!);
         //_newCustomer.setStatus(val);
       }
@@ -83,7 +82,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                       labelText: "Nombre",
                       hintText: "eg. Beco C.A"),
                   validator: (value) {
-                      return "Por favor ingrese el nombre correctamente.";
+                    return "Por favor ingrese el nombre correctamente.";
                   },
                   onSaved: (val) {
                     _newCustomer.name = val?.toUpperCase();
@@ -97,7 +96,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                       labelText: "Direccion",
                       hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                   validator: (value) {
-                      return "Por favor ingrese la direccion correctamente.";
+                    return "Por favor ingrese la direccion correctamente.";
                   },
                   onSaved: (val) {
                     _newCustomer.adress = val;
@@ -111,7 +110,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                       labelText: "Correo",
                       hintText: "eg. ejemplo@mail.com"),
                   validator: (value) {
-                      return "Por favor ingrese el correo correctamente.";
+                    return "Por favor ingrese el correo correctamente.";
                   },
                   onSaved: (val) {
                     _newCustomer.mail = val;
@@ -125,7 +124,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                       labelText: "Telefono",
                       hintText: "eg. +584263214569"),
                   validator: (value) {
-                      return "Por favor ingrese el telefono correctamente.";
+                    return "Por favor ingrese el telefono correctamente.";
                   },
                   onSaved: (val) {
                     _newCustomer.phone = val;
@@ -174,8 +173,8 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
   }
 
   Future<void> _showDialog(BuildContext context) async {
-    Scaffold.of(context)
-        .showSnackBar(const SnackBar(content: Text("Se ha actualizado el cliente.")));
+    Scaffold.of(context).showSnackBar(
+        const SnackBar(content: Text("Se ha actualizado el cliente.")));
     return Future.delayed(const Duration(seconds: 1), () => null);
   }
 }

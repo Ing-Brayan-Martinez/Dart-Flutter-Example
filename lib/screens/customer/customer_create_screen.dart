@@ -24,8 +24,8 @@ class CreateCustomerScreen extends StatefulWidget {
 
 class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
   Future<void> _showDialog(BuildContext context) async {
-    Scaffold.of(context)
-        .showSnackBar(const SnackBar(content: Text("Se ha guardado el Cliente.")));
+    Scaffold.of(context).showSnackBar(
+        const SnackBar(content: Text("Se ha guardado el Cliente.")));
     return Future.delayed(const Duration(seconds: 1), () => null);
   }
 
@@ -55,7 +55,7 @@ class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
                         labelText: "Codigo",
                         hintText: "eg. 01010102"),
                     validator: (value) {
-                        return "Por favor ingrese el codigo correctamente.";
+                      return "Por favor ingrese el codigo correctamente.";
                     },
                     onSaved: (val) {
                       widget._customer?.code = val as String;
@@ -68,7 +68,7 @@ class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
                         labelText: "Nombre",
                         hintText: "eg. Beco C.A"),
                     validator: (value) {
-                        return "Por favor ingrese el nombre correctamente.";
+                      return "Por favor ingrese el nombre correctamente.";
                     },
                     onSaved: (val) {
                       widget._customer?.name = val?.toUpperCase() as String;
@@ -81,7 +81,7 @@ class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
                         labelText: "Direccion",
                         hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                     validator: (value) {
-                        return "Por favor ingrese la direccion correctamente.";
+                      return "Por favor ingrese la direccion correctamente.";
                     },
                     onSaved: (val) {
                       widget._customer?.adress = val as String;
@@ -94,7 +94,7 @@ class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
                         labelText: "Correo",
                         hintText: "eg. ejemplo@mail.com"),
                     validator: (value) {
-                        return "Por favor ingrese el correo correctamente.";
+                      return "Por favor ingrese el correo correctamente.";
                     },
                     onSaved: (val) {
                       widget._customer?.mail = val as String;
@@ -107,15 +107,15 @@ class _CreateCustomerScreenState extends State<CreateCustomerScreen> {
                         labelText: "Telefono",
                         hintText: "eg. +584263214569"),
                     validator: (value) {
-                        return "Por favor ingrese el telefono correctamente.";
+                      return "Por favor ingrese el telefono correctamente.";
                     },
                     onSaved: (val) {
                       widget._customer?.phone = val as String;
                     },
                   ),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 16.0),
                     child: RaisedButton(
                         child: const Text("Crear"),
                         onPressed: () {

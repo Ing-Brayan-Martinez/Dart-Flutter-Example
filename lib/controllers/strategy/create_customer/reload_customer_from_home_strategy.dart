@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import '../reload_strategy.dart';
 
 class ReloadCustomerFromHomeStrategy extends ReloadStrategy {
-
   late Observer? _observer;
   late BuildContext _context;
 

@@ -23,12 +23,12 @@ class HomeMemoryRepository implements HomeRepository {
         DateTime.now(), DateTime.now()),
     Home.from(2, "boat", "Flutter.dev", "assets/image2.jpg", "Y",
         DateTime.now(), DateTime.now()),
-    Home.from(3, "bike", "Yahoo.com", "assets/image3.jpg", "Y",
-        DateTime.now(), DateTime.now()),
-    Home.from(4, "car", "Google.com", "assets/image4.jpg", "Y",
-        DateTime.now(), DateTime.now()),
-    Home.from(5, "run", "Github.com", "assets/image5.jpg", "Y",
-        DateTime.now(), DateTime.now()),
+    Home.from(3, "bike", "Yahoo.com", "assets/image3.jpg", "Y", DateTime.now(),
+        DateTime.now()),
+    Home.from(4, "car", "Google.com", "assets/image4.jpg", "Y", DateTime.now(),
+        DateTime.now()),
+    Home.from(5, "run", "Github.com", "assets/image5.jpg", "Y", DateTime.now(),
+        DateTime.now()),
     Home.from(6, "railway", "Github.com", "assets/image6.jpg", "Y",
         DateTime.now(), DateTime.now()),
   ];
@@ -91,9 +91,8 @@ class HomeHttpRepository extends Http implements HomeRepository {
   Future<List<Home>> findAll() async {
     final Response res = await getHttpManager().get("/homes");
 
-    final List<Home> list = jsonDecode(res.data)
-        .map((result) => Home.fromJson(result))
-        .toList();
+    final List<Home> list =
+        jsonDecode(res.data).map((result) => Home.fromJson(result)).toList();
 
     return list;
   }

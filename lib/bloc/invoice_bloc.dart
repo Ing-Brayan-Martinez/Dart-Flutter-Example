@@ -2,11 +2,10 @@ import 'package:dart_flutter_example/domain/entity/invoice.dart';
 import 'package:dart_flutter_example/repository/invoice_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-
 class InvoiceBloc {
-
-  final InvoiceRepository _repository =  new InvoiceMemoryRepository();
-  final BehaviorSubject<List<Invoice>> _subject = new BehaviorSubject<List<Invoice>>();
+  final InvoiceRepository _repository = new InvoiceMemoryRepository();
+  final BehaviorSubject<List<Invoice>> _subject =
+      new BehaviorSubject<List<Invoice>>();
 
   void getInvoices() async {
     final List<Invoice> res = await _repository.findAll();
@@ -38,5 +37,4 @@ class InvoiceBloc {
   }
 
   Stream<List<Invoice>> get invoicesStream => _subject.stream;
-
 }

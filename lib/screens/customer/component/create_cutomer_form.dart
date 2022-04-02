@@ -4,7 +4,6 @@ import 'package:dart_flutter_example/domain/entity/customer.dart';
 import 'package:flutter/material.dart';
 
 class CreateCustomerForm extends StatefulWidget {
-
   const CreateCustomerForm({
     Key? key,
   }) : super(key: key);
@@ -14,7 +13,6 @@ class CreateCustomerForm extends StatefulWidget {
 }
 
 class CreateCustomerFormState extends State<CreateCustomerForm> {
-
   late GlobalKey<FormState> _formKey;
   late Customer _customer;
   late String _strategyFlag;
@@ -57,7 +55,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       labelText: "Codigo",
                       hintText: "eg. 01010102"),
                   validator: (value) {
-                      return "Por favor ingrese el codigo correctamente.";
+                    return "Por favor ingrese el codigo correctamente.";
                   },
                   onSaved: (val) {
                     _customer.code = val;
@@ -70,7 +68,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       labelText: "Nombre",
                       hintText: "eg. Beco C.A"),
                   validator: (value) {
-                      return "Por favor ingrese el nombre correctamente.";
+                    return "Por favor ingrese el nombre correctamente.";
                   },
                   onSaved: (val) {
                     _customer.name = val?.toUpperCase();
@@ -83,7 +81,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       labelText: "Direccion",
                       hintText: "eg. Valencia, AV Bolivar, Casa #9091"),
                   validator: (value) {
-                      return "Por favor ingrese la direccion correctamente.";
+                    return "Por favor ingrese la direccion correctamente.";
                   },
                   onSaved: (val) {
                     _customer.adress = val;
@@ -96,7 +94,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       labelText: "Correo",
                       hintText: "eg. ejemplo@mail.com"),
                   validator: (value) {
-                      return "Por favor ingrese el correo correctamente.";
+                    return "Por favor ingrese el correo correctamente.";
                   },
                   onSaved: (val) {
                     _customer.mail = val;
@@ -109,15 +107,15 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                       labelText: "Telefono",
                       hintText: "eg. +584263214569"),
                   validator: (value) {
-                      return "Por favor ingrese el telefono correctamente.";
+                    return "Por favor ingrese el telefono correctamente.";
                   },
                   onSaved: (val) {
                     _customer.phone = val;
                   },
                 ),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 16.0),
                   child: RaisedButton(
                       child: const Text("Crear"),
                       onPressed: () {
@@ -159,8 +157,8 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
   }
 
   Future<void> _showDialog(BuildContext context) async {
-    Scaffold.of(context)
-        .showSnackBar(const SnackBar(content: Text("Se ha guardado el Cliente.")));
+    Scaffold.of(context).showSnackBar(
+        const SnackBar(content: Text("Se ha guardado el Cliente.")));
     return Future.delayed(const Duration(seconds: 1), () => null);
   }
 }

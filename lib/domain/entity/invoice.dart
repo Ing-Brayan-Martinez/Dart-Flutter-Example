@@ -1,8 +1,6 @@
-
 import 'package:dart_flutter_example/domain/entity/customer.dart';
 
 class Invoice {
-
   int? id;
   String? code;
   Customer? customer;
@@ -16,8 +14,16 @@ class Invoice {
 
   Invoice();
 
-  Invoice.from(this.id, this.code, this.customer, this.baseAmt, this.taxAmt,
-      this.taxPorcentage, this.totalAmt, this.status, this.createdAt,
+  Invoice.from(
+      this.id,
+      this.code,
+      this.customer,
+      this.baseAmt,
+      this.taxAmt,
+      this.taxPorcentage,
+      this.totalAmt,
+      this.status,
+      this.createdAt,
       this.updatedAt);
 
   Invoice.fromJson(Map<String, Object> json)
@@ -33,17 +39,17 @@ class Invoice {
         updatedAt = json['updatedAt'] as DateTime;
 
   Map<String, Object> toJson() => {
-    'invoiceId' : id as int,
-    'code' : code as String,
-    'customer' : customer as Customer,
-    'baseAmt' : baseAmt as double,
-    'taxAmt' : taxAmt as double,
-    'taxPorcentage' : taxPorcentage as double,
-    'totalAmt' : totalAmt as double,
-    'status' : status as double,
-    'createdAt' : createdAt as DateTime,
-    'updatedAt' : updatedAt as DateTime,
-  };
+        'invoiceId': id as int,
+        'code': code as String,
+        'customer': customer as Customer,
+        'baseAmt': baseAmt as double,
+        'taxAmt': taxAmt as double,
+        'taxPorcentage': taxPorcentage as double,
+        'totalAmt': totalAmt as double,
+        'status': status as double,
+        'createdAt': createdAt as DateTime,
+        'updatedAt': updatedAt as DateTime,
+      };
 
   @override
   String toString() {
@@ -52,6 +58,4 @@ class Invoice {
         'totalAmt: $totalAmt, status: $status, createdAt: $createdAt, '
         'updatedAt: $updatedAt}';
   }
-
-
 }

@@ -3,18 +3,14 @@ import 'package:dart_flutter_example/domain/entity/invoice.dart';
 import 'package:dart_flutter_example/domain/event/invoice_item_event.dart';
 import 'package:flutter/material.dart';
 
-
 class InvoiceList extends StatefulWidget {
-
   const InvoiceList({Key? key}) : super(key: key);
 
   @override
   InvoiceListState createState() => InvoiceListState();
-
 }
 
 class InvoiceListState extends State<InvoiceList> {
-
   final InvoiceBloc _bloc = InvoiceBloc();
 
   @override
@@ -25,7 +21,6 @@ class InvoiceListState extends State<InvoiceList> {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: <Widget>[
         Row(
@@ -48,31 +43,30 @@ class InvoiceListState extends State<InvoiceList> {
           ],
         ),
         Expanded(
-          child: StreamBuilder<List<Invoice>>(
-            stream: _bloc.invoicesStream,
-            builder: (context, AsyncSnapshot<List<Invoice>> snapshot) {
-              /// caso de uso para una swich expretions
-              Widget result = _buildLoadingWidget(context);
+            child: StreamBuilder<List<Invoice>>(
+          stream: _bloc.invoicesStream,
+          builder: (context, AsyncSnapshot<List<Invoice>> snapshot) {
+            /// caso de uso para una swich expretions
+            Widget result = _buildLoadingWidget(context);
 
-              ///Si hay stream con data
-              if (snapshot.hasData && snapshot.data != null) {
-                result = _buildDataWidget(context, snapshot.data!);
-              }
+            ///Si hay stream con data
+            if (snapshot.hasData && snapshot.data != null) {
+              result = _buildDataWidget(context, snapshot.data!);
+            }
 
-              ///Si hay un error
-              if (snapshot.hasError) {
-                result = _buildErrorWidget(context, snapshot.error!);
-              }
+            ///Si hay un error
+            if (snapshot.hasError) {
+              result = _buildErrorWidget(context, snapshot.error!);
+            }
 
-              ///Si no hay data
-              if (!snapshot.hasData) {
-                result = _buildLoadingWidget(context);
-              }
+            ///Si no hay data
+            if (!snapshot.hasData) {
+              result = _buildLoadingWidget(context);
+            }
 
-              return result;
-            },
-          )
-        ),
+            return result;
+          },
+        )),
       ],
     );
   }
@@ -95,9 +89,7 @@ class InvoiceListState extends State<InvoiceList> {
   /// que fue consultada
   Widget _buildDataWidget(BuildContext context, List<Invoice> entity) {
     return ListView(
-
       children: entity.map((data) {
-
         return ListTile(
           leading: const CircleAvatar(
             child: Icon(Icons.business),
@@ -106,15 +98,11 @@ class InvoiceListState extends State<InvoiceList> {
           subtitle: Text("\$ ${data.baseAmt}"),
           trailing: PopupMenuButton(
             onSelected: (InvoiceItemEvent val) {
-
-              switch(val.type) {
-
+              switch (val.type) {
                 case InvoiceItemEvent.EVENT_SEE:
-
                   break;
 
                 case InvoiceItemEvent.EVENT_UPDATE:
-
                   break;
 
                 case InvoiceItemEvent.EVENT_DELETE:
@@ -126,11 +114,9 @@ class InvoiceListState extends State<InvoiceList> {
                   print("Se ha eliminado a: ${result.toString()}");
                   break;
               }
-
             },
             icon: const Icon(Icons.more_vert),
-            itemBuilder: (context) =>
-            [
+            itemBuilder: (context) => [
               PopupMenuItem(
                 value: InvoiceItemEvent(InvoiceItemEvent.EVENT_SEE, data),
                 child: const Text("Ver"),
@@ -146,9 +132,7 @@ class InvoiceListState extends State<InvoiceList> {
             ],
           ),
         );
-
       }).toList(),
-
     );
   }
 
@@ -160,7 +144,8 @@ class InvoiceListState extends State<InvoiceList> {
 
     return showDialog<String>(
       context: context,
-      barrierDismissible: false, // dialog is dismissible with a tap on the barrier
+      barrierDismissible:
+          false, // dialog is dismissible with a tap on the barrier
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Coloque los datos para filtrar.'),
@@ -171,40 +156,40 @@ class InvoiceListState extends State<InvoiceList> {
                 children: <Widget>[
                   SimpleDialogOption(
                       child: TextField(
-                        autofocus: true,
-                        decoration: const InputDecoration(labelText: 'Codigo', hintText: 'eg. 01010102'),
-                        onChanged: (value) {
-                          _code = value;
-                        },
-                      )
-                  ),
+                    autofocus: true,
+                    decoration: const InputDecoration(
+                        labelText: 'Codigo', hintText: 'eg. 01010102'),
+                    onChanged: (value) {
+                      _code = value;
+                    },
+                  )),
                   SimpleDialogOption(
                       child: TextField(
-                        autofocus: true,
-                        decoration: const InputDecoration(labelText: 'Cliente', hintText: 'eg. Beco C.A'),
-                        onChanged: (value) {
-                          _name = value;
-                        },
-                      )
-                  ),
+                    autofocus: true,
+                    decoration: const InputDecoration(
+                        labelText: 'Cliente', hintText: 'eg. Beco C.A'),
+                    onChanged: (value) {
+                      _name = value;
+                    },
+                  )),
                   SimpleDialogOption(
                       child: TextField(
-                        autofocus: true,
-                        decoration: const InputDecoration(labelText: 'Desde', hintText: 'eg. 2019-10-05'),
-                        onChanged: (value) {
-                          _desde = value;
-                        },
-                      )
-                  ),
+                    autofocus: true,
+                    decoration: const InputDecoration(
+                        labelText: 'Desde', hintText: 'eg. 2019-10-05'),
+                    onChanged: (value) {
+                      _desde = value;
+                    },
+                  )),
                   SimpleDialogOption(
                       child: TextField(
-                        autofocus: true,
-                        decoration: const InputDecoration(labelText: 'Hasta', hintText: 'eg. 2019-10-05'),
-                        onChanged: (value) {
-                          _hasta = value;
-                        },
-                      )
-                  ),
+                    autofocus: true,
+                    decoration: const InputDecoration(
+                        labelText: 'Hasta', hintText: 'eg. 2019-10-05'),
+                    onChanged: (value) {
+                      _hasta = value;
+                    },
+                  )),
                 ],
               ),
             ),
@@ -227,5 +212,4 @@ class InvoiceListState extends State<InvoiceList> {
     super.dispose();
     _bloc.dispose();
   }
-
 }

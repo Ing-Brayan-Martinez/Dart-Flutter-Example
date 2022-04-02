@@ -55,8 +55,7 @@ class HomeScreen extends StatelessWidget {
                 Widget result = _buildLoadingWidget(context);
 
                 ///Si hay stream con data
-                if (snapshot.hasData &&
-                    snapshot.data != null) {
+                if (snapshot.hasData && snapshot.data != null) {
                   result = _buildDataWidget(context, snapshot.data!);
                 }
 

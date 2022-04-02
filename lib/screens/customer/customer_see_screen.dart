@@ -1,17 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:dart_flutter_example/domain/entity/customer.dart';
 
-
 class SeeCustomerScreen extends StatelessWidget {
-
   static const routeName = '/customer/see';
 
   const SeeCustomerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     Customer? _customer;
 
     final Customer customer =
@@ -30,7 +26,7 @@ class SeeCustomerScreen extends StatelessWidget {
           const SizedBox(
             height: 200,
             child: Center(
-              child:  CircleAvatar(
+              child: CircleAvatar(
                 radius: 80,
                 backgroundImage: AssetImage('assets/astronauta.jpg'),
               ),
@@ -45,12 +41,12 @@ class SeeCustomerScreen extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.grid_on),
             title: Text("Codigo."),
-            subtitle:Text(
+            subtitle: Text(
               _customer?.code as String,
               style: const TextStyle(
-                  fontStyle: FontStyle.normal,
-                  fontSize: 20,
-                  color: Colors.black,
+                fontStyle: FontStyle.normal,
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
           ),
@@ -63,7 +59,7 @@ class SeeCustomerScreen extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text("Nombre."),
-            subtitle:Text(
+            subtitle: Text(
               _customer?.name as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
@@ -81,7 +77,7 @@ class SeeCustomerScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.directions),
             title: const Text("Direccion."),
-            subtitle:Text(
+            subtitle: Text(
               _customer?.adress as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
@@ -117,7 +113,7 @@ class SeeCustomerScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.phone),
             title: const Text("Telefono."),
-            subtitle:Text(
+            subtitle: Text(
               _customer?.phone as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
@@ -139,5 +135,4 @@ class SeeCustomerScreen extends StatelessWidget {
       ),
     );
   }
-
 }
