@@ -12,7 +12,7 @@ class UpdateCustomerScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Editar Cliente"),
       ),
-      body: UpdateCustomerForm(),
+      body: const UpdateCustomerForm(),
     );
   }
 }

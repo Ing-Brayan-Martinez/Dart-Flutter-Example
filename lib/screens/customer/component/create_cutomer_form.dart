@@ -1,5 +1,3 @@
-import 'package:dart_flutter_example/bloc/customer_bloc.dart';
-import 'package:dart_flutter_example/controllers/strategy/create_customer/reload_customer_create.dart';
 import 'package:dart_flutter_example/domain/entity/customer.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +13,8 @@ class CreateCustomerForm extends StatefulWidget {
 class CreateCustomerFormState extends State<CreateCustomerForm> {
   late GlobalKey<FormState> _formKey;
   late Customer _customer;
-  late String _strategyFlag;
-  late CustomerBloc _bloc;
+  //late String _strategyFlag;
+  //late CustomerBloc _bloc;
 
   @override
   void initState() {
@@ -24,8 +22,8 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     _formKey = GlobalKey<FormState>();
     _customer = Customer();
     _customer.status = "Y";
-    _strategyFlag = "";
-    _bloc = CustomerBloc();
+    //_strategyFlag = "";
+    //_bloc = CustomerBloc();
   }
 
   @override
@@ -35,10 +33,8 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
 
   @override
   Widget build(BuildContext context) {
-    final String arg = ModalRoute.of(context)?.settings.arguments as String;
-    if (arg != null) {
-      _strategyFlag = arg;
-    }
+    //final String arg = ModalRoute.of(context)?.settings.arguments as String;
+    //_strategyFlag = arg;
 
     return SingleChildScrollView(
       child: Container(
@@ -116,7 +112,7 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
                 Container(
                   padding: const EdgeInsets.symmetric(
                       vertical: 16.0, horizontal: 16.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                       child: const Text("Crear"),
                       onPressed: () {
                         /*
@@ -156,9 +152,9 @@ class CreateCustomerFormState extends State<CreateCustomerForm> {
     );
   }
 
-  Future<void> _showDialog(BuildContext context) async {
-    Scaffold.of(context).showSnackBar(
-        const SnackBar(content: Text("Se ha guardado el Cliente.")));
-    return Future.delayed(const Duration(seconds: 1), () => null);
-  }
+  // Future<void> _showDialog(BuildContext context) async {
+  //   Scaffold.of(context).showSnackBar(
+  //       const SnackBar(content: Text("Se ha guardado el Cliente.")));
+  //   return Future.delayed(const Duration(seconds: 1), () => null);
+  // }
 }

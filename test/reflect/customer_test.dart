@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('Customer Encode', () {
-    Customer co = new Customer.from(
+    Customer co = Customer.from(
         1,
         'fff',
         'brayan',

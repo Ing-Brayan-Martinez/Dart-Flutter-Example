@@ -104,75 +104,73 @@ class InvoiceHttpRepository extends Http implements InvoiceRepository {
   void add(Invoice entity) async {
     await getHttpManager().post("/invoices",
         data: entity.toJson(),
-        options: new Options(contentType: "application/json"));
+        options: Options(contentType: "application/json"));
   }
 
   @override
   void update(Invoice entity) async {
     await getHttpManager().put("/invoices",
         data: entity.toJson(),
-        options: new Options(contentType: "application/json"));
+        options: Options(contentType: "application/json"));
   }
 
   @override
   void delete(List<Invoice> entitys) async {
-    Map<String, dynamic> body = new Map();
+    Map<String, dynamic> body = {};
     body['invoices'] = entitys.map((cli) => cli.toJson()).toList();
 
     await getHttpManager().put("/invoices/estatus",
-        data: body, options: new Options(contentType: "application/json"));
+        data: body, options: Options(contentType: "application/json"));
   }
 
   @override
   Future<List<Invoice>> findAll() async {
     final Response res = await getHttpManager().get("/invoices");
 
-    final List<Invoice> list = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .toList();
+    final List<Invoice> list =
+        jsonDecode(res.data).map((result) => Invoice.fromJson(result)).toList();
 
     return list;
   }
 
   @override
   Future<Optional<Invoice>> findById(int id) async {
-    final Response res = await getHttpManager().get("/invoices/${id}");
+    final Response res = await getHttpManager().get("/invoices/$id");
 
-    final Invoice single = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .single;
+    final Invoice single =
+        jsonDecode(res.data).map((result) => Invoice.fromJson(result)).single;
 
     return Optional.ofNullable(single);
   }
 
+  @override
   Future<List<Invoice>> findByCode(String code) async {
-    final Response res = await getHttpManager().get("/invoices/code/${code}");
+    final Response res = await getHttpManager().get("/invoices/code/$code");
 
-    final List<Invoice> list = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .toList();
+    final List<Invoice> list =
+        jsonDecode(res.data).map((result) => Invoice.fromJson(result)).toList();
 
     return list;
   }
 
+  @override
   Future<List<Invoice>> findByCustomerName(String name) async {
     final Response res =
-        await getHttpManager().get("/invoices/customers/name/${name}");
+        await getHttpManager().get("/invoices/customers/name/$name");
 
-    final List<Invoice> list = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .toList();
+    final List<Invoice> list =
+        jsonDecode(res.data).map((result) => Invoice.fromJson(result)).toList();
 
     return list;
   }
 
+  @override
   Future<List<Invoice>> findByCustomerCode(String code) async {
     final Response res =
-        await getHttpManager().get("/invoices/customers/code/${code}");
+        await getHttpManager().get("/invoices/customers/code/$code");
 
-    final List<Invoice> list = jsonDecode(res.data)
-        .map((result) => new Invoice.fromJson(result))
-        .toList();
+    final List<Invoice> list =
+        jsonDecode(res.data).map((result) => Invoice.fromJson(result)).toList();
 
     return list;
   }

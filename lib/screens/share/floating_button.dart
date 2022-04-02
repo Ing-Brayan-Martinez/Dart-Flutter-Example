@@ -4,7 +4,7 @@ import 'package:dart_flutter_example/screens/invoice/invoice_create_screen.dart'
 import 'package:flutter/material.dart';
 
 class FloatingButton extends StatefulWidget {
-  FloatingButton({Key? key}) : super(key: key);
+  const FloatingButton({Key? key}) : super(key: key);
 
   @override
   FloatingButtonState createState() => FloatingButtonState();
@@ -21,8 +21,8 @@ class FloatingButtonState extends State<FloatingButton>
   Widget build(BuildContext context) {
     return AnimatedFloatingActionButton(
         fabButtons: <Widget>[
-          this._client(),
-          this._invoice(),
+          _client(),
+          _invoice(),
         ],
         colorStartAnimation: Colors.blue,
         colorEndAnimation: Colors.red,
@@ -31,29 +31,25 @@ class FloatingButtonState extends State<FloatingButton>
   }
 
   Widget _client() {
-    return Container(
-      child: FloatingActionButton(
-        heroTag: "btnClient",
-        tooltip: 'Crear clientes.',
-        child: Icon(Icons.person_add),
-        onPressed: () {
-          Navigator.pushNamed(context, CreateCustomerScreen.routeName,
-              arguments: ReloadCustomerCreate.HOME_STRATEGY);
-        },
-      ),
+    return FloatingActionButton(
+      heroTag: "btnClient",
+      tooltip: 'Crear clientes.',
+      child: const Icon(Icons.person_add),
+      onPressed: () {
+        Navigator.pushNamed(context, CreateCustomerScreen.routeName,
+            arguments: ReloadCustomerCreate.HOME_STRATEGY);
+      },
     );
   }
 
   Widget _invoice() {
-    return Container(
-      child: FloatingActionButton(
-        heroTag: "btnInvoice",
-        tooltip: 'Crear facturas.',
-        child: Icon(Icons.business),
-        onPressed: () {
-          Navigator.pushNamed(context, CreateInvoiceScreen.routeName);
-        },
-      ),
+    return FloatingActionButton(
+      heroTag: "btnInvoice",
+      tooltip: 'Crear facturas.',
+      child: const Icon(Icons.business),
+      onPressed: () {
+        Navigator.pushNamed(context, CreateInvoiceScreen.routeName);
+      },
     );
   }
 

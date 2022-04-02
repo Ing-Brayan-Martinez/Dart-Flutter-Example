@@ -3,9 +3,8 @@ import 'package:dart_flutter_example/repository/home_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class HomeBloc {
-  final HomeRepository _repository = new HomeMemoryRepository();
-  final BehaviorSubject<List<Home>> _subject =
-      new BehaviorSubject<List<Home>>();
+  final HomeRepository _repository = HomeMemoryRepository();
+  final BehaviorSubject<List<Home>> _subject = BehaviorSubject<List<Home>>();
 
   void getHomes() async {
     final List<Home> res = await _repository.findAll();

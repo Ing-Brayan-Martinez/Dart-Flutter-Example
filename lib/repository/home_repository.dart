@@ -99,7 +99,7 @@ class HomeHttpRepository extends Http implements HomeRepository {
 
   @override
   Future<Optional<Home>> findById(int id) async {
-    final Response res = await getHttpManager().get("/homes/${id}");
+    final Response res = await getHttpManager().get("/homes/$id");
 
     final Home single =
         jsonDecode(res.data).map((result) => Home.fromJson(result)).single;

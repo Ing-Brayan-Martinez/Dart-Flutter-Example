@@ -26,14 +26,14 @@ class InvoiceListState extends State<InvoiceList> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            FlatButton.icon(
+            TextButton.icon(
               icon: const Icon(Icons.refresh), //`Icon` to display
               label: const Text('Recargar'), //`Text` to display
               onPressed: () {
                 _bloc.getInvoices();
               },
             ),
-            FlatButton.icon(
+            TextButton.icon(
               icon: const Icon(Icons.filter_list), //`Icon` to display
               label: const Text('Filtrar'), //`Text` to display
               onPressed: () {
@@ -137,10 +137,10 @@ class InvoiceListState extends State<InvoiceList> {
   }
 
   Future<Future<String?>> _asyncInputDialog(BuildContext context) async {
-    String _code = '';
-    String _name = '';
-    String _desde = '';
-    String _hasta = '';
+    //String _code = '';
+    //String _name = '';
+    //String _desde = '';
+    //String _hasta = '';
 
     return showDialog<String>(
       context: context,
@@ -160,7 +160,7 @@ class InvoiceListState extends State<InvoiceList> {
                     decoration: const InputDecoration(
                         labelText: 'Codigo', hintText: 'eg. 01010102'),
                     onChanged: (value) {
-                      _code = value;
+                      //_code = value;
                     },
                   )),
                   SimpleDialogOption(
@@ -169,7 +169,7 @@ class InvoiceListState extends State<InvoiceList> {
                     decoration: const InputDecoration(
                         labelText: 'Cliente', hintText: 'eg. Beco C.A'),
                     onChanged: (value) {
-                      _name = value;
+                      //_name = value;
                     },
                   )),
                   SimpleDialogOption(
@@ -178,7 +178,7 @@ class InvoiceListState extends State<InvoiceList> {
                     decoration: const InputDecoration(
                         labelText: 'Desde', hintText: 'eg. 2019-10-05'),
                     onChanged: (value) {
-                      _desde = value;
+                      //_desde = value;
                     },
                   )),
                   SimpleDialogOption(
@@ -187,7 +187,7 @@ class InvoiceListState extends State<InvoiceList> {
                     decoration: const InputDecoration(
                         labelText: 'Hasta', hintText: 'eg. 2019-10-05'),
                     onChanged: (value) {
-                      _hasta = value;
+                      //_hasta = value;
                     },
                   )),
                 ],
@@ -195,7 +195,7 @@ class InvoiceListState extends State<InvoiceList> {
             ),
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: const Text('Ok'),
               onPressed: () {
                 Navigator.of(context).pop();

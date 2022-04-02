@@ -13,9 +13,7 @@ class SeeCustomerScreen extends StatelessWidget {
     final Customer customer =
         ModalRoute.of(context)?.settings.arguments as Customer;
 
-    if (customer != null) {
-      _customer = customer;
-    }
+    _customer = customer;
 
     return Scaffold(
       appBar: AppBar(
@@ -39,10 +37,10 @@ class SeeCustomerScreen extends StatelessWidget {
             height: 16,
           ),
           ListTile(
-            leading: Icon(Icons.grid_on),
-            title: Text("Codigo."),
+            leading: const Icon(Icons.grid_on),
+            title: const Text("Codigo."),
             subtitle: Text(
-              _customer?.code as String,
+              _customer.code as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -57,10 +55,10 @@ class SeeCustomerScreen extends StatelessWidget {
             height: 16,
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text("Nombre."),
+            leading: const Icon(Icons.person),
+            title: const Text("Nombre."),
             subtitle: Text(
-              _customer?.name as String,
+              _customer.name as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -78,7 +76,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: const Icon(Icons.directions),
             title: const Text("Direccion."),
             subtitle: Text(
-              _customer?.adress as String,
+              _customer.adress as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -96,7 +94,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: const Icon(Icons.mail),
             title: const Text("Correo."),
             subtitle: Text(
-              _customer?.mail as String,
+              _customer.mail as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,
@@ -114,7 +112,7 @@ class SeeCustomerScreen extends StatelessWidget {
             leading: const Icon(Icons.phone),
             title: const Text("Telefono."),
             subtitle: Text(
-              _customer?.phone as String,
+              _customer.phone as String,
               style: const TextStyle(
                 fontStyle: FontStyle.normal,
                 fontSize: 20,

@@ -29,66 +29,66 @@ class ApplicationDrawerState extends State<ApplicationDrawer>
         padding: EdgeInsets.zero,
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text("Ashish Rawat"),
-            accountEmail: Text("ashishrawat2911@gmail.com"),
+            accountName: const Text("Ashish Rawat"),
+            accountEmail: const Text("ashishrawat2911@gmail.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Theme.of(context).platform == TargetPlatform.iOS
                   ? Colors.blue
                   : Colors.white,
-              child: Text(
+              child: const Text(
                 "A",
                 style: TextStyle(fontSize: 40.0),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: ExactAssetImage('assets/astronauta.jpg'),
               fit: BoxFit.cover,
             )),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Inicio"),
+            leading: const Icon(Icons.home),
+            title: const Text("Inicio"),
             onTap: () {
               widget.delegate.navigateToHome(context);
             },
           ),
-          Divider(
+          const Divider(
             color: Colors.black26,
             indent: 10,
             endIndent: 10,
             height: 16,
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text("Clientes"),
+            leading: const Icon(Icons.person),
+            title: const Text("Clientes"),
             onTap: () {
               widget.delegate.navigateToCustomer(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.business),
-            title: Text("Facturas"),
+            leading: const Icon(Icons.business),
+            title: const Text("Facturas"),
             onTap: () {
               widget.delegate.navigateToInvoiced(context);
             },
           ),
-          Divider(
+          const Divider(
             color: Colors.black26,
             indent: 10,
             endIndent: 10,
             height: 16,
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Configuracion"),
+            leading: const Icon(Icons.settings),
+            title: const Text("Configuracion"),
             onTap: () {
               widget.delegate.navigateToSettings(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.info_outline),
-            title: Text("Acerca De"),
+            leading: const Icon(Icons.info_outline),
+            title: const Text("Acerca De"),
             onTap: () {
               widget.delegate.navigateToAbout(context);
             },

@@ -28,28 +28,25 @@ class CustomerListState extends State<CustomerList> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          //color: Colors.yellowAccent,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              FlatButton.icon(
-                icon: const Icon(Icons.refresh), //`Icon` to display
-                label: const Text('Recargar'), //`Text` to display
-                onPressed: () {
-                  _bloc.getCustomers();
-                },
-              ),
-              FlatButton.icon(
-                icon: const Icon(Icons.filter_list), //`Icon` to display
-                label: const Text('Filtrar'), //`Text` to display
-                onPressed: () {
-                  _showFilterDialog(context);
-                },
-              ),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            TextButton.icon(
+              icon: const Icon(Icons.refresh), //`Icon` to display
+              label: const Text('Recargar'), //`Text` to display
+              onPressed: () {
+                _bloc.getCustomers();
+              },
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.filter_list), //`Icon` to display
+              label: const Text('Filtrar'), //`Text` to display
+              onPressed: () {
+                _showFilterDialog(context);
+              },
+            ),
+          ],
         ),
         Expanded(
             child: StreamBuilder<List<Customer>>(
@@ -157,50 +154,50 @@ class CustomerListState extends State<CustomerList> {
 
   /// Para mostrar la confirmacion de
   /// una accion.
-  Future<void> _showConfirmDialog(
-      BuildContext context, String messenger) async {
-    Scaffold.of(context).showSnackBar(SnackBar(content: Text(messenger)));
-    return Future.delayed(const Duration(seconds: 1), () => null);
-  }
+  // Future<void> _showConfirmDialog(
+  //     BuildContext context, String messenger) async {
+  //   //Scaffold.of(context).showSnackBar(SnackBar(content: Text(messenger)));
+  //   return Future.delayed(const Duration(seconds: 1), () => null);
+  // }
 
   /// Este dialogo es el encargado de confirmar
   /// la eliminacion de un cliente.
-  Future<Future<String?>> _showDeleteDialog(
-      BuildContext context, Customer customer) async {
-    return showDialog<String>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: const Text('Esta seguro que desea eliminar este cliente.'),
-          actions: <Widget>[
-            FlatButton(
-              child: const Text('Cancel'),
-              onPressed: () {
-                Navigator.of(dialogContext).pop();
-              },
-            ),
-            FlatButton(
-              child: const Text('Ok'),
-              onPressed: () async {
-                /// borrar en la base de datos.
-                //this._repository.delete([customer]);
-
-                /// borrar en la UI.
-                //this.setState(() => this._customers.removeWhere((val) => val == customer));
-
-                /// cerrar el dialog
-                Navigator.of(dialogContext).pop();
-
-                await _showConfirmDialog(
-                    context, "Se ha eliminado un cliente.");
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // Future<Future<String?>> _showDeleteDialog(
+  //     BuildContext context, Customer customer) async {
+  //   return showDialog<String>(
+  //     context: context,
+  //     barrierDismissible: false,
+  //     builder: (BuildContext dialogContext) {
+  //       return AlertDialog(
+  //         title: const Text('Esta seguro que desea eliminar este cliente.'),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: const Text('Cancel'),
+  //             onPressed: () {
+  //               Navigator.of(dialogContext).pop();
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: const Text('Ok'),
+  //             onPressed: () async {
+  //               /// borrar en la base de datos.
+  //               //this._repository.delete([customer]);
+  //
+  //               /// borrar en la UI.
+  //               //this.setState(() => this._customers.removeWhere((val) => val == customer));
+  //
+  //               /// cerrar el dialog
+  //               Navigator.of(dialogContext).pop();
+  //
+  //               await _showConfirmDialog(
+  //                   context, "Se ha eliminado un cliente.");
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   /// Este dialogo es el encargado
   /// de filtrar
@@ -249,13 +246,13 @@ class CustomerListState extends State<CustomerList> {
             ),
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
-            FlatButton(
+            TextButton(
               child: const Text('Ok'),
               onPressed: () {
                 if (_currVal == 1) {

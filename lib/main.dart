@@ -3,10 +3,12 @@ import 'package:dart_flutter_example/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 /// Correr la aplicación
-void main() => runApp(AppWidget());
+void main() => runApp(const AppWidget());
 
 /// Widget inicaial
 class AppWidget extends StatelessWidget {
+  const AppWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

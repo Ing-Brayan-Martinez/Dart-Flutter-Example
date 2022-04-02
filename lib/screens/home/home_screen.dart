@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dart_flutter_example/bloc/home_bloc.dart';
 import 'package:dart_flutter_example/controllers/delegated/drawer/home_drawer_delegate.dart';
 import 'package:dart_flutter_example/controllers/delegated/search/custom_search_delegate.dart';
@@ -34,17 +32,14 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Text(
-                    'Hola',
-                    style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 25),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                Text(
+                  'Hola',
+                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 25),
+                ),
+              ],
             ),
             Expanded(
                 child: StreamBuilder<List<Home>>(
@@ -74,7 +69,7 @@ class HomeScreen extends StatelessWidget {
             )),
           ],
         ),
-        floatingActionButton: FloatingButton(),
+        floatingActionButton: const FloatingButton(),
         drawer: ApplicationDrawer(delegate: HomeDrawerDelegate()));
   }
 

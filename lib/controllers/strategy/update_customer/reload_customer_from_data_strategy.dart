@@ -18,7 +18,7 @@ class ReloadCustomerFromDataStrategy extends ReloadStrategy {
   @override
   void reload() {
     _observer
-        ?.notify(new ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
+        ?.notify(ObserverAction(ObserverEvent.EVENT_LOAD_LIST_CUSTOMER, 0));
     Navigator.of(_context).pop();
   }
 }

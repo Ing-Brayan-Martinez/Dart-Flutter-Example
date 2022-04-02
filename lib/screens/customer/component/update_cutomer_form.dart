@@ -1,7 +1,4 @@
-import 'package:dart_flutter_example/bloc/customer_bloc.dart';
-import 'package:dart_flutter_example/controllers/strategy/update_customer/reload_customer_update.dart';
 import 'package:dart_flutter_example/domain/entity/customer.dart';
-import 'package:dart_flutter_example/domain/event/update_customer_event.dart';
 import 'package:flutter/material.dart';
 
 class UpdateCustomerForm extends StatefulWidget {
@@ -13,10 +10,10 @@ class UpdateCustomerForm extends StatefulWidget {
 
 class UpdateCustomerFormState extends State<UpdateCustomerForm> {
   late GlobalKey<FormState> _formKey;
-  late CustomerBloc _bloc;
+  //late CustomerBloc _bloc;
   late Customer _oldCustomer;
   late Customer _newCustomer;
-  late String _strategyFlag;
+  //late String _strategyFlag;
 
   @override
   void initState() {
@@ -24,7 +21,7 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
     _formKey = GlobalKey<FormState>();
     _newCustomer = Customer();
     _oldCustomer = Customer();
-    _bloc = CustomerBloc();
+    //_bloc = CustomerBloc();
   }
 
   @override
@@ -34,22 +31,19 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
 
   @override
   Widget build(BuildContext context) {
-    final UpdateCustomerEvent event =
-        ModalRoute.of(context)?.settings.arguments as UpdateCustomerEvent;
+    //final UpdateCustomerEvent event =
+    //    ModalRoute.of(context)?.settings.arguments as UpdateCustomerEvent;
 
-    if (event != null) {
-      /// Asignar lo que venga del evento.
-      _strategyFlag = event.flag;
-      //_oldCustomer = event.customer;
+    //_strategyFlag = event.flag;
+    //_oldCustomer = event.customer;
 
-      /// Establecer el id de la entidad.
-      //_newCustomer.setId(_oldCustomer.getId().orElse(0));
+    /// Establecer el id de la entidad.
+    //_newCustomer.setId(_oldCustomer.getId().orElse(0));
 
-      /// Establecer el estatus de la entidad.
-      if (null == _oldCustomer.status) {
-        final int val = int.parse(_oldCustomer.status!);
-        //_newCustomer.setStatus(val);
-      }
+    /// Establecer el estatus de la entidad.
+    if (null == _oldCustomer.status) {
+      //final int val = int.parse(_oldCustomer.status!);
+      //_newCustomer.setStatus(val);
     }
 
     return SingleChildScrollView(
@@ -131,10 +125,10 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
                   },
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-                  child: RaisedButton(
-                      child: Text("Actualizar"),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 16.0),
+                  child: ElevatedButton(
+                      child: const Text("Actualizar"),
                       onPressed: () {
                         /*final form = _formKey.currentState;
                         if (form.validate()) {
@@ -172,9 +166,9 @@ class UpdateCustomerFormState extends State<UpdateCustomerForm> {
     );
   }
 
-  Future<void> _showDialog(BuildContext context) async {
-    Scaffold.of(context).showSnackBar(
-        const SnackBar(content: Text("Se ha actualizado el cliente.")));
-    return Future.delayed(const Duration(seconds: 1), () => null);
-  }
+  // Future<void> _showDialog(BuildContext context) async {
+  //   Scaffold.of(context).showSnackBar(
+  //       const SnackBar(content: Text("Se ha actualizado el cliente.")));
+  //   return Future.delayed(const Duration(seconds: 1), () => null);
+  // }
 }

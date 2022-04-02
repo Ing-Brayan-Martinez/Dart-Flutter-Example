@@ -84,7 +84,7 @@ class DataScreenState extends State<DataScreen>
                       arguments: ReloadCustomerCreate.DATA_STRATEGY);
                 }
               },
-              icon: Icon(Icons.more_vert),
+              icon: const Icon(Icons.more_vert),
               itemBuilder: (context) => [
                 const PopupMenuItem(
                   value: CreateEvent.EVENT_CUSTOMER,

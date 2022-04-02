@@ -114,7 +114,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<Optional<Customer>> findById(int id) async {
-    final Response res = await getHttpManager().get("/customers/${id}");
+    final Response res = await getHttpManager().get("/customers/$id");
 
     final Customer single =
         jsonDecode(res.data).map((result) => Customer.fromJson(result)).single;
@@ -124,7 +124,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<List<Customer>> findByName(String name) async {
-    final Response res = await getHttpManager().get("/customers/name/${name}");
+    final Response res = await getHttpManager().get("/customers/name/$name");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => Customer.fromJson(result))
@@ -135,7 +135,7 @@ class CustomerHttpRepository extends Http implements ICustomerRepository {
 
   @override
   Future<List<Customer>> findByCode(String code) async {
-    final Response res = await getHttpManager().get("/customers/code/${code}");
+    final Response res = await getHttpManager().get("/customers/code/$code");
 
     final List<Customer> list = jsonDecode(res.data)
         .map((result) => Customer.fromJson(result))
